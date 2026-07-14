@@ -1,0 +1,7 @@
+{
+  "cssSnippets": [
+    "dashboard"
+  ],
+  "alwaysUpdateLinks": true,
+  "attachmentFolderPath": "attachment"
+}
