@@ -21,4 +21,4 @@ Go 是 Google 开源的**静态类型编译型语言**，正式名称是 Go（�
 
 云原生基础设施的"母语"——[[Docker 基础|Docker]]、Kubernetes 等都用 Go 实现（frp 等工具也是，见 [[内网穿透 NAT Tunneling]]）。
 
-> 📌 来源：CC 对话记录 conversation-log（2026-07-28）
+> 来源：CC 对话记录 conversation-log（2026-07-28）

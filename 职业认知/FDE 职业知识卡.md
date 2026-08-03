@@ -14,7 +14,7 @@ aliases:
 
 **英文**：Field Deployment Engineer（FDE，前线部署工程师）
 
-> 📌 本文提取自 CC 对话记录中的两份计划笔记（fde-learning-roadmap / guojinjia-fde-plan），原计划已移出知识库，保留在 conversation-memories 仓库。
+> 本文提取自 CC 对话记录中的两份计划笔记（fde-learning-roadmap / guojinjia-fde-plan），原计划已移出知识库，保留在 conversation-memories 仓库。
 
 ## FDE 是什么
 
@@ -39,12 +39,12 @@ aliases:
 
 | 岗位 | 匹配度 | 说明 |
 |---|---|---|
-| 解决方案工程师/SA（Solutions Architect） | ⭐⭐⭐⭐⭐ | 技术+沟通，最接近 |
-| 交付工程师 | ⭐⭐⭐⭐ | 数据迁移+环境部署 |
-| 客户成功工程师/CSE（Customer Success Engineer） | ⭐⭐⭐⭐ | 偏持续运营 |
-| 技术顾问（实施方向） | ⭐⭐⭐ | 业财/SaaS 对口 |
-| TAM（Technical Account Manager，技术客户经理） | ⭐⭐⭐ | 偏关系维护 |
-| DevRel（Developer Relations，开发者关系） | ⭐⭐ | 偏社区 |
+| 解决方案工程师/SA（Solutions Architect） | 5/5 | 技术+沟通，最接近 |
+| 交付工程师 | 4/5 | 数据迁移+环境部署 |
+| 客户成功工程师/CSE（Customer Success Engineer） | 4/5 | 偏持续运营 |
+| 技术顾问（实施方向） | 3/5 | 业财/SaaS 对口 |
+| TAM（Technical Account Manager，技术客户经理） | 3/5 | 偏关系维护 |
+| DevRel（Developer Relations，开发者关系） | 2/5 | 偏社区 |
 
 目标公司：B2B 企业软件公司（数据库/安全/云厂商专业服务、Palantir 类）。
 

@@ -30,4 +30,4 @@ aliases: [digital-twin, DT]
 
 制造、智慧城市、医疗、航空航天、自动驾驶。
 
-> 📌 来源：CC 对话记录 conversation-log（2026-07-29）
+> 来源：CC 对话记录 conversation-log（2026-07-29）

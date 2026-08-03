@@ -21,4 +21,4 @@ aliases: [decoupling, Decoupling, 解耦]
 
 紧耦合 → 松耦合后：模块可独立开发/测试/替换，故障隔离，系统更易扩展。
 
-> 📌 来源：CC 对话记录 conversation-log（2026-07-27）
+> 来源：CC 对话记录 conversation-log（2026-07-27）

@@ -33,4 +33,4 @@ Apache Flink 是开源的**分布式流处理引擎**（Distributed Stream Proce
 - 实时指标计算、风控、实时数仓等低延迟场景首选 Flink
 - 使用门槛较低时优先采用 Flink SQL 而非 DataStream API
 
-> 📌 来源：CC 对话记录 conversation-log（2026-08-03）
+> 来源：CC 对话记录 conversation-log（2026-08-03）

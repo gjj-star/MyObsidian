@@ -45,7 +45,7 @@ C:\Users\EDY\AppData\Local\Programs\Python\Python312\python.exe
 - **薪资范围**：5K-90K，中位约 15-25K
 - **大厂岗位**：字节跳动 30-50K·15 薪（唯一大厂直招）
 - **文件**：`C:\Users\EDY\.boss-zhipin-scraper\job-result\boss_jobs_20260716_1822.json` + `.csv`
-- **状态**：✅ 全部完成 — 列表 58 条 + 详情 JD 57/58（1 条加载失败）
+- **状态**：✓ 全部完成 — 列表 58 条 + 详情 JD 57/58（1 条加载失败）
 - **详情文件**：`boss_details_20260716_1822.json`（182KB）+ `boss_details_20260716_1822.csv`（165KB）
 - **字节跳动 FDE 专家 JD**：飞书 AI 落地 + 商业转化角色，30-50K·15 薪，要求 AI Agent 实操 + ToB SaaS 3 年 + 跨团队推动力
 - **Top 5 薪资**：AgentOS 负责人 70-90K / 罗盘文化 FDE 30-60K / 云合智聘驻外岗 40-55K·13 薪 / 斯伯特 25-50K / 字节 30-50K·15 薪

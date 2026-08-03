@@ -48,8 +48,8 @@ aliases: [cangjie-skill-evaluation, cangjie-skill]
 
 | 平台 | 产物（产出的 skills） | 元 skill（蒸馏流水线本身） |
 |---|---|---|
-| Claude Code | ✅ 原生格式 | ✅ Agent 工具并行提取 |
-| WorkBuddy | ✅ SKILL.md 通用 | 🟡 需适配（并行 → Team Mode） |
+| Claude Code | ✓ 原生格式 | ✓ Agent 工具并行提取 |
+| WorkBuddy | ✓ SKILL.md 通用 | 需适配（并行 → Team Mode） |
 
 ## 推荐使用方案
 

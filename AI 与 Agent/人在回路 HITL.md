@@ -62,4 +62,4 @@ app = workflow.compile(
 
 **How to apply:** 设计高风险 agent 操作时，默认加 interrupt_before 断点；跨 session（会话）的长任务用持久化 Checkpoint + TTL；置信度低时用升级模式而非静默失败。
 
-> 📌 来源：北方的郎《AI 智能体》第 14 章，2025-12-02
+> 来源：北方的郎《AI 智能体》第 14 章，2025-12-02

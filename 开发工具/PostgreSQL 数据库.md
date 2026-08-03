@@ -27,7 +27,7 @@ PostgreSQL 是最流行的**开源关系型数据库**（RDBMS），以完整 SQ
 
 | | PostgreSQL | MySQL | SQL Server | Oracle |
 |---|---|---|---|---|
-| 开源 | ✅ BSD | ✅ GPL（GNU General Public License） | ❌ | ❌ |
+| 开源 | ✓ BSD | ✓ GPL（GNU General Public License） | ✗ | ✗ |
 | 复杂度 | 高功能 | 轻量 | 微软系 | 企业重型 |
 
 ### 相关生态
@@ -39,4 +39,4 @@ Hologres 兼容 PostgreSQL 协议——懂 PostgreSQL 就会写 Hologres 查询�
 - 数据密集场景选用 PostgreSQL，充分利用 JSONB、向量检索等丰富类型
 - 掌握 PostgreSQL 语法后即可平滑编写 Hologres 查询
 
-> 📌 来源：CC 对话记录 conversation-log（2026-08-03）
+> 来源：CC 对话记录 conversation-log（2026-08-03）
