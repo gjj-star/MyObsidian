@@ -1,0 +1,10 @@
+# Obsidian 内部配置（含本机信息，不同步）
+.obsidian/
+
+# AI 助手会话记录与运行时状态
+.claudian/
+.omc/
+
+# 系统文件
+.DS_Store
+Thumbs.db
