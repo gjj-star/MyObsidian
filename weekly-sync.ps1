@@ -1,13 +1,13 @@
-# 每周沉淀同步脚本（周五 Obsidian 运行时自动执行）
-# 职责：拉取 CC 对话仓库 → 新笔记复制到 收集箱/新沉淀 → 更新清单 → 提交推送 MyObsidian
+﻿# 每周沉淀同步脚本（周五 Obsidian 运行时自动执行）
+# 职责：拉取 CC 对话仓库 → 新笔记复制到 Clippings（原料区）→ 更新清单 → 提交推送 MyObsidian
 # 触发：Windows 任务计划程序 "ObsidianWeeklySync"（周五 08:00-22:00 每 30 分钟检查）
 
 $ErrorActionPreference = 'Stop'
 $vault    = 'C:\Users\EDY\Documents\Obsidian Vault'
 $ccRepo   = 'D:\CC\conversation-memories'
-$manifest = "$vault\收集箱\新沉淀清单.json"
-$staging  = "$vault\收集箱\新沉淀"
-$logFile  = "$vault\收集箱\沉淀日志.md"
+$manifest = "$vault\Clippings\新沉淀清单.json"
+$staging  = "$vault\Clippings"
+$logFile  = "$vault\Clippings\沉淀日志.md"
 
 function Log($msg) {
     $line = "[$(Get-Date -Format 'yyyy-MM-dd HH:mm')] $msg"
@@ -49,7 +49,7 @@ try {
         git -C $vault add -A
         git -C $vault commit -m "weekly: 拉取对话记录新沉淀 $($new.Count) 条" --allow-empty
         git -C $vault push 2>&1 | Out-Null
-        Log "同步完成：新沉淀 $($new.Count) 条 → 收集箱/新沉淀/，已推送 GitHub"
+        Log "同步完成：新沉淀 $($new.Count) 条 → Clippings/，已推送 GitHub"
     } else {
         Log '同步检查完成：无新笔记'
     }
