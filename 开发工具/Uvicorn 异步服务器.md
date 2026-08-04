@@ -30,4 +30,10 @@ Uvicorn 是基于 **ASGI 协议**的 Python 高性能异步 Web 服务器，Fast
 - 开发：`--reload` 热重载
 - 生产：**Gunicorn + Uvicorn** 混合模式（Gunicorn 管进程，Uvicorn 跑 Worker）
 
+## 相关
+
+- [[Docker 基础]] — 生产部署常见容器化方案
+- [[HTTP 状态码]] — 处理 HTTP 请求时返回的状态码语义
+- [[内网穿透 NAT Tunneling]] — 本地服务暴露公网供外部调用的典型场景
+
 > 来源：CC 对话记录 conversation-log（2026-08-03）

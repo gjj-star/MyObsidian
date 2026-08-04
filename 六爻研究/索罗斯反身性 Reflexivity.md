@@ -53,3 +53,9 @@ aliases: [reflexivity-soros, Reflexivity, Soros Reflexivity, 反身性理论]
 ## 外延与应用
 
 政治、教育（皮格马利翁效应 Pygmalion Effect）、人际关系、AI 模型自噬（Model Autophagy）——任何"被预测对象因预测而改变"的领域。
+
+## 相关
+
+- [[方法论 Methodology]] — "反身问题"是方法论的三个核心问题之一
+- [[田野调查 Fieldwork]] — 观察者的存在改变田野，即反身性困境
+- [[巴纳姆效应 Barnum Effect]] — "准"的错觉的另一层机制

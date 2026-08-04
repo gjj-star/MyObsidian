@@ -40,3 +40,7 @@ Vue 用响应式支撑声明式，让"只描述界面、不手动同步"成为�
 ## 示例
 
 `{{ doubled }}` 是声明式；`const doubled = computed(() => count.value * 2)` 是响应式（自动追踪 count 依赖）。
+
+## 相关
+
+- [[声明式范式 Declarative Paradigm]] — 声明式作为编程范式的通用定义

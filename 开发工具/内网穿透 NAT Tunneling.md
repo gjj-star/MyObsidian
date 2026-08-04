@@ -27,4 +27,9 @@ aliases: [nat-tunneling, NAT Tunneling, 内网穿透, NAT 穿透]
 
 隧道会把内网服务暴露到公网，务必加认证、限 IP、及时关停。
 
+## 相关
+
+- [[Uvicorn 异步服务器]] — 本地 Web 服务暴露公网的典型场景
+- [[HTTP 状态码]] — 经网关转发时的 502/504 错误排查
+
 > 来源：CC 对话记录 conversation-log（2026-07-27）

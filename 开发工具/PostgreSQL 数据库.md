@@ -32,7 +32,7 @@ PostgreSQL 是最流行的**开源关系型数据库**（RDBMS），以完整 SQ
 
 ### 相关生态
 
-Hologres 兼容 PostgreSQL 协议——懂 PostgreSQL 就会写 Hologres 查询（见 [[Apache Flink 流处理]] 的实时数仓链路）。
+Hologres 兼容 PostgreSQL 协议——懂 PostgreSQL 就会写 Hologres 查询（见 [[流处理 Apache Flink]] 的实时数仓链路）。
 
 ### 应用
 

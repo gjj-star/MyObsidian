@@ -73,3 +73,8 @@ aliases: [knowledge-graph, Knowledge Graph, KG]
 **Why:** 与 [[本体 Ontology|本体]] 构成知识组织的双层结构，是理解语义网、NLP 信息抽取、Palantir 类平台数据建模的基础。
 
 **How to apply:** 遇到关联关系分析类问题（反欺诈、推荐、追溯）时优先考虑图模型；理解企业数据建模时区分 schema 层（Ontology）和 instance 层（KG）。
+
+## 相关
+
+- [[本体 Ontology]] — 图数据的 schema 层定义
+- [[PostgreSQL 数据库]] — 关系型数据库 vs 图数据库的对比对象

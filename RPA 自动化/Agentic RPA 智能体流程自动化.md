@@ -1,7 +1,7 @@
 ---
 name: Agentic RPA 智能体流程自动化
 description: Agentic RPA 的定义、相对传统 RPA 的能力升级、技术架构、与纯 AI Agent 的对比及落地挑战
-metadata: 
+metadata:
   node_type: memory
   type: knowledge
   originSessionId: 1d96bcb2-b3c5-46cd-b222-e16e5ba9566b
@@ -56,3 +56,9 @@ RPA 执行层（手）+ LLM 推理核心 + 工具调用（Tool Use / Function Ca
 
 - UiPath Agentic Automation / Autopilot、Microsoft Copilot + Power Automate、影刀/来也接入大模型
 - 从"录制回放"走向"目标驱动"，从 RPA 演进到 APA（Agentic Process Automation，智能体流程自动化）
+
+## 相关
+
+- [[RPA 基础]] — 传统 RPA 的痛点即 Agentic RPA 的动机
+- [[Agent Skill 自动化]] — 同族对比：Agent 直接干 vs UI 模拟
+- [[工作流对接机制]] — 无 API 系统的最后兜底手段

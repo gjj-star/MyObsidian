@@ -1,5 +1,5 @@
 ---
-name: Apache Flink 流处理
+name: 流处理 Apache Flink
 description: Apache Flink 流处理引擎的核心概念与实时数仓典型链路
 metadata:
   node_type: memory
@@ -32,5 +32,10 @@ Apache Flink 是开源的**分布式流处理引擎**（Distributed Stream Proce
 
 - 实时指标计算、风控、实时数仓等低延迟场景首选 Flink
 - 使用门槛较低时优先采用 Flink SQL 而非 DataStream API
+
+## 相关
+
+- [[PostgreSQL 数据库]] — Flink 实时数仓链路的下游存储
+- [[Docker 环境一致性]] — 集群部署环境一致性的典型场景
 
 > 来源：CC 对话记录 conversation-log（2026-08-03）

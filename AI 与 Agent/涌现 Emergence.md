@@ -50,3 +50,8 @@ Schaeffer 等人（2023）提出：涌现可能是度量方式的幻觉——用
 
 - Jason Wei et al. (2022): "Emergent Abilities of Large Language Models" — 首次系统描述涌现
 - Schaeffer et al. (2023): "Are Emergent Abilities of Large Language Models a Mirage?" — 挑战涌现的真实性
+
+## 相关
+
+- [[Ollama 概览]] — 模型选型视角：需要涌现能力需越过规模拐点
+- [[世界模型 World Model]] — 世界模型与 LLM 都在规模增长时出现涌现能力

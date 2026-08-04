@@ -32,8 +32,8 @@ aliases: [barnum-effect, Barnum Effect, Forer Effect, 弗拉效应]
 
 ## 相关概念
 
-- [[确认偏误]]（Confirmation Bias）——事后选择性记忆命中的部分
-- [[幸存者偏差]]（Survivorship Bias）——只传播"对"的案例
+- [[确认偏误 Confirmation Bias]]（Confirmation Bias）——事后选择性记忆命中的部分
+- [[幸存者偏差 Survivorship Bias]]（Survivorship Bias）——只传播"对"的案例
 - [[索罗斯反身性 Reflexivity]]（Reflexivity）——预测改变行为从而制造结果
 - [[六爻概述]]（Six Yao）——六爻占卜，"感觉准"的核心机制之一是巴纳姆效应
 

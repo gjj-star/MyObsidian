@@ -41,3 +41,9 @@ CMD ["node", "server.js"]
 ## 应用
 
 开发、测试、生产环境的一致部署，微服务架构，CI/CD 流水线（持续集成/持续交付，Continuous Integration / Continuous Delivery）与本地开发环境的快速搭建。
+
+## 相关
+
+- [[Docker 环境一致性]] — 容器化带来的核心价值
+- [[Uvicorn 异步服务器]] — 典型部署场景：容器里跑 Web 服务
+- [[Ollama 概览]] — 本地模型也可容器化一键部署

@@ -31,3 +31,8 @@ aliases: [declarative-paradigm, Declarative Paradigm, 声明式编程]
 ## 注意与扩展
 
 两个层面不是同一机制：Docker 是一次性构建产物，Vue 是持续响应式的运行时。声明式是通用思想，亦见于 SQL（Structured Query Language，结构化查询语言）、函数式编程（Functional Programming）。
+
+## 相关
+
+- [[响应式 vs 声明式 Reactive vs Declarative]] — Vue 语境下声明式与响应式的对比
+- [[Docker 环境一致性]] — Dockerfile 声明式定义环境的实践

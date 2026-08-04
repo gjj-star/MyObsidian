@@ -34,3 +34,8 @@ aliases: [docker-environment-consistency, 环境一致性, Environment Consisten
 - **数据一致性**：需迁移脚本（Migration）/ 种子数据（Seed Data）
 - **外部依赖一致性**：需配置管理
 - **内核相关行为**：容器共享宿主机内核，无法隔离内核差异
+
+## 相关
+
+- [[Docker 基础]] — 容器化平台的基础概念
+- [[声明式范式 Declarative Paradigm]] — Dockerfile 即"环境写成代码"的声明式定义
