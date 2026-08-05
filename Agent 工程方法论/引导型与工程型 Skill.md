@@ -4,7 +4,6 @@ description: 引导型 skill vs 工程型 skill 的概念分化、市场需求�
 metadata:
   node_type: memory
   type: project
-  related: "[[Ollama 概览]] [[涌现 Emergence]]"
   originSessionId: ccaa9fff-80e5-4190-ab19-dc67c8a34ec5
 aliases: [guided-vs-procedural-skills, Guided vs Procedural Skills]
 ---
