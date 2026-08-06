@@ -1,11 +1,11 @@
 ---
 name: Agent 部署清单
+node_type: memory
+type: reference
 description: AI Agent 落地部署清单 skill：前置条件三级分类、五阶段路线图、风险矩阵、TCR/ATCC 成本管理
-metadata:
-  node_type: memory
-  type: reference
-  originSessionId: 141ef463-5bcf-4e10-9949-c9444bcf49f7
+originSessionId: 141ef463-5bcf-4e10-9949-c9444bcf49f7
 aliases: [agent-deployment-checklist, Deployment Checklist]
+tags: [AI-Agent]
 ---
 
 # Agent 部署清单

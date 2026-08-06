@@ -1,15 +1,15 @@
 ---
 name: 融资轮次 Financing Rounds
+node_type: memory
+type: knowledge
 description: 融资轮次（种子/天使/A/B/C/D轮）的定义、各轮特征、进阶规律、常见变体及求职语境含义
+originSessionId: a664a991-04f8-4750-aa50-a32de0485b49
+modified: 2026-07-20T02:40:37.549Z
 aliases:
   - financing-rounds
   - Financing Rounds
   - 融资轮次
-metadata:
-  node_type: memory
-  type: knowledge
-  originSessionId: a664a991-04f8-4750-aa50-a32de0485b49
-  modified: 2026-07-20T02:40:37.549Z
+tags: [企业数字化]
 ---
 
 ## 定义

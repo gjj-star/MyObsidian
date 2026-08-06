@@ -1,11 +1,11 @@
 ---
 name: Agent 编排模式
+node_type: memory
+type: reference
 description: Agent 工作流编排模式 skill：批次划分、状态机、硬编码检查点、双路径上下文传递
-metadata:
-  node_type: memory
-  type: reference
-  originSessionId: 141ef463-5bcf-4e10-9949-c9444bcf49f7
+originSessionId: 141ef463-5bcf-4e10-9949-c9444bcf49f7
 aliases: [agent-orchestrator-pattern, Orchestrator Pattern]
+tags: [AI-Agent]
 ---
 
 # Agent 编排模式

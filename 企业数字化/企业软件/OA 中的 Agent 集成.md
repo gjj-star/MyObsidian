@@ -1,12 +1,12 @@
 ---
 name: OA 中的 Agent 集成
+node_type: memory
+type: knowledge
 description: OA 系统中 Agent/AI 集成的五级成熟度模型、当前产品动态、与 Agentic RPA 的关联
-metadata: 
-  node_type: memory
-  type: knowledge
-  originSessionId: 869361d7-7af4-48e8-8223-8601d67447a6
-  modified: 2026-07-20T08:39:47.102Z
+originSessionId: 869361d7-7af4-48e8-8223-8601d67447a6
+modified: 2026-07-20T08:39:47.102Z
 aliases: [oa-agent-integration, AI Agent 集成]
+tags: [企业数字化]
 ---
 
 # OA 中的 Agent 集成

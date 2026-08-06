@@ -1,10 +1,10 @@
 ---
 name: 数字孪生 Digital Twin
+node_type: memory
+type: knowledge
 description: 数字孪生的定义、核心四要素、与传统仿真的区别及应用场景
-metadata:
-  node_type: memory
-  type: knowledge
 aliases: [digital-twin, DT]
+tags: [企业数字化]
 ---
 
 # 数字孪生 Digital Twin

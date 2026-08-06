@@ -1,14 +1,14 @@
 ---
 name: 北极星指标 North Star Metric
+node_type: memory
+type: knowledge
 description: 北极星指标的定义、入选标准、经典案例与虚荣指标的区别
 aliases:
   - north-star-metric
   - North Star Metric
   - NSM
   - 北极星指标
-metadata:
-  node_type: memory
-  type: knowledge
+tags: [企业数字化]
 ---
 
 ## 定义

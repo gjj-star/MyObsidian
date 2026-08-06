@@ -1,10 +1,10 @@
 ---
 name: 解耦 Decoupling
+node_type: memory
+type: knowledge
 description: 解耦（降低模块间依赖关系）的含义、常见手段与好处
-metadata:
-  node_type: memory
-  type: knowledge
 aliases: [decoupling, Decoupling, 解耦]
+tags: [开发工具]
 ---
 
 "解耦"是降低系统模块间**依赖关系**的软件工程概念。类比电脑硬件的模块化：CPU、内存、硬盘独立更换互不影响。

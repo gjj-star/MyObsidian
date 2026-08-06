@@ -1,0 +1,82 @@
+filters: {}
+formulas: {}
+properties:
+  name:
+    displayName: 名称
+  node_type:
+    displayName: 节点类型
+  type:
+    displayName: 类型
+  description:
+    displayName: 描述
+  originSessionId:
+    displayName: 来源会话
+  modified:
+    displayName: 更新时间
+  aliases:
+    displayName: 别名
+  tags:
+    displayName: 标签
+summaries: {}
+views:
+  - type: table
+    name: 全部知识卡
+    order:
+      - file.name
+      - tags
+      - node_type
+      - type
+      - modified
+    groupBy:
+      property: tags
+      direction: asc
+    filters:
+      or:
+        - file.hasTag("AI-Agent")
+        - file.hasTag("企业数字化")
+        - file.hasTag("自动化与集成")
+        - file.hasTag("开发工具")
+        - file.hasTag("认知研究")
+        - file.hasTag("自我认知")
+  - type: table
+    name: AI Agent
+    order: [file.name, tags, type, modified]
+    filters:
+      and:
+        - file.inFolder("AI Agent/")
+  - type: table
+    name: 企业数字化
+    order: [file.name, tags, type, modified]
+    filters:
+      and:
+        - file.inFolder("企业数字化/")
+  - type: table
+    name: 自动化与集成
+    order: [file.name, tags, type, modified]
+    filters:
+      and:
+        - file.inFolder("自动化与集成/")
+  - type: table
+    name: 开发工具
+    order: [file.name, tags, type, modified]
+    filters:
+      and:
+        - file.inFolder("开发工具/")
+  - type: table
+    name: 认知研究
+    order: [file.name, tags, type, modified]
+    filters:
+      and:
+        - file.inFolder("认知研究/")
+  - type: table
+    name: 自我认知
+    order: [file.name, tags, type, modified]
+    filters:
+      and:
+        - file.inFolder("自我认知/")
+  - type: table
+    name: 日记
+    order: [file.name, tags, modified]
+    filters:
+      and:
+        - file.hasTag("日记")

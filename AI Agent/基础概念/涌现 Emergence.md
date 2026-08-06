@@ -1,11 +1,11 @@
 ---
 name: 涌现 Emergence
+node_type: memory
+type: reference
 description: 涌现概念、在 LLM 中的表现、关键特征、度量争议与关键论文
-metadata:
-  node_type: memory
-  type: reference
-  originSessionId: ccaa9fff-80e5-4190-ab19-dc67c8a34ec5
+originSessionId: ccaa9fff-80e5-4190-ab19-dc67c8a34ec5
 aliases: [emergence-in-ai, Emergence, Emergent Abilities]
+tags: [AI-Agent]
 ---
 
 # 涌现 Emergence

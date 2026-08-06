@@ -1,12 +1,12 @@
 ---
 name: ERP CRM HRM 三者关系
+node_type: memory
+type: knowledge
 description: ERP、CRM、HRM 三者的定义、核心区别、联动场景、现实架构模式
-metadata: 
-  node_type: memory
-  type: knowledge
-  originSessionId: 869361d7-7af4-48e8-8223-8601d67447a6
-  modified: 2026-07-20T08:51:42.790Z
+originSessionId: 869361d7-7af4-48e8-8223-8601d67447a6
+modified: 2026-07-20T08:51:42.790Z
 aliases: [erp-crm-hrm-relationship, ERP vs CRM vs HRM]
+tags: [企业数字化]
 ---
 
 # ERP CRM HRM 三者关系

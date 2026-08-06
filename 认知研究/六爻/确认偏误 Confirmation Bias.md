@@ -1,13 +1,13 @@
 ---
 name: 确认偏误 Confirmation Bias
+node_type: memory
+type: knowledge
 description: 确认偏误的定义、三种机制、识别方法及其在占卜"应验"中的作用
-metadata:
-  node_type: memory
-  type: knowledge
 aliases:
   - confirmation-bias
   - Confirmation Bias
   - 确认偏差
+tags: [认知研究]
 ---
 
 确认偏误（Confirmation Bias）指人们倾向于**搜寻、解读、记忆支持自己已有信念的信息**，同时忽视或贬低相反证据的认知偏差。

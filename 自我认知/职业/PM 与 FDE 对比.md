@@ -1,13 +1,13 @@
 ---
 name: PM 与 FDE 对比
+node_type: memory
+type: reference
 description: 产品经理 PM 与前线部署工程师 FDE 的定义、异同、必备技能、发展路径与转型建议
-metadata: 
-  node_type: memory
-  type: reference
-  originSessionId: 49cf1eeb-4606-4fca-92e2-8ab3d8bd51e0
+originSessionId: 49cf1eeb-4606-4fca-92e2-8ab3d8bd51e0
 aliases:
   - pm-vs-fde-comparison
   - PM vs FDE
+tags: [自我认知]
 ---
 
 # PM 与 FDE 对比

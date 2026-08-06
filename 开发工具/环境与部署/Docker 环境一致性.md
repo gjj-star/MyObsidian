@@ -1,11 +1,11 @@
 ---
 name: Docker 环境一致性
+node_type: memory
+type: knowledge
 description: Docker 环境一致性的原理、解决"在我机器上能跑"问题的三层保障与局限
-metadata: 
-  node_type: memory
-  type: knowledge
-  originSessionId: 1d96bcb2-b3c5-46cd-b222-e16e5ba9566b
+originSessionId: 1d96bcb2-b3c5-46cd-b222-e16e5ba9566b
 aliases: [docker-environment-consistency, 环境一致性, Environment Consistency]
+tags: [开发工具]
 ---
 
 环境一致性是 Docker 的核心价值，用于解决经典问题——"在我机器上能跑"（Works on My Machine）。

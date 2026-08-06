@@ -1,14 +1,14 @@
 ---
 name: Agentic RPA 智能体流程自动化
+node_type: memory
+type: knowledge
 description: Agentic RPA 的定义、相对传统 RPA 的能力升级、技术架构、与纯 AI Agent 的对比及落地挑战
-metadata:
-  node_type: memory
-  type: knowledge
-  originSessionId: 1d96bcb2-b3c5-46cd-b222-e16e5ba9566b
+originSessionId: 1d96bcb2-b3c5-46cd-b222-e16e5ba9566b
 aliases:
   - agentic-rpa
   - Agentic RPA
   - APA
+tags: [自动化与集成]
 ---
 
 # Agentic RPA 智能体流程自动化

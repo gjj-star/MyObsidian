@@ -1,5 +1,7 @@
 ---
 name: CPA 与 CPS 计费 CPA-CPS
+node_type: memory
+type: knowledge
 description: 互联网广告按转化行为付费的 CPA/CPS 定义、计费模式全景与风险对比
 aliases:
   - cpa-cps
@@ -7,9 +9,7 @@ aliases:
   - Cost Per Action
   - Cost Per Sale
   - CPA 与 CPS 计费
-metadata:
-  node_type: memory
-  type: knowledge
+tags: [企业数字化]
 ---
 
 ## 定义

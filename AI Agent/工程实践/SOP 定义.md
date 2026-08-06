@@ -1,12 +1,12 @@
 ---
 name: SOP 定义
+node_type: memory
+type: reference
 description: SOP（标准作业程序）的定义、四大关键特征、与说明书/教程的区别、适用场景与局限性
-metadata:
-  node_type: memory
-  type: reference
-  originSessionId: 62006bd2-df5d-4a68-bdc3-894ab7b3d9e3
-  modified: 2026-07-21T06:46:35.774Z
+originSessionId: 62006bd2-df5d-4a68-bdc3-894ab7b3d9e3
+modified: 2026-07-21T06:46:35.774Z
 aliases: [sop-definition, SOP, Standard Operating Procedure]
+tags: [AI-Agent]
 ---
 
 # SOP 定义

@@ -1,17 +1,17 @@
 ---
 name: 单据 Source Document
+node_type: memory
+type: knowledge
 description: 单据的定义、常见类型、四大作用、与凭证/台账/账簿的关系及职场语境
+originSessionId: a664a991-04f8-4750-aa50-a32de0485b49
+modified: 2026-07-20T03:05:08.091Z
 aliases:
   - danju-documents
   - Source Document
   - Voucher
   - 原始凭证
   - 单据
-metadata:
-  node_type: memory
-  type: knowledge
-  originSessionId: a664a991-04f8-4750-aa50-a32de0485b49
-  modified: 2026-07-20T03:05:08.091Z
+tags: [企业数字化]
 ---
 
 ## 定义

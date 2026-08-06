@@ -1,12 +1,12 @@
 ---
 name: 田野调查
+node_type: memory
+type: reference
 description: 田野调查的定义、起源、四大核心方法、当代应用领域与方法论困境
-metadata: 
-  node_type: memory
-  type: reference
-  originSessionId: 62006bd2-df5d-4a68-bdc3-894ab7b3d9e3
-  modified: 2026-07-21T03:55:54.880Z
+originSessionId: 62006bd2-df5d-4a68-bdc3-894ab7b3d9e3
+modified: 2026-07-21T03:55:54.880Z
 aliases: [fieldwork, Fieldwork, Field Research, 田野工作]
+tags: [认知研究]
 ---
 
 田野调查是研究者亲自进入研究对象所处的自然环境，通过长期沉浸式观察、访谈和参与来收集第一手资料的方法。核心是**沉浸**（Immersion）而非"去现场发问卷"。

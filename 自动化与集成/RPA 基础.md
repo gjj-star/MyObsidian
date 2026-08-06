@@ -1,13 +1,13 @@
 ---
 name: RPA 基础
+node_type: memory
+type: knowledge
 description: RPA（机器人流程自动化）的定义、核心特征、典型场景、与 API/脚本/AI 的区别及局限
-metadata: 
-  node_type: memory
-  type: knowledge
-  originSessionId: 1d96bcb2-b3c5-46cd-b222-e16e5ba9566b
+originSessionId: 1d96bcb2-b3c5-46cd-b222-e16e5ba9566b
 aliases:
   - rpa-basics
   - RPA
+tags: [自动化与集成]
 ---
 
 # RPA 基础

@@ -1,12 +1,12 @@
 ---
 name: PostgreSQL 数据库
+node_type: memory
+type: knowledge
 description: PostgreSQL 的核心特点、与主流数据库对比及 Hologres 兼容性
-metadata:
-  node_type: memory
-  type: knowledge
 aliases:
   - postgresql
   - PostgreSQL
+tags: [开发工具]
 ---
 
 ## PostgreSQL 数据库

@@ -1,14 +1,14 @@
 ---
 name: K12 教育 K-12 Education
+node_type: memory
+type: knowledge
 description: K12 教育阶段定义、各国对应关系与中国互联网语境
 aliases:
   - k12
   - K-12
   - Kindergarten through 12th grade
   - K12 教育
-metadata:
-  node_type: memory
-  type: knowledge
+tags: [企业数字化]
 ---
 
 ## 定义

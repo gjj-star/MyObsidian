@@ -1,13 +1,13 @@
 ---
 name: AI 文献检索能力
+node_type: memory
+type: reference
 description: AI 文献查找能力现状：能做与不能做、学术 Skills 推荐、MCP 配置、WorkBuddy+Zotero 方案
-metadata:
-  node_type: memory
-  type: reference
-  originSessionId: 141ef463-5bcf-4e10-9949-c9444bcf49f7
+originSessionId: 141ef463-5bcf-4e10-9949-c9444bcf49f7
 aliases:
   - ai-literature-search-capabilities
   - AI Literature Search Capabilities
+tags: [开发工具]
 ---
 
 ## AI 文献检索能力

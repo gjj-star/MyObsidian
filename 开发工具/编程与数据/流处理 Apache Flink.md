@@ -1,12 +1,12 @@
 ---
 name: 流处理 Apache Flink
+node_type: memory
+type: knowledge
 description: Apache Flink 流处理引擎的核心概念与实时数仓典型链路
-metadata:
-  node_type: memory
-  type: knowledge
 aliases:
   - flink
   - Apache Flink
+tags: [开发工具]
 ---
 
 ## Apache Flink 流处理

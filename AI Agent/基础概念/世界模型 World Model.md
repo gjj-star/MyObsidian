@@ -1,11 +1,11 @@
 ---
 name: 世界模型 World Model
+node_type: memory
+type: reference
 description: 世界模型概念、与 LLM 的对比、后训练阶段、具身智能 VLA 与产业应用（DW0.5 案例）
-metadata:
-  node_type: memory
-  type: reference
-  originSessionId: 259dc612-a033-40b6-90cc-7d9b610368a8
+originSessionId: 259dc612-a033-40b6-90cc-7d9b610368a8
 aliases: [world-models-in-ai, World Model, WM]
+tags: [AI-Agent]
 ---
 
 # 世界模型 World Model

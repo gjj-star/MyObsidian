@@ -1,11 +1,11 @@
 ---
 name: 人在回路 HITL
+node_type: memory
+type: reference
 description: AI Agent 人在回路设计模式：控制级别、LangGraph 实现、审批与升级模式、Web 异步 HITL 生产实践
-metadata:
-  node_type: memory
-  type: reference
-  originSessionId: 141ef463-5bcf-4e10-9949-c9444bcf49f7
+originSessionId: 141ef463-5bcf-4e10-9949-c9444bcf49f7
 aliases: [human-in-the-loop, HITL, Human-in-the-Loop, 人在环路]
+tags: [AI-Agent]
 ---
 
 # 人在回路 HITL

@@ -1,12 +1,12 @@
 ---
 name: 知识图谱 Knowledge Graph
+node_type: memory
+type: knowledge
 description: 知识图谱定义、三元组结构、与本体 Ontology 的 schema/instance 分层关系、技术栈、核心场景与图数据库优势
-metadata:
-  node_type: memory
-  type: knowledge
-  originSessionId: 869361d7-7af4-48e8-8223-8601d67447a6
-  modified: 2026-07-20T10:16:42.463Z
+originSessionId: 869361d7-7af4-48e8-8223-8601d67447a6
+modified: 2026-07-20T10:16:42.463Z
 aliases: [knowledge-graph, Knowledge Graph, KG]
+tags: [AI-Agent]
 ---
 
 # 知识图谱 Knowledge Graph

@@ -1,12 +1,12 @@
 ---
 name: Agent 与 Workflow 对比
+node_type: memory
+type: reference
 description: Agent/Skill 与 Workflow（Dify）两种 AI 能力嵌入范式的定义、核心对比、各自硬伤、适用场景和混合编排策略
-metadata:
-  node_type: memory
-  type: reference
-  originSessionId: 62006bd2-df5d-4a68-bdc3-894ab7b3d9e3
-  modified: 2026-07-21T07:04:02.061Z
+originSessionId: 62006bd2-df5d-4a68-bdc3-894ab7b3d9e3
+modified: 2026-07-21T07:04:02.061Z
 aliases: [agent-vs-workflow-comparison, Agent vs Workflow, Agent-Skill vs Workflow]
+tags: [AI-Agent]
 ---
 
 # Agent 与 Workflow 对比

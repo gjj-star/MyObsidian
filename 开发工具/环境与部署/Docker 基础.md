@@ -1,11 +1,11 @@
 ---
 name: Docker 基础
+node_type: memory
+type: knowledge
 description: Docker 容器化平台的定义、容器与虚拟机对比、镜像/容器/Dockerfile 三要素与构建流水线
-metadata: 
-  node_type: memory
-  type: knowledge
-  originSessionId: 1d96bcb2-b3c5-46cd-b222-e16e5ba9566b
+originSessionId: 1d96bcb2-b3c5-46cd-b222-e16e5ba9566b
 aliases: [docker-basics, Docker, Docker Basics, 容器化]
+tags: [开发工具]
 ---
 
 Docker 是容器化平台（Containerization Platform）：将应用及其依赖（代码、库、配置、环境变量）打包成标准化容器，使其在任何环境一致运行。

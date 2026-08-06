@@ -1,12 +1,12 @@
 ---
 name: HRM 人力资源管理
+node_type: memory
+type: knowledge
 description: HRM 人力资源管理系统的定义、核心模块、国内产品，以及与 ERP/CRM/OA 的边界
-metadata: 
-  node_type: memory
-  type: knowledge
-  originSessionId: 869361d7-7af4-48e8-8223-8601d67447a6
-  modified: 2026-07-20T08:51:31.932Z
+originSessionId: 869361d7-7af4-48e8-8223-8601d67447a6
+modified: 2026-07-20T08:51:31.932Z
 aliases: [hrm-overview, Human Resource Management, 人力资源管理系统]
+tags: [企业数字化]
 ---
 
 # HRM 人力资源管理

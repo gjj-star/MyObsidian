@@ -1,11 +1,11 @@
 ---
 name: 引导型与工程型 Skill
+node_type: memory
+type: project
 description: 引导型 skill vs 工程型 skill 的概念分化、市场需求分析、构建方法论与学术前沿
-metadata:
-  node_type: memory
-  type: project
-  originSessionId: ccaa9fff-80e5-4190-ab19-dc67c8a34ec5
+originSessionId: ccaa9fff-80e5-4190-ab19-dc67c8a34ec5
 aliases: [guided-vs-procedural-skills, Guided vs Procedural Skills]
+tags: [AI-Agent]
 ---
 
 # 引导型与工程型 Skill

@@ -1,13 +1,13 @@
 ---
 name: BOSS 直聘爬虫搭建
+node_type: memory
+type: project
 description: BOSS直聘 FDE 岗位爬虫环境搭建、IPv6 兼容修复、首次抓取结果
-metadata:
-  node_type: memory
-  type: project
-  originSessionId: 21246bc1-5f35-4147-ab92-1badbfdc6fb6
+originSessionId: 21246bc1-5f35-4147-ab92-1badbfdc6fb6
 aliases:
   - boss-zhipin-scraper-setup
   - BOSS Zhipin Scraper Setup
+tags: [开发工具]
 ---
 
 ## BOSS 直聘爬虫搭建

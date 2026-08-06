@@ -1,10 +1,10 @@
 ---
 name: 内网穿透 NAT Tunneling
+node_type: memory
+type: knowledge
 description: 内网穿透（NAT 穿透）的原理、常用工具与安全注意事项
-metadata:
-  node_type: memory
-  type: knowledge
 aliases: [nat-tunneling, NAT Tunneling, 内网穿透, NAT 穿透]
+tags: [开发工具]
 ---
 
 内网穿透（NAT 穿透）是让**外网设备能访问内网服务**的技术。

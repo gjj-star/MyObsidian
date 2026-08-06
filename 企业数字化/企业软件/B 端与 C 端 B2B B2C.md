@@ -1,12 +1,12 @@
 ---
 name: B 端与 C 端 B2B B2C
+node_type: memory
+type: reference
 description: B端/C端的定义、核心差异对比、常见变种（B2B/B2C/C2C/B2B2C/G端/SMB）和区分意义
-metadata: 
-  node_type: memory
-  type: reference
-  originSessionId: 62006bd2-df5d-4a68-bdc3-894ab7b3d9e3
-  modified: 2026-07-21T06:33:11.845Z
+originSessionId: 62006bd2-df5d-4a68-bdc3-894ab7b3d9e3
+modified: 2026-07-21T06:33:11.845Z
 aliases: [b2b-b2c-b-end-c-end, B2B B2C, B端 C端]
+tags: [企业数字化]
 ---
 
 # B 端与 C 端 B2B B2C

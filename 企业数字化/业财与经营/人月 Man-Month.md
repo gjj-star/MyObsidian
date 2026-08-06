@@ -1,14 +1,14 @@
 ---
 name: 人月 Man-Month
+node_type: memory
+type: knowledge
 description: RY 人月的含义、用途、相关工作量单位对比与应用
 aliases:
   - man-month
   - Man-Month
   - RY
   - 人月
-metadata:
-  node_type: memory
-  type: knowledge
+tags: [企业数字化]
 ---
 
 ## 定义

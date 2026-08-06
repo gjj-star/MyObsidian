@@ -1,12 +1,12 @@
 ---
 name: 生命周期 Lifecycle
+node_type: memory
+type: reference
 description: 生命周期的定义、多领域实例、三个共性特征、与工作流和 B 端系统的关系
-metadata:
-  node_type: memory
-  type: reference
-  originSessionId: 62006bd2-df5d-4a68-bdc3-894ab7b3d9e3
-  modified: 2026-07-21T10:51:40.703Z
+originSessionId: 62006bd2-df5d-4a68-bdc3-894ab7b3d9e3
+modified: 2026-07-21T10:51:40.703Z
 aliases: [lifecycle-concept, Lifecycle, Life Cycle]
+tags: [AI-Agent]
 ---
 
 # 生命周期 Lifecycle

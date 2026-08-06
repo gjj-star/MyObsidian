@@ -1,15 +1,15 @@
 ---
 name: 台账 Ledger
+node_type: memory
+type: knowledge
 description: 台账的定义、词源、与会计账簿的区别、常见类型、用途与职场语境
+originSessionId: a664a991-04f8-4750-aa50-a32de0485b49
+modified: 2026-07-20T02:30:04.563Z
 aliases:
   - taizhang-ledger
   - Ledger
   - 台账
-metadata:
-  node_type: memory
-  type: knowledge
-  originSessionId: a664a991-04f8-4750-aa50-a32de0485b49
-  modified: 2026-07-20T02:30:04.563Z
+tags: [企业数字化]
 ---
 
 ## 定义

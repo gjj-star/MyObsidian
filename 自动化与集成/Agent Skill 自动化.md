@@ -1,13 +1,13 @@
 ---
 name: Agent Skill 自动化
+node_type: memory
+type: knowledge
 description: 基于 LLM Agent 平台（workbuddy 等）Skill/智能助理式自动化的实例与归类，与经典 Agentic RPA（UI 模拟）的异同
-metadata: 
-  node_type: memory
-  type: knowledge
-  originSessionId: 1d96bcb2-b3c5-46cd-b222-e16e5ba9566b
+originSessionId: 1d96bcb2-b3c5-46cd-b222-e16e5ba9566b
 aliases:
   - agent-skill-automation
   - Agent Skill Automation
+tags: [自动化与集成]
 ---
 
 # Agent Skill 自动化

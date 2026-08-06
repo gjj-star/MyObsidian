@@ -1,13 +1,13 @@
 ---
 name: FDE 职业知识卡
+node_type: memory
+type: reference
 description: FDE（前线部署工程师）岗位知识卡：定义、技术栈六阶段、国内岗位切入点与实习练兵法
-metadata:
-  node_type: memory
-  type: reference
 aliases:
   - fde-career-knowledge
   - FDE
   - Field Deployment Engineer
+tags: [自我认知]
 ---
 
 # FDE 职业知识卡

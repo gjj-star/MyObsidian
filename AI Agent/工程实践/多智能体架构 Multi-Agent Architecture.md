@@ -1,14 +1,14 @@
 ---
 name: 多智能体架构 Multi-Agent Architecture
+node_type: memory
+type: knowledge
 description: 多智能体（Multi-Agent）架构的动机、指挥官-工人模式、搜索即压缩、提示词工程、工程稳定性、成本边界与评估方法
-metadata:
-  node_type: memory
-  type: knowledge
 aliases:
   - multi-agent
   - Multi-Agent
   - 多智能体
   - Orchestrator-Workers
+tags: [AI-Agent]
 ---
 
 多智能体（Multi-Agent）架构：把大任务**拆给多个各司其职的独立智能体并行协作**，用"组建 AI 团队"代替"死磕单个更强模型"。源自 Anthropic 的技术报告（"Building Effective Agents" 的延伸实践）。

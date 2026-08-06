@@ -1,12 +1,12 @@
 ---
 name: OA 与 FDE 岗位的关系
+node_type: memory
+type: knowledge
 description: OA 实施与 FDE 岗位的深度关系——FDE 在 OA 项目中的具体工作项、能力映射与职业意义
-metadata: 
-  node_type: memory
-  type: knowledge
-  originSessionId: 869361d7-7af4-48e8-8223-8601d67447a6
-  modified: 2026-07-20T08:39:38.276Z
+originSessionId: 869361d7-7af4-48e8-8223-8601d67447a6
+modified: 2026-07-20T08:39:38.276Z
 aliases: [oa-fde-relationship]
+tags: [企业数字化]
 ---
 
 # OA 与 FDE 岗位的关系

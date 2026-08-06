@@ -1,12 +1,12 @@
 ---
 name: 本体 Ontology
+node_type: memory
+type: knowledge
 description: Ontology 双层含义（哲学本体论与计算机本体）、与知识图谱的关系、Palantir Ontology 与 FDE 的关联、AI 时代回热
-metadata:
-  node_type: memory
-  type: knowledge
-  originSessionId: a664a991-04f8-4750-aa50-a32de0485b49
-  modified: 2026-07-20T10:16:07.730Z
+originSessionId: a664a991-04f8-4750-aa50-a32de0485b49
+modified: 2026-07-20T10:16:07.730Z
 aliases: [ontology-concept, Ontology, 本体论]
+tags: [AI-Agent]
 ---
 
 # 本体 Ontology

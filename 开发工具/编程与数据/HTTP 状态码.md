@@ -1,12 +1,12 @@
 ---
 name: HTTP 状态码
+node_type: memory
+type: knowledge
 description: HTTP 状态码五大类全景、日常最常用的 14 个及非标准码（代理/云厂商）
-metadata:
-  node_type: memory
-  type: knowledge
 aliases:
   - http-status-codes
   - HTTP Status Codes
+tags: [开发工具]
 ---
 
 ## HTTP 状态码

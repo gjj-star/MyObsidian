@@ -1,14 +1,14 @@
 ---
 name: 主链路 Main Path
+node_type: memory
+type: knowledge
 description: 系统"主链路"的定义、特征、典型示例与应用
 aliases:
   - main-path
   - Main Path
   - 核心链路
   - 主链路
-metadata:
-  node_type: memory
-  type: knowledge
+tags: [企业数字化]
 ---
 
 ## 定义

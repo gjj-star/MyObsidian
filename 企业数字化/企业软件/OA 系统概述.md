@@ -1,12 +1,12 @@
 ---
 name: OA 系统概述
+node_type: memory
+type: knowledge
 description: OA 办公自动化系统的定义、核心模块、技术架构、主流产品选型与决策框架
-metadata: 
-  node_type: memory
-  type: knowledge
-  originSessionId: 869361d7-7af4-48e8-8223-8601d67447a6
-  modified: 2026-07-20T08:39:31.010Z
+originSessionId: 869361d7-7af4-48e8-8223-8601d67447a6
+modified: 2026-07-20T08:39:31.010Z
 aliases: [oa-system-overview, Office Automation]
+tags: [企业数字化]
 ---
 
 # OA 系统概述

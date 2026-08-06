@@ -1,12 +1,12 @@
 ---
 name: 巴纳姆效应
+node_type: memory
+type: reference
 description: 巴纳姆效应（弗拉效应）的定义、弗拉实验、四个心理机制、识别方法及其与占卜/六爻的关系
-metadata: 
-  node_type: memory
-  type: reference
-  originSessionId: 62006bd2-df5d-4a68-bdc3-894ab7b3d9e3
-  modified: 2026-07-21T02:22:56.263Z
+originSessionId: 62006bd2-df5d-4a68-bdc3-894ab7b3d9e3
+modified: 2026-07-21T02:22:56.263Z
 aliases: [barnum-effect, Barnum Effect, Forer Effect, 弗拉效应]
+tags: [认知研究]
 ---
 
 巴纳姆效应（Barnum Effect / Forer Effect）——人们倾向于接受模糊、普适的人格描述为"专为自己定制的准确分析"。

@@ -1,11 +1,11 @@
 ---
 name: cangjie Skill 评测
+node_type: memory
+type: reference
 description: cangjie-skill 评测：RIA-TV++ 方法论、亮点、局限、与 CC/WorkBuddy 的平台适配性
-metadata:
-  node_type: memory
-  type: reference
-  originSessionId: 141ef463-5bcf-4e10-9949-c9444bcf49f7
+originSessionId: 141ef463-5bcf-4e10-9949-c9444bcf49f7
 aliases: [cangjie-skill-evaluation, cangjie-skill]
+tags: [AI-Agent]
 ---
 
 # cangjie Skill 评测

@@ -1,13 +1,13 @@
 ---
 name: 数据治理 Data Governance
+node_type: memory
+type: knowledge
 description: 数据治理的定义、三大支柱、与数据管理的区别及应用
 aliases:
   - data-governance
   - Data Governance
   - 数据治理
-metadata:
-  node_type: memory
-  type: knowledge
+tags: [企业数字化]
 ---
 
 ## 定义

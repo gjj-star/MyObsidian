@@ -1,10 +1,10 @@
 ---
 name: Go 语言 Golang
+node_type: memory
+type: knowledge
 description: Go 语言的正式名称、核心特点（语法简洁/goroutine 并发/编译快）与应用领域
-metadata:
-  node_type: memory
-  type: knowledge
 aliases: [golang, Go, Golang, Go 语言]
+tags: [开发工具]
 ---
 
 Go 是 Google 开源的**静态类型编译型语言**，正式名称是 Go（因域名 golang.org 而俗称 Golang）。

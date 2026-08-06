@@ -1,15 +1,15 @@
 ---
 name: 方法论
+node_type: memory
+type: reference
 description: 方法论的界定、方法与方法论的区别、三个核心问题，以及不同领域"对"的标准对照
-metadata:
-  node_type: memory
-  type: reference
-  originSessionId: 62006bd2-df5d-4a68-bdc3-894ab7b3d9e3
-  modified: 2026-07-21T03:55:47.180Z
+originSessionId: 62006bd2-df5d-4a68-bdc3-894ab7b3d9e3
+modified: 2026-07-21T03:55:47.180Z
 aliases:
   - methodology-concept
   - Methodology
   - 关于方法的方法
+tags: [认知研究]
 ---
 
 方法论是对"怎么知道"这件事的研究和规范——不是具体操作方法，而是**关于方法的方法**。

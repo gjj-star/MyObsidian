@@ -1,13 +1,13 @@
 ---
 name: 幸存者偏差 Survivorship Bias
+node_type: memory
+type: knowledge
 description: 幸存者偏差的定义、经典案例（二战飞机弹孔）、识别方法及其在占卜"应验"中的作用
-metadata:
-  node_type: memory
-  type: knowledge
 aliases:
   - survivorship-bias
   - Survivorship Bias
   - 幸存者谬误
+tags: [认知研究]
 ---
 
 幸存者偏差（Survivorship Bias）指**只关注"幸存下来"的样本、忽略"未幸存"的样本**，从而得出错误结论的系统性偏差——看不见的失败者从不发声。

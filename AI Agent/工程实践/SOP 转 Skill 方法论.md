@@ -1,11 +1,11 @@
 ---
 name: SOP 转 Skill 方法论
+node_type: memory
+type: reference
 description: SOP→Skill 拆分方法论 skill：三维取舍矩阵、统一设计规范、中央数据枢纽、HITL 分级、触发词双模式
-metadata:
-  node_type: memory
-  type: reference
-  originSessionId: 141ef463-5bcf-4e10-9949-c9444bcf49f7
+originSessionId: 141ef463-5bcf-4e10-9949-c9444bcf49f7
 aliases: [sop-to-skill-methodology, SOP to Skill 方法论]
+tags: [AI-Agent]
 ---
 
 # SOP 转 Skill 方法论

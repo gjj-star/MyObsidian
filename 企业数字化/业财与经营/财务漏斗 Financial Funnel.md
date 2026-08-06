@@ -1,13 +1,13 @@
 ---
 name: 财务漏斗 Financial Funnel
+node_type: memory
+type: knowledge
 description: 财务语境下"漏斗"的含义、核心逻辑、四大常见场景与应用
 aliases:
   - financial-funnel
   - Financial Funnel
   - 财务漏斗
-metadata:
-  node_type: memory
-  type: knowledge
+tags: [企业数字化]
 ---
 
 ## 定义
