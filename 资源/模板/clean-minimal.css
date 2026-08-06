@@ -1,0 +1,48 @@
+/* ============================================================
+   clean-minimal 代码片段
+   主副本：资源/模板/clean-minimal.css（随仓库入库备份）
+   生效副本：.obsidian/snippets/clean-minimal.css（Obsidian 实际加载）
+   修改任一份后，请同步另一份保持一致
+   ============================================================ */
+
+/* 全局：等宽混排 + 紧凑但可读 */
+body {
+  --font-text: "更纱黑体 SC", "Sarasa Gothic SC", "Inter", sans-serif;
+  --font-monospace: "JetBrains Mono", "Cascadia Code", monospace;
+  --font-text-size: 15px;
+  --line-height-normal: 1.65;
+  --file-line-width: 750px;
+}
+
+/* 关闭视觉噪音：只隐藏真正冗余的，标签栏与侧边栏保留 */
+.status-bar {
+  display: none; /* 底部状态栏：字数/同步等低频信息 */
+}
+
+.view-header-title {
+  display: none; /* 面板内大标题：与顶部标签、正文 H1 重复 */
+}
+
+/* 如确实想隐藏顶部标签栏，取消下一行注释：
+.workspace-tab-header-container { display: none; }
+*/
+
+/* 链接：下划线，不跳色 */
+.markdown-reading-view a,
+.markdown-reading-view .internal-link {
+  color: var(--text-normal);
+  text-decoration: underline 1px solid var(--text-faint);
+  text-underline-offset: 3px;
+}
+
+/* 代码块：暗色嵌入但不违和 */
+.markdown-reading-view pre {
+  background: var(--background-primary-alt);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 4px;
+  padding: 14px 16px;
+}
+
+/* 标题：无装饰 */
+.markdown-reading-view h1 { font-weight: 700; border: none; font-size: 1.6em; }
+.markdown-reading-view h2 { font-weight: 600; border: none; }
