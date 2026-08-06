@@ -9,7 +9,7 @@ aliases:
   - Cost Per Action
   - Cost Per Sale
   - CPA 与 CPS 计费
-tags: [企业数字化]
+tags: [企业数字化, 业财与经营]
 ---
 
 ## 定义

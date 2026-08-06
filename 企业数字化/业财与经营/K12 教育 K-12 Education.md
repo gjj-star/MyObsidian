@@ -8,7 +8,7 @@ aliases:
   - K-12
   - Kindergarten through 12th grade
   - K12 教育
-tags: [企业数字化]
+tags: [企业数字化, 业财与经营]
 ---
 
 ## 定义

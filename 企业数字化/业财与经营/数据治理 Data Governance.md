@@ -7,7 +7,7 @@ aliases:
   - data-governance
   - Data Governance
   - 数据治理
-tags: [企业数字化]
+tags: [企业数字化, 业财与经营]
 ---
 
 ## 定义

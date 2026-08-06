@@ -8,7 +8,7 @@ aliases:
   - North Star Metric
   - NSM
   - 北极星指标
-tags: [企业数字化]
+tags: [企业数字化, 业财与经营]
 ---
 
 ## 定义

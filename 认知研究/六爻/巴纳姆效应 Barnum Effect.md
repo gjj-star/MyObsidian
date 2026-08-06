@@ -6,7 +6,7 @@ description: 巴纳姆效应（弗拉效应）的定义、弗拉实验、四个�
 originSessionId: 62006bd2-df5d-4a68-bdc3-894ab7b3d9e3
 modified: 2026-07-21T02:22:56.263Z
 aliases: [barnum-effect, Barnum Effect, Forer Effect, 弗拉效应]
-tags: [认知研究]
+tags: [认知研究, 六爻]
 ---
 
 巴纳姆效应（Barnum Effect / Forer Effect）——人们倾向于接受模糊、普适的人格描述为"专为自己定制的准确分析"。

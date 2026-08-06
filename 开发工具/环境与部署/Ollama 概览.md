@@ -5,7 +5,7 @@ type: reference
 description: Ollama 本地大语言模型运行工具的核心特点、优势、劣势与适用场景
 originSessionId: ccaa9fff-80e5-4190-ab19-dc67c8a34ec5
 aliases: [ollama-overview, Ollama, Ollama Overview]
-tags: [开发工具]
+tags: [开发工具, 环境与部署]
 ---
 
 Ollama 是一个在本地电脑上运行大语言模型（LLM, Large Language Model）的工具。

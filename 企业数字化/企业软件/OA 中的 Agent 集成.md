@@ -6,7 +6,7 @@ description: OA 系统中 Agent/AI 集成的五级成熟度模型、当前产品
 originSessionId: 869361d7-7af4-48e8-8223-8601d67447a6
 modified: 2026-07-20T08:39:47.102Z
 aliases: [oa-agent-integration, AI Agent 集成]
-tags: [企业数字化]
+tags: [企业数字化, 企业软件]
 ---
 
 # OA 中的 Agent 集成

@@ -6,7 +6,7 @@ description: HTTP 状态码五大类全景、日常最常用的 14 个及非标�
 aliases:
   - http-status-codes
   - HTTP Status Codes
-tags: [开发工具]
+tags: [开发工具, 编程与数据]
 ---
 
 ## HTTP 状态码

@@ -4,7 +4,7 @@ node_type: memory
 type: knowledge
 description: Uvicorn 异步 Web 服务器、ASGI/WSGI 的区别与生产部署模式
 aliases: [uvicorn, Uvicorn, ASGI Server]
-tags: [开发工具]
+tags: [开发工具, 编程与数据]
 ---
 
 Uvicorn 是基于 **ASGI 协议**的 Python 高性能异步 Web 服务器，FastAPI 官方推荐。

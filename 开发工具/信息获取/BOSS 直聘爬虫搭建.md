@@ -7,7 +7,7 @@ originSessionId: 21246bc1-5f35-4147-ab92-1badbfdc6fb6
 aliases:
   - boss-zhipin-scraper-setup
   - BOSS Zhipin Scraper Setup
-tags: [开发工具]
+tags: [开发工具, 信息获取]
 ---
 
 ## BOSS 直聘爬虫搭建

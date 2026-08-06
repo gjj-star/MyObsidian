@@ -5,7 +5,7 @@ type: knowledge
 description: 声明式编程范式的定义、Dockerfile 与 Vue 模板两个层面的对比、优点与命令式反例
 originSessionId: 1d96bcb2-b3c5-46cd-b222-e16e5ba9566b
 aliases: [declarative-paradigm, Declarative Paradigm, 声明式编程]
-tags: [开发工具]
+tags: [开发工具, 编程与数据]
 ---
 
 声明式（Declarative）范式 = 只描述目标状态（What），把达成过程（How）交给工具。

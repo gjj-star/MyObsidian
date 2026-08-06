@@ -7,7 +7,7 @@ aliases:
   - fde-career-knowledge
   - FDE
   - Field Deployment Engineer
-tags: [自我认知]
+tags: [自我认知, 职业]
 ---
 
 # FDE 职业知识卡

@@ -9,7 +9,7 @@ aliases:
   - methodology-concept
   - Methodology
   - 关于方法的方法
-tags: [认知研究]
+tags: [认知研究, 方法论]
 ---
 
 方法论是对"怎么知道"这件事的研究和规范——不是具体操作方法，而是**关于方法的方法**。

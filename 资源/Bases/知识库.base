@@ -28,7 +28,7 @@ views:
       - type
       - modified
     groupBy:
-      property: tags
+      property: file.folder
       direction: asc
     filters:
       or:

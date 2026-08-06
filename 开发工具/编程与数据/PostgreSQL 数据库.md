@@ -6,7 +6,7 @@ description: PostgreSQL 的核心特点、与主流数据库对比及 Hologres �
 aliases:
   - postgresql
   - PostgreSQL
-tags: [开发工具]
+tags: [开发工具, 编程与数据]
 ---
 
 ## PostgreSQL 数据库

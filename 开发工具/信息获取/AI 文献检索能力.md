@@ -7,7 +7,7 @@ originSessionId: 141ef463-5bcf-4e10-9949-c9444bcf49f7
 aliases:
   - ai-literature-search-capabilities
   - AI Literature Search Capabilities
-tags: [开发工具]
+tags: [开发工具, 信息获取]
 ---
 
 ## AI 文献检索能力

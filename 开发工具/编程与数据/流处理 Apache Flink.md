@@ -6,7 +6,7 @@ description: Apache Flink 流处理引擎的核心概念与实时数仓典型链
 aliases:
   - flink
   - Apache Flink
-tags: [开发工具]
+tags: [开发工具, 编程与数据]
 ---
 
 ## Apache Flink 流处理

@@ -5,7 +5,7 @@ type: knowledge
 description: Vue 语境下响应式（reactive）与声明式（declarative）的定义、关系与异同
 originSessionId: 1d96bcb2-b3c5-46cd-b222-e16e5ba9566b
 aliases: [reactivity-vs-declarative, Reactive vs Declarative, 响应式与声明式]
-tags: [开发工具]
+tags: [开发工具, 编程与数据]
 ---
 
 Vue 中两个容易混淆的概念，处于不同层面。

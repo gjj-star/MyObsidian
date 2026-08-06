@@ -6,7 +6,7 @@ description: OA 实施与 FDE 岗位的深度关系——FDE 在 OA 项目中的
 originSessionId: 869361d7-7af4-48e8-8223-8601d67447a6
 modified: 2026-07-20T08:39:38.276Z
 aliases: [oa-fde-relationship]
-tags: [企业数字化]
+tags: [企业数字化, 企业软件]
 ---
 
 # OA 与 FDE 岗位的关系

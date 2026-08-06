@@ -7,7 +7,7 @@ aliases:
   - financial-funnel
   - Financial Funnel
   - 财务漏斗
-tags: [企业数字化]
+tags: [企业数字化, 业财与经营]
 ---
 
 ## 定义

@@ -9,7 +9,7 @@ aliases:
   - financing-rounds
   - Financing Rounds
   - 融资轮次
-tags: [企业数字化]
+tags: [企业数字化, 业财与经营]
 ---
 
 ## 定义
