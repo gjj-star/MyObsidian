@@ -2,7 +2,7 @@
 title: "挑战12分钟搞定，多智能体（Multi-Agent）架构"
 source: "https://www.bilibili.com/video/BV11p6wB2EmX/?spm_id_from=333.337.search-card.all.click&vd_source=cef0fce7e5fbce2135907be0a04cc3d7"
 author:
-  - "[[AI大模型学习study]]"
+  - "AI大模型学习study"
 published: 2026-01-29
 created: 2026-08-04
 description: "挑战12分钟搞定，多智能体（Multi-Agent）架构, 视频播放量 22068、弹幕量 21、点赞数 291、投硬币枚数 114、收藏人数 802、转发人数 127, 视频作者 AI大模型学习study, 作者简介 日常分享大模型基础知识，希望可以帮助到你！，相关视频：90分钟手撸一个企业级的Agent多智能体（用LangGraph+MCP+RAG从0到1带你理解多智能体是怎么实现的）让你少走99%弯路！大模型面试必看！，多智能体架构：从单 Agent 到协同系统，【闪客】一口气拆穿Skill/MCP/RAG/Agent/OpenClaw底层逻辑，从0开始“做”一个Agent！【n8n草履虫教程】，为什么 multi-agent 会失败，Agent 的概念、原理与构建模式 —— 从零打造一个简化版的 Claude Code，从 LLM 到 Agent Skill，一期视频带你打通底层逻辑！，Agent新项目！入门实战【LangGraph+多Agent开发：从零到工程化落地】纯干货进阶智能体教程！，【全748集】目前B站最全最细的AI Agent开发零基础教程，2026最新版，包含所有干货！七天就能从小白到大神！少走99%的弯路！学完即就业，带你玩转AI！，Agent Skill 从使用到原理，一次讲清"
