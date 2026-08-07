@@ -19,4 +19,9 @@
 - 知识卡 frontmatter 用**扁平顶层字段**（Bases 与属性面板可直接读取，不用嵌套 metadata）：`name`（中文名）/ `node_type: memory` / `type`（reference、knowledge、user）/ `description`（一句话摘要）/ `originSessionId`（来源 CC 会话）/ `modified`（更新时间）/ `aliases`（英文+中文别名）/ `tags`（主题标签：AI-Agent、企业数字化、自动化与集成、开发工具、认知研究、自我认知；**子主题标签与图谱颜色组一一对应**，按子目录补：企业软件、业财与经营、编程与数据、环境与部署、信息获取、六爻、方法论、职业、自我；日记用 日记）
 - 蒸馏 CC 新沉淀时按上述格式生成 frontmatter；网页剪藏保持原样，仅加 `tags: clippings`
 - 链接用 [[中文标题]] 双链，不产生断链
+- **关系标注**：图谱连线表达"相关"（默认语义，不标字段）；特殊关系在 frontmatter 用扁平字段显式声明（正文链接处同步加前缀：`上位：`/`子类：`/`对比：`/`依赖：`）：
+  - `rel_parent` 上位/所属（子卡标注，如 财务BP → BP 业务伙伴）
+  - `rel_child` 下位/子类/成员（父卡标注，与 rel_parent 对称配对）
+  - `rel_contrast` 对比（双方对称标注，如 Electron ↔ uni-app）
+  - `rel_depends` 依赖/基于（依赖方标注，如 Hologres → PostgreSQL）
 - **禁止使用 Emoji 与图形符号**（勾、叉、星、图钉等图案一律不用）；星级用 `n/5` 表示（如 5/5），勾叉用文本符号 `✓` `✗`，箭头用 `→` `←` `↔` 等文本箭头

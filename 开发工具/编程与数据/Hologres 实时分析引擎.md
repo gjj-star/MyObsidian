@@ -6,6 +6,7 @@ description: 阿里云自研的一站式实时交互式分析引擎（HSAP），
 modified: 2026-08-07
 aliases: [hologres, HSAP, 阿里云Hologres]
 tags: [开发工具, 编程与数据]
+rel_depends: "[[PostgreSQL 数据库]]"
 ---
 
 Hologres 是阿里云自研的**一站式实时交互式分析引擎**（HSAP，Hybrid Serving/Analytical Processing 类产品），完全兼容 PostgreSQL 协议。
@@ -15,7 +16,7 @@ Hologres 是阿里云自研的**一站式实时交互式分析引擎**（HSAP，
 ## 核心特点
 
 - **HSAP 统一架构**：实时写入 + 实时分析 + 在线服务一体
-- **PG 协议兼容**：懂 [[PostgreSQL 数据库]] 就会写 Hologres 查询
+- **PG 协议兼容**：依赖 [[PostgreSQL 数据库]] 的协议，懂 PG 就会写 Hologres 查询
 - **阿里生态融合**：与 Flink、MaxCompute、DataWorks 深度打通
 - **存储计算分离**：弹性扩缩容
 

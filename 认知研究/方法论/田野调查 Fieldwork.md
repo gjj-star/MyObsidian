@@ -7,6 +7,7 @@ originSessionId: 62006bd2-df5d-4a68-bdc3-894ab7b3d9e3
 modified: 2026-07-21T03:55:54.880Z
 aliases: [fieldwork, Fieldwork, Field Research, 田野工作]
 tags: [认知研究, 方法论]
+rel_parent: "[[方法论 Methodology]]"
 ---
 
 田野调查是研究者亲自进入研究对象所处的自然环境，通过长期沉浸式观察、访谈和参与来收集第一手资料的方法。核心是**沉浸**（Immersion）而非"去现场发问卷"。
@@ -44,6 +45,6 @@ tags: [认知研究, 方法论]
 
 ## 相关
 
-- [[方法论 Methodology]] — 田野调查是社会科学方法论的实践样本
+- 上位：[[方法论 Methodology]] — 田野调查是社会科学方法论的实践样本
 - [[索罗斯反身性 Reflexivity]] — 观察者改变田野，正是反身性困境
 - [[六爻概述]] — 六爻实验与田野笔记共用同一套方法论直觉

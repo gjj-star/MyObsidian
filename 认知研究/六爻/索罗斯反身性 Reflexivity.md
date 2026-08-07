@@ -7,6 +7,7 @@ originSessionId: 62006bd2-df5d-4a68-bdc3-894ab7b3d9e3
 modified: 2026-07-21T03:55:41.427Z
 aliases: [reflexivity-soros, Reflexivity, Soros Reflexivity, 反身性理论]
 tags: [认知研究, 六爻]
+rel_parent: "[[方法论 Methodology]]"
 ---
 
 乔治·索罗斯（George Soros）在《金融炼金术》（The Alchemy of Finance，1987）中提出的核心理论：在社会事务中，参与者的认知改变事态，事态反过来修正认知——二者构成双向反馈环路（Feedback Loop）。
@@ -56,6 +57,6 @@ tags: [认知研究, 六爻]
 
 ## 相关
 
-- [[方法论 Methodology]] — "反身问题"是方法论的三个核心问题之一
+- 上位：[[方法论 Methodology]] — "反身问题"是方法论的三个核心问题之一
 - [[田野调查 Fieldwork]] — 观察者的存在改变田野，即反身性困境
 - [[巴纳姆效应 Barnum Effect]] — "准"的错觉的另一层机制
