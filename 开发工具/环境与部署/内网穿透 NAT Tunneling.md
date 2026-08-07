@@ -5,7 +5,6 @@ type: knowledge
 description: 内网穿透（NAT 穿透）的原理、常用工具与安全注意事项
 aliases: [nat-tunneling, NAT Tunneling, 内网穿透, NAT 穿透]
 tags: [开发工具, 环境与部署]
-rel_depends: "[[Go 语言 Golang]]"
 ---
 
 内网穿透（NAT 穿透）是让**外网设备能访问内网服务**的技术。
@@ -20,7 +19,7 @@ rel_depends: "[[Go 语言 Golang]]"
 
 | 工具 | 特点 |
 |---|---|
-| frp | 自托管、功能全（基于 Go 实现，依赖：[[Go 语言 Golang]]） |
+| frp | 自托管、功能全（基于 Go 实现，见 [[Go 语言 Golang]]） |
 | ngrok | 即开即用、免费额度 |
 | Cloudflare Tunnel | 依托 Cloudflare 全球网络，免公网 IP |
 

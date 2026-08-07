@@ -17,14 +17,6 @@ properties:
     displayName: 别名
   tags:
     displayName: 标签
-  rel_parent:
-    displayName: 上位
-  rel_child:
-    displayName: 子类
-  rel_contrast:
-    displayName: 对比
-  rel_depends:
-    displayName: 依赖
 summaries: {}
 views:
   - type: table
@@ -88,12 +80,3 @@ views:
     filters:
       and:
         - file.hasTag("日记")
-  - type: table
-    name: 关系视图
-    order: [file.name, rel_parent, rel_child, rel_contrast, rel_depends]
-    filters:
-      or:
-        - file.hasProperty("rel_parent")
-        - file.hasProperty("rel_child")
-        - file.hasProperty("rel_contrast")
-        - file.hasProperty("rel_depends")
