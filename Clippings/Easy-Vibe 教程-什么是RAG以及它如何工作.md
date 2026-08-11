@@ -2,7 +2,7 @@
 title: "什么是RAG以及它如何工作"
 source: "https://datawhalechina.github.io/easy-vibe/zh-cn/stage-3/ai-advanced/rag-introduction/"
 author:
-  - "[[Datawhale]]"
+  - Datawhale
 published:
 created: 2026-08-11
 description: "从零到一学习 Vibe Coding - 零基础学会用 AI 编程，掌握 Claude Code、Cursor 等 AI IDE 工具"

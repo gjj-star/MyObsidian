@@ -2,7 +2,7 @@
 title: "多智能体架构：从单 Agent 到协同系统"
 source: "https://www.bilibili.com/video/BV16ZNA6ZEA1/?spm_id_from=333.1387.upload.video_card.click&vd_source=cef0fce7e5fbce2135907be0a04cc3d7"
 author:
-  - "[[AI架构师Leo]]"
+  - AI架构师Leo
 published: 2026-07-11
 created: 2026-08-10
 description: "最近 Multi-Agent 很火，但很多系统只是“多个模型一起回答”，并不是真正的多 Agent。这期把它拆成几个问题：Agent 到底是什么？单 Agent 的天花板在哪里？子 Agent 什么时候够用？真正多 Agent 协同为什么难？四种常见架构模式怎么选？适合 AI 产品、工程架构、AI Agent 入门的朋友收藏。"

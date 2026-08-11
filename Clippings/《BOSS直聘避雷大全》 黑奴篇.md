@@ -2,7 +2,7 @@
 title: "《BOSS直聘避雷大全》 黑奴篇"
 source: "https://www.bilibili.com/video/BV17NjJ6bETX?spm_id_from=333.788.videopod.sections&vd_source=cef0fce7e5fbce2135907be0a04cc3d7"
 author:
-  - "[[鼠家讲坛]]"
+  - 鼠家讲坛
 published: 2026-06-20
 created: 2026-08-10
 description: "以为拿到了神仙offer，结果一脚踏进了“黑奴”陷阱？拒绝画饼，鼠鼠带你清醒打工"

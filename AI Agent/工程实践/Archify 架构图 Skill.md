@@ -56,5 +56,6 @@ npx skills add tt-a1i/archify -g
 - [[SOP 转 Skill 方法论]] — 如何把流程沉淀为可复用 Skill
 - [[引导型与工程型 Skill]] — Skill 的形态分类框架
 - [[多智能体协同的四种架构模式]] — 画架构图前先想清楚系统是哪种协作形态
+- [[生命周期 Lifecycle]] — Lifecycle 图类型对应的生命周期概念卡
 
 > 来源：GitHub tt-a1i/archify 项目 README（2026-08-10 剪藏）

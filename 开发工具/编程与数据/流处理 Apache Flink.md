@@ -26,7 +26,7 @@ Apache Flink 是开源的**分布式流处理引擎**（Distributed Stream Proce
 
 - 阿里是最大贡献者（Blink 回馈开源）
 - **Flink SQL** 大幅降低使用门槛
-- 实时数仓典型链路：**Kafka → Flink → [[PostgreSQL 数据库|Hologres]] → 大屏**
+- 实时数仓典型链路：**Kafka → Flink → [[Hologres 实时分析引擎|Hologres]] → 大屏**
 
 ### 应用
 

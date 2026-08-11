@@ -2,7 +2,7 @@
 title: "《BOSS直聘避雷大全》骗子篇"
 source: "https://www.bilibili.com/video/BV1Q8jq6NEHR/?spm_id_from=333.1387.homepage.video_card.click&vd_source=cef0fce7e5fbce2135907be0a04cc3d7"
 author:
-  - "[[鼠家讲坛]]"
+  - 鼠家讲坛
 published: 2026-06-19
 created: 2026-08-10
 description: "拆穿Boss直聘套路，带你实战找问题，找工作千万别踩这种坑"
