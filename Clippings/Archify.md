@@ -1,12 +1,12 @@
 ---
-title: "tt-a1i/archify: Agent skill for beautiful, verifiable architecture, workflow, sequence, data-flow, and lifecycle diagrams—self-contained HTML with motion and crisp export."
-source: "https://github.com/tt-a1i/archify"
+title: Archify
+source: https://github.com/tt-a1i/archify
 author:
 published:
 created: 2026-08-10
-description: "Agent skill for beautiful, verifiable architecture, workflow, sequence, data-flow, and lifecycle diagrams—self-contained HTML with motion and crisp export. - tt-a1i/archify"
+description: Agent skill for beautiful, verifiable architecture, workflow, sequence, data-flow, and lifecycle diagrams—self-contained HTML with motion and crisp export. - tt-a1i/archify
 tags:
-  - "clippings"
+  - clippings
 ---
 **English** · [简体中文](https://github.com/tt-a1i/archify/blob/main/README_ZH.md)
 
