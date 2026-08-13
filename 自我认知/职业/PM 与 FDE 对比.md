@@ -14,7 +14,7 @@ tags: [自我认知, 职业]
 
 **英文**：Product Manager（PM，产品经理）；Field Deployment Engineer（FDE，前线部署工程师）
 
-> 相关记忆：[[FDE 职业知识卡]]、[[个人画像]]
+> 相关记忆：[[FDE 职业知识卡]]、[[FDE 学习路线图]]、[[个人画像]]
 
 ## 核心定义
 
