@@ -40,6 +40,18 @@ RAG 的基本思路：在让大模型生成回答之前，先从外部知识库�
 
 ## 三类核心模型选型
 
+**技术架构对比**：
+
+| 维度 | Embedding | Rerank | LLM |
+|------|-----------|--------|-----|
+| 架构 | 双塔（Bi-Encoder）：Query 和 Doc 各一个塔，独立编码后余弦相似度匹配 | 单塔（Cross-Encoder）：Query + Doc 拼接后一起输入 | Decoder-only（GPT 式）：自回归逐 token 生成 |
+| 推理速度 | 极快（向量检索，ANN 索引） | 中等（每条候选都要过一遍模型） | 慢（逐 token 生成） |
+| 典型大小 | 0.1B-1B 参数 | 0.3B-3B 参数 | 7B-2000B+ 参数 |
+| 输入长度 | 短文本为主（512 token） | 中等（512-8K token） | 长文本（128K-1M token） |
+| 输出 | 固定维度向量 | 相关性分数 | 自然语言文本 |
+
+Pipeline 协作：① Embedding 在向量库中召回 Top-50~100 候选 → ② Rerank 精排筛选 Top-5~10 → ③ LLM 拼接 Prompt 生成回答。**为什么不能只用一步**：只用 Embedding 粗召回精度不够（Top-1 可能不相关）；只用 Rerank 无法在海量数据上逐一跑（太慢太贵）；只用 LLM 无法塞入所有知识。三者是分工协作的 Pipeline，不是竞争关系。
+
 1. **Embedding**（决定召回质量）：看 MTEB 基准（8 类任务 56 个数据集）；核心参数是**维度**（越高语义刻画越细，成本越高）与**上下文长度**（短文本 512-1024 token 够用，长文档要 2048+）。常用：text-embedding-3-large、bge-m3（混合检索）、Qwen2-Embedding 系列
 2. **Rerank**（精排，修正召回排序）：参考 Agentset Reranker Leaderboard（ELO / nDCG@10 / 延迟）。常用：BGE Reranker v2 M3、Cohere Rerank、Voyage Rerank 2.5
 3. **LLM**（生成）：私有化部署（Qwen / Llama / GLM 系列，7B-14B 即不错）或云端 API；选型参考 LMArena（盲测对战），最终用 20-30 个典型业务问题做端到端 A/B 测试，可大小模型搭配降本
