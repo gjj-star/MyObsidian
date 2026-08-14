@@ -4,6 +4,7 @@ node_type: memory
 type: knowledge
 description: K12 教育阶段定义、各国对应关系与中国互联网语境
 aliases:
+  - k12-education
   - k12
   - K-12
   - Kindergarten through 12th grade

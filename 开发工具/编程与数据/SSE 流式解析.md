@@ -4,7 +4,7 @@ node_type: memory
 type: knowledge
 description: HTTP 之上的服务端单向推送技术（Server-Sent Events），及流式解析的跨 chunk 截断与缓冲区管理
 modified: 2026-08-07
-aliases: [SSE, Server-Sent Events, 服务端事件推送]
+aliases: [sse-stream-parsing, SSE, Server-Sent Events, 服务端事件推送]
 tags: [开发工具, 编程与数据]
 ---
 

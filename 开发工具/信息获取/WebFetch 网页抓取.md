@@ -4,7 +4,7 @@ node_type: memory
 type: reference
 description: Claude Code 内置 WebFetch 工具的核心参数、工作流程、关键限制（SPA/登录墙/缓存）与权限配置，及配合 WebSearch 的信息获取玩法
 modified: 2026-08-13T02:30:07.000Z
-aliases: [WebFetch]
+aliases: [webfetch, WebFetch]
 tags: [开发工具, 信息获取]
 ---
 

@@ -4,7 +4,7 @@ node_type: memory
 type: knowledge
 description: 入睡前突然痒醒的四种生理机制（入睡期感觉异常/注意力放大/组胺节律/体温调节）、可操作缓解方法与就医指征
 modified: 2026-08-13T02:30:07.000Z
-aliases: [Sleep Itch, Hypnagogic Sensory Distortion, 入睡期感觉异常]
+aliases: [sleep-itch, Sleep Itch, Hypnagogic Sensory Distortion, 入睡期感觉异常]
 tags: [自我认知, 自我]
 ---
 

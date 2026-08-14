@@ -4,6 +4,7 @@ node_type: memory
 type: knowledge
 description: 系统"主链路"的定义、特征、典型示例与应用
 aliases:
+  - main-business-flow
   - main-path
   - Main Path
   - 核心链路

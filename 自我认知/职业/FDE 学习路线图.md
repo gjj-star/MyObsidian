@@ -5,7 +5,7 @@ type: reference
 description: FDE（前线部署工程师）从零开始的学习路线（6 阶段）、10 个递进式实操项目、无客户环境的模拟方法与国内岗位切入点
 modified: 2026-08-13T02:30:07.000Z
 originSessionId: 6434b0ca-7bb1-4a64-85ca-7e2874794df9
-aliases: [FDE 学习路线]
+aliases: [fde-learning-roadmap, FDE 学习路线]
 tags: [自我认知, 职业]
 ---
 

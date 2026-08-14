@@ -3,7 +3,7 @@ name: 内网穿透 NAT Tunneling
 node_type: memory
 type: knowledge
 description: 内网穿透（NAT 穿透）的原理、常用工具与安全注意事项
-aliases: [nat-tunneling, NAT Tunneling, 内网穿透, NAT 穿透]
+aliases: [nat-traversal, nat-tunneling, NAT Tunneling, 内网穿透, NAT 穿透]
 tags: [开发工具, 环境与部署]
 ---
 

@@ -4,7 +4,7 @@ node_type: memory
 type: knowledge
 description: 所有 C-Level 高管的统称（C=Chief, X=任意职能, O=Officer），"X"是随需而填的占位符
 modified: 2026-08-07
-aliases: [CXO, Chief X Officer, C-Level, C级高管]
+aliases: [corporate-titles, CXO, Chief X Officer, C-Level, C级高管]
 tags: [自我认知, 职业]
 ---
 

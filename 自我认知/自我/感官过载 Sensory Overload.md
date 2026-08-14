@@ -4,7 +4,7 @@ node_type: memory
 type: knowledge
 description: 感官过载（Sensory Overload）的机制（感觉门控/P50 抑制）、与 ADHD/ASD 的关系、日常表现与应对策略
 modified: 2026-08-13T02:30:07.000Z
-aliases: [Sensory Overload, 感觉过载, 感官超载]
+aliases: [sensory-overload-adhd, Sensory Overload, 感觉过载, 感官超载]
 tags: [自我认知, 自我]
 ---
 

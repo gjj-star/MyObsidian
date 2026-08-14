@@ -4,7 +4,7 @@ node_type: memory
 type: knowledge
 description: 灰度发布（金丝雀发布）的逐步放量策略、四种灰度方式、与 A/B 测试/蓝绿部署的区别及 Feature Flag 等关键基础设施
 modified: 2026-08-13T02:30:07.000Z
-aliases: [灰度测试, Canary Release, Gray Release, 金丝雀发布]
+aliases: [grayscale-testing, 灰度测试, Canary Release, Gray Release, 金丝雀发布]
 tags: [开发工具, 环境与部署]
 ---
 

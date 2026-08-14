@@ -4,6 +4,7 @@ node_type: memory
 type: knowledge
 description: RY 人月的含义、用途、相关工作量单位对比与应用
 aliases:
+  - renyue-person-month
   - man-month
   - Man-Month
   - RY

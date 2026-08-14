@@ -4,7 +4,7 @@ node_type: memory
 type: knowledge
 description: 检索增强生成（RAG）的原理、三代演进、Embedding/Rerank/LLM 模型选型、效果评测体系与 Graph RAG、Agentic RAG 等前沿方向
 modified: 2026-08-11T10:20:00.000Z
-aliases: [Retrieval-Augmented Generation, RAG, 检索增强生成]
+aliases: [embedding-rerank-llm-comparison, Retrieval-Augmented Generation, RAG, 检索增强生成]
 tags: [开发工具, 编程与数据]
 ---
 

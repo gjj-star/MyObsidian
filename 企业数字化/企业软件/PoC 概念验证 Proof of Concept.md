@@ -4,7 +4,7 @@ node_type: memory
 type: knowledge
 description: PoC（Proof of Concept）概念验证的最小验证逻辑、与原型/MVP 的区别、典型场景与核心原则
 modified: 2026-08-13T02:30:07.000Z
-aliases: [PoC, Proof of Concept, 概念验证]
+aliases: [poc-proof-of-concept, PoC, Proof of Concept, 概念验证]
 tags: [企业数字化, 企业软件]
 ---
 

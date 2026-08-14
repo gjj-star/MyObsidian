@@ -4,7 +4,7 @@ node_type: memory
 type: knowledge
 description: 嵌入业务团队的财务角色：从传统后端核算前移到业务搭档，做经营分析与决策支持
 modified: 2026-08-07
-aliases: [财务BP, Finance Business Partner, 财务业务伙伴, FPBP]
+aliases: [finance-bp, 财务BP, Finance Business Partner, 财务业务伙伴, FPBP]
 tags: [企业数字化, 业财与经营]
 ---
 
