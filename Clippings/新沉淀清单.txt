@@ -27,6 +27,7 @@ emergence-in-ai.md
 erp-crm-hrm-relationship.md
 fde-learning-roadmap.md
 feedback-memory-acknowledgment.md
+fetch-upstream-model.md
 fieldwork.md
 finance-bp.md
 financial-funnel.md
@@ -63,9 +64,11 @@ reactivity-vs-declarative.md
 reflexivity-soros.md
 renyue-person-month.md
 rpa-basics.md
+sdk.md
 sensory-overload-adhd.md
 six-yao-overview.md
 sleep-itch.md
+smoke-testing.md
 sop-definition.md
 sop-to-skill-methodology.md
 sse-stream-parsing.md
