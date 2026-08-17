@@ -10,8 +10,7 @@ aliases:
   - Barnum Effect
   - Forer Effect
   - 弗拉效应
-tags:
-  - 认知研究
+tags: [认知研究, 心理学]
 ---
 
 巴纳姆效应（Barnum Effect / Forer Effect）——人们倾向于接受模糊、普适的人格描述为"专为自己定制的准确分析"。

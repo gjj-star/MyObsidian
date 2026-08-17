@@ -7,8 +7,7 @@ aliases:
   - confirmation-bias
   - Confirmation Bias
   - 确认偏差
-tags:
-  - 认知研究
+tags: [认知研究, 心理学]
 ---
 
 确认偏误（Confirmation Bias）指人们倾向于**搜寻、解读、记忆支持自己已有信念的信息**，同时忽视或贬低相反证据的认知偏差。

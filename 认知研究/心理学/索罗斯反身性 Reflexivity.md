@@ -10,8 +10,7 @@ aliases:
   - Reflexivity
   - Soros Reflexivity
   - 反身性理论
-tags:
-  - 认知研究
+tags: [认知研究, 心理学]
 ---
 
 乔治·索罗斯（George Soros）在《金融炼金术》（The Alchemy of Finance，1987）中提出的核心理论：在社会事务中，参与者的认知改变事态，事态反过来修正认知——二者构成双向反馈环路（Feedback Loop）。

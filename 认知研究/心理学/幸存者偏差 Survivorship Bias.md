@@ -7,8 +7,7 @@ aliases:
   - survivorship-bias
   - Survivorship Bias
   - 幸存者谬误
-tags:
-  - 认知研究
+tags: [认知研究, 心理学]
 ---
 
 幸存者偏差（Survivorship Bias）指**只关注"幸存下来"的样本、忽略"未幸存"的样本**，从而得出错误结论的系统性偏差——看不见的失败者从不发声。
