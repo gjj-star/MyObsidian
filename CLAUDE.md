@@ -29,6 +29,6 @@
 2. **整理未沉淀剪藏**：检查 `Clippings/` 中未整理网页剪藏（无对应知识卡者），逐篇提炼归位；原剪藏保留作档案
 3. **全库体检与关系图谱**：扫描全部双链查断链、查孤儿笔记、核对 `首页.md` 主题计数与实际文件数，更新首页与关系图谱
 4. **推送**：`git add -A && git commit && git push`（推送到 github.com/gjj-star/MyObsidian）
-5. **运行 /team**：调用 oh-my-claudecode:team 执行团队编排
+5. **允许使用 /team**：调用 oh-my-claudecode:team 执行团队编排
 
 完成后按「每次沉淀后向用户汇报」格式汇报：新沉淀 N 条 → 整理为 M 篇知识卡，分布情况。
