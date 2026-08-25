@@ -100,3 +100,4 @@ PR 页面顶部 4 个标签：**Conversation / Commits / Files changed / Checks*
 ## 相关
 
 - [[冒烟测试 Smoke Testing]] — PR 的 CI 检查即自动冒烟，审查第一步先看它
+- [[哈希与哈希不一致 Hash]] — Git 对象哈希校验与完整性检查的底层机制

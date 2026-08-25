@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "shell": "bash",
+            "command": "bash .claude/hooks/zhengzheng-hook.sh",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

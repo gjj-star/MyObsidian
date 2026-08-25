@@ -34,6 +34,7 @@ financial-funnel.md
 financing-rounds.md
 flink.md
 free-academic-paper-access.md
+github-code-review-tutorial.md
 golang.md
 grayscale-testing.md
 guided-vs-procedural-skills.md
@@ -78,4 +79,3 @@ uvicorn.md
 webfetch.md
 workflow-integration-mechanisms.md
 world-models-in-ai.md
-github-code-review-tutorial.md
