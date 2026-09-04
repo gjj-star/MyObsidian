@@ -2,7 +2,7 @@
 title: "【城】为什么 AI 越聪明，写的代码反而越不安全？| VibeCoding 安全分析 【B站AI创造公开赛】"
 source: "https://www.bilibili.com/video/BV1YruC6iEKN/?spm_id_from=333.1007.top_right_bar_window_history.content.click&vd_source=cef0fce7e5fbce2135907be0a04cc3d7"
 author:
-  - "[[网络小白_Uncle城]]"
+  - "网络小白_Uncle城"
 published: 2026-08-13
 created: 2026-09-03
 description: "【城】AI 写的代码，到底藏了多少致命漏洞？AI 写代码越来越快，但写出来的代码真的安全，喵？Veracode 实测 45% 的 AI 代码含 OWASP Top 10 漏洞，安全缺陷比人工高 2.74 倍；授权缺失占 AI 漏洞四成、AI 编的包 20% 根本不存在；TrustFall 一个回车，四个主流 AI CLI 全中招……这期视频我解析了 AI 代码的八类漏洞漏洞，再实测自研 D"

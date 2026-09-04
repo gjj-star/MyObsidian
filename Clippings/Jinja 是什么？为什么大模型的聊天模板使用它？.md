@@ -2,7 +2,7 @@
 title: "Jinja 是什么？为什么大模型的聊天模板使用它？"
 source: "https://www.cnblogs.com/aopstudio/p/19473655"
 author:
-  - "[[aopstudio]]"
+  - "aopstudio"
 published: 2026-01-12
 created: 2026-09-02
 description: "在HuggingFace的模型页面，点击Chat template选项： 会看到下图这样的内容： 我第一次看到这样的写法时，完全不知道这是什么语言——既不像 Python，也不像 HTML。 查阅了一圈资料之后我才了解到：这里使用的是Jinja语法。Jinja 在大模型时代承担了一个重要角色——把结"

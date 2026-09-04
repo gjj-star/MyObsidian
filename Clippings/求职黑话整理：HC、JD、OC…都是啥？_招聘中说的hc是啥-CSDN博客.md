@@ -2,7 +2,7 @@
 title: "求职黑话整理：HC、JD、OC…都是啥？_招聘中说的hc是啥-CSDN博客"
 source: "https://blog.csdn.net/weixin_45498383/article/details/138271633"
 author:
-  - "[[sagima_sdu]]"
+  - "sagima_sdu"
 published: 2024-04-28
 created: 2026-09-01
 description: "文章浏览阅读10w+次，点赞168次，收藏298次。本文介绍了求职过程中常见的IT行业专业术语，如HC（人力规划）、JD（岗位描述）、简历/CV、求职信/CL等，以及面试流程中的关键环节，如在线测试、AI面试和薪资谈判用语。"

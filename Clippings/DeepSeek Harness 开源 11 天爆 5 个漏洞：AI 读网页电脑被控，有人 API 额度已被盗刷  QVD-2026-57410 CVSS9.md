@@ -2,7 +2,7 @@
 title: "DeepSeek Harness 开源 11 天爆 5 个漏洞：AI 读网页电脑被控，有人 API 额度已被盗刷 | QVD-2026-57410 CVSS9."
 source: "https://www.bilibili.com/video/BV1JttL67Ek6/?spm_id_from=333.1007.top_right_bar_window_history.content.click&vd_source=cef0fce7e5fbce2135907be0a04cc3d7"
 author:
-  - "[[网络小白_Uncle城]]"
+  - "网络小白_Uncle城"
 published: 2026-09-02
 created: 2026-09-03
 description: "DeepSeek 开源的 Agent 框架 DeepSeek Harness（DSH），上线一天 star 破七万，十一天被挖出五个漏洞。开源当天四个（两个严重），8 月 24 日再爆第五个：QVD-2026-57410，极危，CVSS 9.8：攻击者不用碰 AI、不用你的 API 密钥，一条公开脚本就能在你的电脑上执行命令。本期约 36 分钟，分为两部分：前半部分为解析五个漏洞和完整攻击链，"

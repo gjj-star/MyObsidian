@@ -2,7 +2,7 @@
 title: "多智能体（Multi-Agent）深度拆解：应用场景+架构模式，从入门到精通全在这篇！"
 source: "https://blog.csdn.net/m0_59164520/article/details/151995578"
 author:
-  - "[[m0_59164520]]"
+  - "m0_59164520"
 published: 2025-09-23
 created: 2026-08-19
 description: "文章浏览阅读6.4k次，点赞12次，收藏42次。在人工智能应用的开发中，我们常常依赖于强大的大语言模型（LLMs）来构建处理各种任务的AI Agent。然而，当任务变得复杂、多维度、超长上下文或需要多方协作时，单一的Agent往往显得力不从心。这时，多智能体系统（Multi-Agent System, MAS） 的设计范式便展现出其独特的优势。_multi-agent"

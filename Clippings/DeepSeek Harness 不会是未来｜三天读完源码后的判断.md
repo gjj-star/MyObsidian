@@ -2,7 +2,7 @@
 title: "DeepSeek Harness 不会是未来｜三天读完源码后的判断"
 source: "https://www.bilibili.com/video/BV1AZbY6yEU1/?spm_id_from=333.337.search-card.all.click&vd_source=cef0fce7e5fbce2135907be0a04cc3d7"
 author:
-  - "[[老周AgentBuilder]]"
+  - "老周AgentBuilder"
 published: 2026-08-17
 created: 2026-08-21
 description: "DeepSeek Harness 开源且全插件化，会不会成为下一个行业标准？我们花了三天把它的源码一个包一个包啃完，从 Cordis 依赖注入模型、横切关注点、进程本地限制，到 Skill Hub 的现实教训，给出我们的判断：它不会是未来。"
