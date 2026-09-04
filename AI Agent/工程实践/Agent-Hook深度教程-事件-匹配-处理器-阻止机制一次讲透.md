@@ -1,3 +1,8 @@
+---
+cssclasses:
+  - agent-hooks
+---
+
 ## 1. Agent Hooks 是什么，以及底层运行机制
 
 Hook 也就是“钩子”。在 AI Agent 中，它是一种**生命周期自动化机制**：当 Agent 运行到某个特定节点时，由 Claude Code、Codex 这类 Agent 软件主动触发用户预先配置好的处理器，而不是等待大模型自己决定要不要执行。
