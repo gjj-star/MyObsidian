@@ -1,3 +1,13 @@
+---
+name: Obsidian 智能体插件教程
+node_type: memory
+type: reference
+description: Obsidian 智能体插件完整教程——Copilot V4 / Claudian / Agent Client 三方定位对比、使用方法与工作流差异，原文收录
+modified: 2026-09-04T06:00:00.000Z
+aliases: [Claudian, Copilot V4, Agent Client, Obsidian 智能体插件对比]
+tags: [AI-Agent]
+---
+
 ## 一、Copilot、Claudian 与 Agent Client 对比
 
 ### 综合对比

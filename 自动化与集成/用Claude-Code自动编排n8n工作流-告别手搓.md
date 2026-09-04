@@ -1,3 +1,13 @@
+---
+name: 用 Claude Code 自动编排 n8n 工作流
+node_type: memory
+type: reference
+description: Claude Code/OpenCode 经 n8n-mcp 与 n8n-skills 自动编排 n8n 工作流的方法教程（含 OpenClaw 实例），告别手搓，原文收录
+modified: 2026-09-04T06:00:00.000Z
+aliases: [n8n 编排, Claude Code n8n, n8n-mcp, n8n-skills]
+tags: [自动化与集成]
+---
+
 ## Claude Code + n8n 创建工作流
 
 n8n 工作流没有被淘汰，它成为了智能体的底层执行搭档。在 hesamsheikh/awesome-openclaw-usecases 的 GitHub 仓库中，展示了 **OpenClaw** 结合 **n8n** 进行工作流编排的具体工程实例。

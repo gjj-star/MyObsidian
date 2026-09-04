@@ -1,4 +1,11 @@
 ---
+name: Agent-Hook 深度教程
+node_type: memory
+type: reference
+description: Agent Hooks 机制深度教程——事件(Event)/匹配(Matcher)/处理器(Handler)/阻止机制一次讲透，Claude Code/Codex 配置实操，原文收录
+modified: 2026-09-04T06:00:00.000Z
+aliases: [Agent Hooks, Hook 教程, agent-hooks-guide]
+tags: [AI-Agent]
 cssclasses:
   - agent-hooks
 ---
