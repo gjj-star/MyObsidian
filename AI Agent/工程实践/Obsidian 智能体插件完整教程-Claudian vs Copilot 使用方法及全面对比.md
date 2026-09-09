@@ -1,6 +1,6 @@
 ---
 name: Obsidian 智能体插件教程
-node_type: memory
+node_type: source
 type: reference
 description: Obsidian 智能体插件完整教程——Copilot V4 / Claudian / Agent Client 三方定位对比、使用方法与工作流差异，原文收录
 modified: 2026-09-04T06:00:00.000Z

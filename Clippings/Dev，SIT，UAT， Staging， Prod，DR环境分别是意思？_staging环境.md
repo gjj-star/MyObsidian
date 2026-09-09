@@ -2,7 +2,7 @@
 title: "Dev，SIT，UAT， Staging， Prod，DR环境分别是意思？_staging环境"
 source: "https://blog.csdn.net/chancein007/article/details/126951697"
 author:
-  - "[[大象无形，大音希声]]"
+  - "大象无形，大音希声"
 published: 2022-09-20
 created: 2026-09-04
 description: "文章浏览阅读3.1w次，点赞11次，收藏55次。本文详细介绍了软件开发过程中的不同环境，包括开发环境、测试环境、系统集成环境、用户可接受性测试环境、预生产环境、生产环境及灾备环境，并解释了每个阶段的特点与注意事项。"

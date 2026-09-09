@@ -1,6 +1,6 @@
 ---
 name: 用 Claude Code 自动编排 n8n 工作流
-node_type: memory
+node_type: source
 type: reference
 description: Claude Code/OpenCode 经 n8n-mcp 与 n8n-skills 自动编排 n8n 工作流的方法教程（含 OpenClaw 实例），告别手搓，原文收录
 modified: 2026-09-04T06:00:00.000Z
