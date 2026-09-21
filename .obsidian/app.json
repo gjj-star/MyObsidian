@@ -3,5 +3,6 @@
     "dashboard"
   ],
   "alwaysUpdateLinks": true,
-  "attachmentFolderPath": "attachment"
+  "attachmentFolderPath": "attachment",
+  "promptDelete": false
 }

@@ -1,8 +1,8 @@
 {
   "userName": "小白",
   "permissionMode": "yolo",
-  "model": "haiku",
-  "thinkingBudget": "off",
+  "model": "sonnet",
+  "thinkingBudget": "low",
   "effortLevel": "high",
   "serviceTier": "default",
   "enableAutoTitleGeneration": true,
@@ -32,7 +32,7 @@
       "enableOpus1M": false,
       "enableSonnet1M": false,
       "customModels": "",
-      "lastModel": "haiku",
+      "lastModel": "sonnet",
       "environmentVariables": "",
       "environmentHash": ""
     },
@@ -46,7 +46,8 @@
       "environmentVariables": "",
       "environmentHash": "",
       "installationMethodsByHost": {
-        "device:65c0fcfb-0d66-4ae5-9b2f-6e659bf35dd9": "native-windows"
+        "device:65c0fcfb-0d66-4ae5-9b2f-6e659bf35dd9": "native-windows",
+        "device:b8e98da7-ee33-4395-ac2e-effca54ac1f3": "native-windows"
       },
       "wslDistroOverridesByHost": {}
     },
@@ -64,14 +65,14 @@
   },
   "settingsProvider": "claude",
   "savedProviderModel": {
-    "claude": "haiku"
+    "claude": "sonnet"
   },
   "savedProviderEffort": {
     "claude": "high"
   },
   "savedProviderServiceTier": {},
   "savedProviderThinkingBudget": {
-    "claude": "off"
+    "claude": "low"
   },
   "savedProviderPermissionMode": {
     "claude": "yolo"
