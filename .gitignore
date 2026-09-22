@@ -5,6 +5,9 @@
 .claudian/
 .omc/
 
+# 个人附件（本地恢复链接用，不同步公开仓库）
+attachment/
+
 # 系统文件
 .DS_Store
 Thumbs.db
