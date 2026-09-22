@@ -5,7 +5,7 @@ type: knowledge
 description: LeetCode 1011 二分答案经典题笔记——暴力枚举到 check(容量) 模拟运输、发现单调性再到二分搜索最小可行容量，Python/TypeScript 双实现
 modified: 2026-09-09T07:50:00.000Z
 aliases: [LeetCode 1011, Capacity to Ship Packages Within D Days, 二分答案, 二分查找]
-tags: [算法, 实战]
+tags: [数据结构与算法, 力扣实战]
 ---
 
 # LeetCode 1011：在 D 天内送达包裹的能力

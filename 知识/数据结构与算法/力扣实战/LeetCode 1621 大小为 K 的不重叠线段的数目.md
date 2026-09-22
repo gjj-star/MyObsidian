@@ -6,7 +6,7 @@ type_note: 动态规划 / 组合数学
 description: LeetCode 1621 笔记——从暴力枚举距离，到 DFS 抽象，到二维 DP + 前缀和，到滚动数组降维，最后发现组合数学一步出答案；完整记录思路演化路径
 modified: 2026-09-16T07:47:01.000Z
 aliases: [LeetCode 1621, 大小为 K 的不重叠线段, Number of Sets of K Non-Overlapping Line Segments]
-tags: [算法, 实战, 动态规划, 组合数学]
+tags: [数据结构与算法, 力扣实战, 动态规划, 组合数学]
 ---
 
 # 1621. 大小为 K 的不重叠线段的数目笔记

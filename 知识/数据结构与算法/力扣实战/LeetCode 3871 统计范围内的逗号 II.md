@@ -5,7 +5,7 @@ type: knowledge
 description: LeetCode 3871 贡献法计数笔记——分段公式爆炸卡了 4 小时，换维度后 6 行代码解决的顿悟记录
 modified: 2026-09-09T10:10:00.000Z
 aliases: [LeetCode 3871, 统计范围内的逗号, 贡献法, 数位计数]
-tags: [算法, 实战]
+tags: [数据结构与算法, 力扣实战]
 ---
 
 # LeetCode 3871：统计范围内的逗号 II

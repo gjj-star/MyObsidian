@@ -6,7 +6,7 @@ type_note: 降维
 description: LeetCode 836 矩形重叠笔记——二维相交降维成一维区间相交，max(左端点) < min(右端点)；含官方两种解法对比与踩坑记录（下标顺序、and 与 &）
 modified: 2026-09-14T08:35:00.000Z
 aliases: [LeetCode 836, Rectangle Overlap, 矩形重叠, 区间相交]
-tags: [算法, 实战]
+tags: [数据结构与算法, 力扣实战]
 ---
 
 # LeetCode 836：矩形重叠

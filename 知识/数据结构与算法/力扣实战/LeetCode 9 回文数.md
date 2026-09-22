@@ -6,7 +6,7 @@ type_note: 数学
 description: LeetCode 9 回文数笔记——从字符串对折比较到纯数学取余取整反转，再到只反转一半（偶数位 x == reverse、奇数位去掉中间位）与末尾 0 边界坑的完整推演
 modified: 2026-09-17T07:31:08.000Z
 aliases: [LeetCode 9, 回文数, Palindrome Number]
-tags: [算法, 实战, 数学]
+tags: [数据结构与算法, 力扣实战, 数学]
 ---
 
 # LeetCode 9 回文数

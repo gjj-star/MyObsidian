@@ -5,7 +5,7 @@ type: knowledge
 description: LeetCode 1 两数之和三种解法笔记——暴力枚举/排序+双指针/哈希表，坑点（先查后记、返回下标、TS 排序比较函数）与"空间换时间"思维演进
 modified: 2026-09-09T03:12:33.000Z
 aliases: [Two Sum, LeetCode 1, LeetCode 第一题]
-tags: [算法, 实战]
+tags: [数据结构与算法, 力扣实战]
 ---
 
 # LeetCode 1：两数之和（Two Sum）

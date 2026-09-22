@@ -2,6 +2,7 @@
 
 ## 定位
 - 本库是**知识库**：沉淀、整理与连接。CC 对话仓库（github.com/gjj-star/conversation-memories）负责留档，本库负责提炼。
+- **顶层四域**：知识（AI Agent、数据结构与算法、企业数字化、自动化与集成、开发工具、认知研究、自我认知）、个人（求职、经历、项目）、兴趣（六爻、游戏）、百科；另有 `资源/`（模板与附件）、`Clippings/`（原料区）
 
 ## 原料区与每日沉淀流程
 - **Clippings/ 是唯一原料区**：网页剪藏（Obsidian Web Clipper 自动写入）入库；CC 对话新沉淀（weekly-sync.ps1 每天 15:00 自动拉取并记入清单，原始文件留在 CC 仓库不复制入库）；无单独收集箱
@@ -16,7 +17,7 @@
 
 ## 笔记规范
 - 标题用中文（概念可加英文副题），概念卡包含「**英文**：Full Name（ABBR）」术语行
-- 知识卡 frontmatter 用**扁平顶层字段**（Bases 与属性面板可直接读取，不用嵌套 metadata）：`name`（中文名）/ `node_type: memory` / `type`（reference、knowledge、user）/ `description`（一句话摘要）/ `originSessionId`（来源 CC 会话）/ `modified`（更新时间）/ `aliases`（英文+中文别名）/ `tags`（主题标签：AI-Agent、算法、企业数字化、自动化与集成、开发工具、认知研究、自我认知；**子主题标签与图谱颜色组一一对应**，按子目录补：实战、企业软件、业财与经营、编程与数据、环境与部署、信息获取、六爻、心理学、方法论、职业、自我；日记用 日记）；原样收录的参考资料用 `node_type: source` + `type: reference`（不计入知识卡统计与 Bases 面板过滤）
+- 知识卡 frontmatter 用**扁平顶层字段**（Bases 与属性面板可直接读取，不用嵌套 metadata）：`name`（中文名）/ `node_type: memory` / `type`（reference、knowledge、user）/ `description`（一句话摘要）/ `originSessionId`（来源 CC 会话）/ `modified`（更新时间）/ `aliases`（英文+中文别名）/ `tags`（主题标签：AI-Agent、数据结构与算法、企业数字化、自动化与集成、开发工具、认知研究、自我认知、个人、兴趣、百科；**子主题标签与图谱颜色组一一对应**，按子目录补：力扣实战、企业软件、业财与经营、编程与数据、环境与部署、信息获取、心理学、方法论、六爻、职业、自我、求职、经历、项目、游戏、汽车；日记用 日记）；原样收录的参考资料用 `node_type: source` + `type: reference`；个人档案类（求职/经历/项目）用 `node_type: note` + `type: user`（三者均不计入知识卡统计与 Bases 过滤）
 - 蒸馏 CC 新沉淀时按上述格式生成 frontmatter；网页剪藏保持原样，仅加 `tags: clippings`
 - 链接用 [[中文标题]] 双链，不产生断链
 - **算法笔记题面格式**（相关笔记统一沿用）：题目原文用 callout 引用块 `> [!info] 题目原文（LeetCode N 题目名）` 置于 H1 标题之后、正文之前，与笔记正文视觉区分；题面含描述、示例（输入/输出/解释）、提示，变量名用行内代码标注

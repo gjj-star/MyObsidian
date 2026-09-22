@@ -6,7 +6,7 @@ type_note: 贪心
 description: LeetCode 2472 贪心笔记——从"统计回文数"看清"选最多个互不重叠区间"的本质，最早结束贪心（非最短/非起点最早）、选中即截断范围、长度 >= k 的回文可缩为 k/k+1 覆盖两种奇偶性，含 for...else 用法与踩坑
 modified: 2026-09-15T07:26:34.000Z
 aliases: [LeetCode 2472, 不重叠回文子字符串, Maximum Number of Non-overlapping Palindromic Substrings, 最早结束贪心]
-tags: [算法, 实战]
+tags: [数据结构与算法, 力扣实战]
 ---
 
 # 2472. 不重叠回文子字符串的最大数目笔记
