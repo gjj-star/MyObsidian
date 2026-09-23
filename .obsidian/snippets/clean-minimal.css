@@ -1,0 +1,67 @@
+/* ============================================================
+   clean-minimal — 双模式生效（阅读 + 实时预览）
+   主副本：资源/模板/clean-minimal.css（随仓库入库备份）
+   生效副本：.obsidian/snippets/clean-minimal.css（Obsidian 实际加载）
+   修改任一份后，请同步另一份保持一致
+   ============================================================ */
+
+/* === 全局变量（body 级，所有模式生效） === */
+body {
+  --font-text: "更纱黑体 SC", "Sarasa Gothic SC", "Inter", sans-serif;
+  --font-monospace: "JetBrains Mono", "Cascadia Code", monospace;
+  --font-text-size: 15px;
+  --line-height-normal: 1.65;
+  --file-line-width: 750px;
+}
+
+/* === 底部状态栏：隐藏 === */
+.status-bar { display: none; }
+
+/* === 面板内大标题：隐藏（与顶部标签、正文 H1 重复） === */
+.view-header-title { display: none; }
+
+/* === 链接：下划线，不跳色 === */
+/* 阅读模式 */
+.markdown-reading-view a,
+.markdown-reading-view .internal-link {
+  color: var(--text-normal);
+  text-decoration: underline 1px solid var(--text-faint);
+  text-underline-offset: 3px;
+}
+/* 实时预览 + 编辑模式 */
+.markdown-source-view a,
+.markdown-source-view .internal-link,
+.cm-s-obsidian .cm-underline,
+.cm-s-obsidian .cm-url {
+  color: var(--text-normal);
+  text-decoration: underline 1px solid var(--text-faint);
+  text-underline-offset: 3px;
+}
+
+/* === 代码块 === */
+/* 阅读模式 */
+.markdown-reading-view pre {
+  background: var(--background-primary-alt);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 4px;
+  padding: 14px 16px;
+}
+/* 实时预览 */
+.markdown-source-view .cm-s-obsidian .HyperMD-codeblock,
+.markdown-source-view .cm-s-obsidian .HyperMD-codeblock-bg {
+  background: var(--background-primary-alt);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 4px;
+}
+
+/* === 标题：无装饰 === */
+/* 阅读模式 */
+.markdown-reading-view h1 { font-weight: 700; border: none; font-size: 1.6em; }
+.markdown-reading-view h2 { font-weight: 600; border: none; }
+/* 实时预览 */
+.markdown-source-view .cm-s-obsidian .cm-header-1 { font-weight: 700; }
+.markdown-source-view .cm-s-obsidian .cm-header-2 { font-weight: 600; }
+
+/* === 编辑模式下的标题视觉增强（实时预览渲染后的内联标题块） === */
+.HyperMD-header-1 { font-size: 1.6em !important; }
+.HyperMD-header-2 { font-size: 1.3em !important; }

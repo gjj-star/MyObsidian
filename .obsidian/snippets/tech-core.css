@@ -1,0 +1,411 @@
+/* ================================================
+   tech-core.css v2.1.5 — 知识库适配版（术语卡/双链/表格）
+   适配:中英双语术语卡笔记结构
+   适配修正：明暗双主题（--tc-* 调色板随 body.theme-dark/light 切换）；
+             callout 类型标签改为静态内容（data-callout 在容器而非标题上）；
+             表格补外框 + 行线改用高对比 --tc-border-strong；
+             强调色自动跟随 --interactive-accent（设置→外观→强调色），
+             叠加色用 color-mix 动态生成；
+             tag 颜色与图谱颜色组（graph.json colorGroups）一一对应，
+             阅读模式正文（a.tag[href]）与实时预览（span.cm-hashtag）双覆盖；
+             属性区/属性面板 pill（multi-select-pill）复用官方 --tag-* 变量
+             （pill 无值钩子无法按 tag 单独着色，统一图谱紫 #9B59B6）
+   覆盖保存到 .obsidian/snippets/tech-core.css
+   ================================================ */
+
+/* ---------- 调色板 ---------- */
+body.theme-dark {
+  --tc-accent: var(--interactive-accent, #7aa2f7);
+  --tc-purple: #bb9af7;
+  --tc-green: #9ece6a;
+  --tc-yellow: #e0af68;
+  --tc-red: #f7768e;
+  --tc-gray: #7f849c;
+  --tc-fg: #d4d4d4;
+  --tc-fg-strong: #ececec;
+  --tc-fg-soft: #a8a8b3;
+  --tc-fg-def: #c8c8d2;
+  --tc-code-fg: #c0caf5;
+  --tc-code-inline-fg: var(--tc-accent);
+  --tc-tag-fg: var(--tc-accent);
+  /* 官方 tag 变量桥接：属性区/属性面板 multi-select-pill 经内建 CSS 映射使用 --tag-*；
+     统一图谱紫 #9B59B6（图谱「企业软件」组），不跟随强调色 */
+  --tag-color: #9B59B6;
+  --tag-color-hover: #9B59B6;
+  --tag-background: color-mix(in srgb, #9B59B6 15%, transparent);
+  --tag-background-hover: color-mix(in srgb, #9B59B6 26%, transparent);
+  --tag-border-width: 0;
+  --tag-padding-x: 8px;
+  --tag-padding-y: 2px;
+  --tag-radius: 999px;
+  --tag-weight: 500;
+  --tc-bg-card: #16161a;
+  --tc-bg-soft: #1e1e22;
+  --tc-bg-zebra: #17171c;
+  --tc-bg-hover: #1e1e24;
+  --tc-bg-code: #101014;
+  --tc-bg-mark: color-mix(in srgb, var(--tc-accent) 22%, transparent);
+  --tc-bg-link-hover: color-mix(in srgb, var(--tc-accent) 12%, transparent);
+  --tc-bg-th: color-mix(in srgb, var(--tc-accent) 8%, transparent);
+  --tc-border: #2a2b38;
+  --tc-border-strong: #3b4252;
+  --tc-border-link: color-mix(in srgb, var(--tc-accent) 40%, transparent);
+  --tc-hr-bg: #1b1b1b;
+  --tc-list-sub: #565f89;
+}
+body.theme-light {
+  --tc-accent: var(--interactive-accent, #7aa2f7);
+  --tc-purple: #8b7ad8;
+  --tc-green: #63a06a;
+  --tc-yellow: #c19346;
+  --tc-red: #d16a7e;
+  --tc-gray: #7f849c;
+  --tc-fg: #3d4450;
+  --tc-fg-strong: #20242c;
+  --tc-fg-soft: #5c6470;
+  --tc-fg-def: #4a5160;
+  --tc-code-fg: #33405e;
+  --tc-code-inline-fg: #4e63d6;
+  --tc-tag-fg: #4e63d6;
+  --tag-color: #9B59B6;
+  --tag-color-hover: #9B59B6;
+  --tag-background: color-mix(in srgb, #9B59B6 10%, transparent);
+  --tag-background-hover: color-mix(in srgb, #9B59B6 20%, transparent);
+  --tag-border-width: 0;
+  --tag-padding-x: 8px;
+  --tag-padding-y: 2px;
+  --tag-radius: 999px;
+  --tag-weight: 500;
+  --tc-bg-card: #f0f1f5;
+  --tc-bg-soft: #e9ebf0;
+  --tc-bg-zebra: #f2f3f7;
+  --tc-bg-hover: #e6e9f0;
+  --tc-bg-code: #f6f7fa;
+  --tc-bg-mark: color-mix(in srgb, var(--tc-accent) 25%, transparent);
+  --tc-bg-link-hover: color-mix(in srgb, var(--tc-accent) 14%, transparent);
+  --tc-bg-th: color-mix(in srgb, var(--tc-accent) 8%, transparent);
+  --tc-border: #d9dce3;
+  --tc-border-strong: #c3c9d4;
+  --tc-border-link: color-mix(in srgb, var(--tc-accent) 45%, transparent);
+  --tc-hr-bg: #ffffff;
+  --tc-list-sub: #8a91a8;
+}
+
+/* ---------- 全局排版 ---------- */
+body {
+  --font-text: "更纱黑体 SC", "Sarasa Gothic SC", "Inter", sans-serif;
+  --font-monospace: "JetBrains Mono", "Cascadia Code", "Sarasa Mono SC", Consolas, monospace;
+  --tc-mono: "JetBrains Mono", "Cascadia Code", "Sarasa Mono SC", Consolas, monospace;
+}
+.markdown-rendered {
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--tc-fg);
+}
+.markdown-rendered p { margin: 0.6em 0; }
+.markdown-rendered strong { color: var(--tc-fg-strong); font-weight: 600; }
+
+/* ---------- 标题：无衬线中文 + 等宽编号 ---------- */
+.markdown-reading-view { counter-reset: h2 h3; }
+.markdown-rendered h1, .markdown-rendered h2,
+.markdown-rendered h3, .markdown-rendered h4 {
+  color: var(--tc-fg-strong);
+  letter-spacing: 0.2px;
+}
+
+/* 文章主标题：底线 + 霓虹短条 */
+.markdown-rendered h1 {
+  font-size: 1.7em;
+  border-bottom: 1px solid var(--tc-border);
+  padding-bottom: 0.35em;
+  margin: 0 0 0.8em;
+  position: relative;
+}
+.markdown-rendered h1::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: -1px;
+  width: 56px; height: 2px;
+  background: var(--tc-accent);
+}
+
+/* H2：左侧竖条 + 01 编号 */
+.markdown-rendered h2 {
+  border-left: 3px solid var(--tc-accent);
+  padding-left: 0.6em;
+  margin: 1.6em 0 0.7em;
+  counter-increment: h2;
+  counter-reset: h3;
+}
+.markdown-rendered h2::before {
+  content: counter(h2, decimal-leading-zero) " · ";
+  color: var(--tc-accent);
+  font-family: var(--tc-mono);
+  font-size: 0.8em;
+}
+
+/* H3：层级编号 2.1 */
+.markdown-rendered h3 { counter-increment: h3; }
+.markdown-rendered h3::before {
+  content: counter(h2) "." counter(h3) "  ";
+  color: var(--tc-accent);
+  font-family: var(--tc-mono);
+  font-size: 0.75em;
+}
+
+/* ---------- 开篇定义卡：标题后第一段 ---------- */
+.markdown-rendered h1 + p {
+  background: var(--tc-bg-card);
+  border-left: 3px solid var(--tc-accent);
+  border-radius: 0 8px 8px 0;
+  padding: 0.8em 1em 0.8em 3em;
+  position: relative;
+  font-size: 1.05em;
+  color: var(--tc-fg-def);
+}
+.markdown-rendered h1 + p::before {
+  content: "DEF";
+  position: absolute;
+  left: 0.9em;
+  top: 0.9em;
+  font-family: var(--tc-mono);
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: var(--tc-accent);
+}
+
+/* ---------- 引用块（金句/一句话） ---------- */
+.markdown-rendered blockquote {
+  border-left: 3px solid var(--tc-accent);
+  background: var(--tc-bg-soft);
+  border-radius: 0 8px 8px 0;
+  padding: 0.6em 1em;
+  margin: 1em 0;
+  color: var(--tc-fg-soft);
+}
+
+/* ---------- 表格：外框 + 表头淡蓝底 + 斑马纹 + hover ---------- */
+.markdown-rendered table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1em 0;
+  border: 1px solid var(--tc-border-strong);
+}
+.markdown-rendered th {
+  font-family: var(--tc-mono);
+  font-size: 0.85em;
+  letter-spacing: 0.5px;
+  color: var(--tc-accent);
+  background: var(--tc-bg-th);
+  border-bottom: 2px solid var(--tc-accent);
+  padding: 8px 12px;
+  text-align: left;
+}
+.markdown-rendered td {
+  border-bottom: 1px solid var(--tc-border-strong);
+  padding: 8px 12px;
+}
+.markdown-rendered tbody tr:nth-child(even) { background: var(--tc-bg-zebra); }
+.markdown-rendered tbody tr:hover { background: var(--tc-bg-hover); }
+
+/* ---------- 列表：层级符号 ---------- */
+.markdown-rendered ul { padding-left: 1.4em; }
+.markdown-rendered ul li { list-style: none; position: relative; }
+.markdown-rendered ul li::before {
+  content: "▹";
+  position: absolute;
+  left: -1.2em;
+  color: var(--tc-accent);
+}
+.markdown-rendered ul ul li::before { content: "–"; color: var(--tc-list-sub); }
+.markdown-rendered ol li::marker { color: var(--tc-accent); font-family: var(--tc-mono); font-weight: 600; }
+
+/* ---------- 双链：虚线导航 + hover 高亮 ---------- */
+.markdown-rendered a.internal-link {
+  color: var(--tc-accent);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--tc-border-link);
+  transition: all 0.15s;
+}
+.markdown-rendered a.internal-link:hover {
+  border-bottom: 1px solid var(--tc-accent);
+  background: var(--tc-bg-link-hover);
+}
+.markdown-rendered a.external-link { color: var(--tc-purple); text-decoration: none; }
+.markdown-rendered a.external-link::after { content: " ↗"; font-size: 0.8em; }
+
+/* ---------- Callout：类型着色 + 类型标签 ---------- */
+.callout {
+  border: 1px solid var(--tc-border);
+  border-left: 3px solid var(--tc-accent);
+  background: var(--tc-bg-card);
+  border-radius: 8px;
+  padding: 0.8em 1em;
+  margin: 1em 0;
+}
+.callout-title { color: var(--tc-accent); font-weight: 600; }
+.callout-title::after {
+  content: "";
+  font-family: var(--tc-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.55;
+  margin-left: 8px;
+}
+.callout[data-callout="tip"] .callout-title::after { content: "TIP"; }
+.callout[data-callout="hint"] .callout-title::after { content: "HINT"; }
+.callout[data-callout="important"] .callout-title::after { content: "IMPORTANT"; }
+.callout[data-callout="question"] .callout-title::after { content: "QUESTION"; }
+.callout[data-callout="success"] .callout-title::after { content: "SUCCESS"; }
+.callout[data-callout="check"] .callout-title::after { content: "CHECK"; }
+.callout[data-callout="done"] .callout-title::after { content: "DONE"; }
+.callout[data-callout="example"] .callout-title::after { content: "EXAMPLE"; }
+.callout[data-callout="warning"] .callout-title::after { content: "WARNING"; }
+.callout[data-callout="caution"] .callout-title::after { content: "CAUTION"; }
+.callout[data-callout="danger"] .callout-title::after { content: "DANGER"; }
+.callout[data-callout="error"] .callout-title::after { content: "ERROR"; }
+.callout[data-callout="bug"] .callout-title::after { content: "BUG"; }
+.callout[data-callout="fail"] .callout-title::after { content: "FAIL"; }
+.callout[data-callout="quote"] .callout-title::after { content: "QUOTE"; }
+.callout[data-callout="cite"] .callout-title::after { content: "CITE"; }
+
+.callout[data-callout="tip"], .callout[data-callout="hint"],
+.callout[data-callout="important"], .callout[data-callout="question"] { border-left-color: var(--tc-purple); }
+.callout[data-callout="tip"] .callout-title, .callout[data-callout="hint"] .callout-title,
+.callout[data-callout="important"] .callout-title, .callout[data-callout="question"] .callout-title { color: var(--tc-purple); }
+.callout[data-callout="success"], .callout[data-callout="check"],
+.callout[data-callout="done"], .callout[data-callout="example"] { border-left-color: var(--tc-green); }
+.callout[data-callout="success"] .callout-title, .callout[data-callout="check"] .callout-title,
+.callout[data-callout="done"] .callout-title, .callout[data-callout="example"] .callout-title { color: var(--tc-green); }
+.callout[data-callout="warning"], .callout[data-callout="caution"] { border-left-color: var(--tc-yellow); }
+.callout[data-callout="warning"] .callout-title, .callout[data-callout="caution"] .callout-title { color: var(--tc-yellow); }
+.callout[data-callout="danger"], .callout[data-callout="error"],
+.callout[data-callout="bug"], .callout[data-callout="fail"] { border-left-color: var(--tc-red); }
+.callout[data-callout="danger"] .callout-title, .callout[data-callout="error"] .callout-title,
+.callout[data-callout="bug"] .callout-title, .callout[data-callout="fail"] .callout-title { color: var(--tc-red); }
+.callout[data-callout="quote"], .callout[data-callout="cite"] { border-left-color: var(--tc-gray); }
+.callout[data-callout="quote"] .callout-title, .callout[data-callout="cite"] .callout-title { color: var(--tc-gray); }
+
+/* ---------- 代码：内联 + 块 ---------- */
+.markdown-rendered code {
+  font-family: var(--tc-mono);
+  background: var(--tc-bg-soft);
+  color: var(--tc-code-inline-fg);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+.markdown-rendered pre {
+  background: var(--tc-bg-code) !important;
+  border: 1px solid var(--tc-border);
+  border-left: 3px solid var(--tc-accent);
+  border-radius: 8px;
+  padding: 1em 1.2em;
+}
+.markdown-rendered pre code {
+  background: transparent;
+  color: var(--tc-code-fg);
+  padding: 0;
+}
+
+/* ---------- 高亮 ==文本== ---------- */
+.markdown-rendered mark {
+  background: var(--tc-bg-mark);
+  color: var(--tc-fg-strong);
+  border-bottom: 1px solid var(--tc-accent);
+  padding: 0 2px;
+  border-radius: 2px;
+}
+
+/* ---------- 标签：图谱颜色组对应 ----------
+   三种 DOM 形态：
+   1) 阅读模式正文 #tag → a.tag[href="#xxx"]（可 per-value，用图谱色）
+   2) 实时预览/编辑    → span.cm-hashtag + cm-tag-* 类（可 per-value，图谱色）
+   3) 属性区/属性面板  → span.multi-select-pill（只有 tabIndex，无值钩子，
+      无法 per-value；颜色由官方 --tag-* 变量统一控制，见调色板） */
+.markdown-rendered a.tag {
+  --tag-c: var(--tc-tag-fg);
+  color: var(--tag-c);
+  background: color-mix(in srgb, var(--tag-c) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--tag-c) 35%, transparent);
+  border-radius: 999px;
+  padding: 1px 10px;
+  font-size: 0.8em;
+  font-family: var(--tc-mono);
+  text-decoration: none;
+  margin: 0 2px;
+}
+.markdown-rendered a.tag:hover { background: color-mix(in srgb, var(--tag-c) 24%, transparent); }
+
+/* 颜色与 graph.json colorGroups 一一对应；中文 tag 兼容 raw/URL 编码两种 href */
+.markdown-rendered a.tag[href="#AI-Agent"] { --tag-c: #4C9AFF; }
+.markdown-rendered a.tag[href="#企业软件"], .markdown-rendered a.tag[href="#%E4%BC%81%E4%B8%9A%E8%BD%AF%E4%BB%B6"] { --tag-c: #9B59B6; }
+.markdown-rendered a.tag[href="#业财与经营"], .markdown-rendered a.tag[href="#%E4%B8%9A%E8%B4%A2%E4%B8%8E%E7%BB%8F%E8%90%A5"] { --tag-c: #2ECC71; }
+.markdown-rendered a.tag[href="#自动化与集成"], .markdown-rendered a.tag[href="#%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B8%8E%E9%9B%86%E6%88%90"] { --tag-c: #E67E22; }
+.markdown-rendered a.tag[href="#编程与数据"], .markdown-rendered a.tag[href="#%E7%BC%96%E7%A8%8B%E4%B8%8E%E6%95%B0%E6%8D%AE"] { --tag-c: #F1C40F; }
+.markdown-rendered a.tag[href="#环境与部署"], .markdown-rendered a.tag[href="#%E7%8E%AF%E5%A2%83%E4%B8%8E%E9%83%A8%E7%BD%B2"] { --tag-c: #D35400; }
+.markdown-rendered a.tag[href="#信息获取"], .markdown-rendered a.tag[href="#%E4%BF%A1%E6%81%AF%E8%8E%B7%E5%8F%96"] { --tag-c: #00B894; }
+.markdown-rendered a.tag[href="#六爻"], .markdown-rendered a.tag[href="#%E5%85%AD%E7%88%BB"] { --tag-c: #E74C3C; }
+.markdown-rendered a.tag[href="#方法论"], .markdown-rendered a.tag[href="#%E6%96%B9%E6%B3%95%E8%AE%BA"] { --tag-c: #16A085; }
+.markdown-rendered a.tag[href="#职业"], .markdown-rendered a.tag[href="#%E8%81%8C%E4%B8%9A"] { --tag-c: #E84393; }
+.markdown-rendered a.tag[href="#自我"], .markdown-rendered a.tag[href="#%E8%87%AA%E6%88%91"] { --tag-c: #6C5CE7; }
+.markdown-rendered a.tag[href="#日记"] { --tag-c: #00CEC9; }
+.markdown-rendered a.tag[href="#%E6%97%A5%E8%AE%B0"] { --tag-c: #00CEC9; }
+.markdown-rendered a.tag[href="#clippings"] { --tag-c: #95A5A6; }
+
+/* 浅色模式下加深，保证彩色 tag 在白底可读 */
+body.theme-light .markdown-rendered a.tag { filter: brightness(0.72); }
+
+/* ---------- 实时预览/编辑模式（span.cm-hashtag + cm-tag-* 类，非 a.tag） ---------- */
+.cm-s-obsidian span.cm-hashtag {
+  --tag-c: var(--tc-tag-fg);
+  color: var(--tag-c);
+  background: color-mix(in srgb, var(--tag-c) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--tag-c) 35%, transparent);
+  border-radius: 999px;
+  padding: 1px 8px;
+  font-family: var(--tc-mono);
+  font-size: 0.8em;
+}
+.cm-s-obsidian span.cm-hashtag[class*="cm-tag-AI-Agent"] { --tag-c: #4C9AFF; }
+.cm-s-obsidian span.cm-hashtag[class*="cm-tag-企业软件"] { --tag-c: #9B59B6; }
+.cm-s-obsidian span.cm-hashtag[class*="cm-tag-业财与经营"] { --tag-c: #2ECC71; }
+.cm-s-obsidian span.cm-hashtag[class*="cm-tag-自动化与集成"] { --tag-c: #E67E22; }
+.cm-s-obsidian span.cm-hashtag[class*="cm-tag-编程与数据"] { --tag-c: #F1C40F; }
+.cm-s-obsidian span.cm-hashtag[class*="cm-tag-环境与部署"] { --tag-c: #D35400; }
+.cm-s-obsidian span.cm-hashtag[class*="cm-tag-信息获取"] { --tag-c: #00B894; }
+.cm-s-obsidian span.cm-hashtag[class*="cm-tag-六爻"] { --tag-c: #E74C3C; }
+.cm-s-obsidian span.cm-hashtag[class*="cm-tag-方法论"] { --tag-c: #16A085; }
+.cm-s-obsidian span.cm-hashtag[class*="cm-tag-职业"] { --tag-c: #E84393; }
+.cm-s-obsidian span.cm-hashtag[class*="cm-tag-自我"] { --tag-c: #6C5CE7; }
+.cm-s-obsidian span.cm-hashtag[class*="cm-tag-日记"] { --tag-c: #00CEC9; }
+.cm-s-obsidian span.cm-hashtag[class*="cm-tag-clippings"] { --tag-c: #95A5A6; }
+body.theme-light .cm-s-obsidian span.cm-hashtag { filter: brightness(0.72); }
+
+/* ---------- 分隔线 ---------- */
+.markdown-rendered hr {
+  border: none;
+  border-top: 1px solid var(--tc-border);
+  margin: 2em 0;
+  position: relative;
+}
+.markdown-rendered hr::after {
+  content: "◇";
+  position: absolute;
+  left: 50%;
+  top: -9px;
+  transform: translateX(-50%);
+  background: var(--tc-hr-bg);
+  color: var(--tc-accent);
+  padding: 0 8px;
+  font-size: 12px;
+}
+
+/* ---------- 图片 ---------- */
+.markdown-rendered img {
+  border-radius: 8px;
+  border: 1px solid var(--tc-border);
+  transition: opacity 0.15s;
+}
+.markdown-rendered img:hover { opacity: 0.9; }

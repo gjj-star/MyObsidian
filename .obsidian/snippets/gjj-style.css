@@ -1,0 +1,602 @@
+/* ============================================
+   GJJ Tech Dashboard - 科技感样式
+   ============================================ */
+
+/* --- 暗色背景 --- */
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) {
+  background: #0f111a !important;
+}
+
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .markdown-preview-sizer {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* --- 标题 --- */
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) h1 {
+  font-size: 2em;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: #c0caf5 !important;
+  border-bottom: 3px solid #3b4261;
+  padding-bottom: 0.4em;
+  margin-bottom: 1.5em;
+}
+
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) h2 {
+  font-size: 1.15em;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #7aa2f7 !important;
+  margin-top: 2.5em;
+  margin-bottom: 0.8em;
+  padding: 0.35em 0.8em;
+  border-left: 4px solid #7aa2f7;
+  background: rgba(122, 162, 247, 0.06);
+  border-radius: 0 6px 6px 0;
+}
+
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) h3 {
+  font-size: 1em;
+  font-weight: 600;
+  color: #a9b1d6 !important;
+}
+
+/* --- 正文颜色 --- */
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) p,
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) li,
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) td {
+  color: #a9b1d6;
+  line-height: 1.7;
+}
+
+/* --- Callout 卡片 --- */
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .callout {
+  background: rgba(30, 34, 50, 0.95) !important;
+  border: 1px solid #3b4261 !important;
+  border-left: 4px solid #7aa2f7 !important;
+  border-radius: 10px !important;
+  box-shadow: 0 0 20px rgba(122, 162, 247, 0.06), 0 2px 8px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  margin-bottom: 1em !important;
+}
+
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .callout:hover {
+  border-color: #565f89 !important;
+  box-shadow: 0 0 30px rgba(122, 162, 247, 0.12), 0 4px 16px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .callout-title {
+  background: rgba(122, 162, 247, 0.08) !important;
+  border-bottom: 1px solid #3b4261 !important;
+  font-weight: 700;
+  font-size: 0.95em;
+  letter-spacing: 0.04em;
+  color: #c0caf5 !important;
+}
+
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .callout-title .callout-icon {
+  color: #7aa2f7 !important;
+}
+
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .callout-title .callout-title-inner {
+  color: #c0caf5 !important;
+}
+
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .callout-content {
+  padding: 1em 1.2em !important;
+  color: #c0caf5 !important;
+}
+
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .callout-content p,
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .callout-content li,
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .callout-content strong,
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .callout-content em {
+  color: #c0caf5 !important;
+}
+
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .callout-content code {
+  background: rgba(122, 162, 247, 0.12) !important;
+  color: #7dcfff !important;
+}
+
+/* Callout 类型颜色 */
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .callout[data-callout="info"] {
+  border-left-color: #7aa2f7 !important;
+}
+
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .callout[data-callout="warning"] {
+  border-left-color: #e0af68 !important;
+}
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .callout[data-callout="warning"] .callout-title .callout-icon {
+  color: #e0af68 !important;
+}
+
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .callout[data-callout="tip"] {
+  border-left-color: #9ece6a !important;
+}
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .callout[data-callout="tip"] .callout-title .callout-icon {
+  color: #9ece6a !important;
+}
+
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .callout[data-callout="quote"] {
+  border-left-color: #bb9af7 !important;
+}
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .callout[data-callout="quote"] .callout-title .callout-icon {
+  color: #bb9af7 !important;
+}
+
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .callout[data-callout="example"] {
+  border-left-color: #f7768e !important;
+}
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .callout[data-callout="example"] .callout-title .callout-icon {
+  color: #f7768e !important;
+}
+
+/* --- 表格 --- */
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid #2a2e3f;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) thead tr {
+  background: rgba(122, 162, 247, 0.08);
+}
+
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) th {
+  font-weight: 700;
+  font-size: 0.82em;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #7aa2f7 !important;
+  padding: 0.7em 1em;
+  border-bottom: 2px solid #2a2e3f;
+}
+
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) tr:hover td {
+  background: rgba(122, 162, 247, 0.04);
+}
+
+/* --- 链接 --- */
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .internal-link {
+  color: #7dcfff !important;
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(125, 207, 255, 0.3);
+  transition: all 0.2s ease;
+}
+
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .internal-link:hover {
+  color: #b4f9f8 !important;
+  border-bottom-color: #b4f9f8;
+  text-shadow: 0 0 10px rgba(125, 207, 255, 0.3);
+}
+
+/* --- 分割线 --- */
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #3b4261, transparent);
+  margin: 2em 0;
+}
+
+/* --- 行内代码 --- */
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) code {
+  background: rgba(122, 162, 247, 0.08);
+  border: 1px solid rgba(122, 162, 247, 0.15);
+  border-radius: 4px;
+  padding: 0.1em 0.4em;
+  font-size: 0.88em;
+  color: #7dcfff !important;
+}
+
+/* --- 代码块 --- */
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) pre {
+  background: #1a1b26 !important;
+  border: 1px solid #2a2e3f;
+  border-radius: 8px;
+}
+
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) pre code {
+  background: transparent !important;
+  border: none !important;
+  color: #a9b1d6 !important;
+}
+
+/* --- 引用块 --- */
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) blockquote:not(.callout) {
+  border-left: 3px solid #3b4261;
+  background: rgba(122, 162, 247, 0.03);
+  padding: 0.6em 1em;
+  border-radius: 0 8px 8px 0;
+  color: #565f89;
+  font-style: italic;
+}
+
+/* --- 列表 --- */
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) li::marker {
+  color: #3b4261;
+}
+
+/* --- Dataview 容器 --- */
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .block-language-dataview,
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .block-language-dataviewjs {
+  font-size: 0.92em;
+}
+
+/* ============================================================
+   v3 增补（2026-09-23 方案定制）
+   已选：1b 2e 4e 5b 6b 7e 8b 9b+9d 10c 11c 12b+12c 15b 16f
+   保持原样：3a 高亮 / 13a 引用 / 14a 标题
+   ============================================================ */
+
+/* --- 1b 数学公式：静默居中 + 留白加大 --- */
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .math-block {
+  text-align: center !important;
+  margin: 1.8em 0 !important;
+}
+
+/* --- 2e 修订版：abstract 题记风（2px 青紫竖线 + 小灰标题 + 无卡片）--- */
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .callout[data-callout="abstract"] {
+  border: none !important;
+  border-left: 2px solid #bb9af7 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  margin: 1.2em 0 !important;
+}
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .callout[data-callout="abstract"]:hover {
+  transform: none !important;
+  box-shadow: none !important;
+  border-color: #bb9af7 !important;
+}
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .callout[data-callout="abstract"] .callout-title {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 0 4px 14px !important;
+  font-size: 0.82em;
+  letter-spacing: 0.08em;
+}
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .callout[data-callout="abstract"] .callout-title .callout-icon {
+  color: #bb9af7 !important;
+}
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .callout[data-callout="abstract"] .callout-title .callout-title-inner {
+  color: #565f89 !important;
+}
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .callout[data-callout="abstract"] .callout-content {
+  padding: 0 0 2px 14px !important;
+}
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .callout[data-callout="abstract"] .callout-content p {
+  color: #c0caf5 !important;
+}
+
+/* --- 题面：info callout 文献框（轻量卡 + 细左条 + 无 hover 动画）--- */
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .callout[data-callout="info"] {
+  background: rgba(26, 27, 38, 0.45) !important;
+  border: 1px solid #2a2e3f !important;
+  border-left: 2px solid rgba(122, 162, 247, 0.5) !important;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+}
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .callout[data-callout="info"]:hover {
+  transform: none !important;
+  box-shadow: none !important;
+  border-color: #2a2e3f !important;
+  border-left-color: rgba(122, 162, 247, 0.5) !important;
+}
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .callout[data-callout="info"] .callout-title {
+  background: transparent !important;
+  border-bottom: 1px solid rgba(42, 46, 63, 0.7) !important;
+  padding: 6px 14px !important;
+  font-size: 0.82em;
+  letter-spacing: 0.06em;
+}
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .callout[data-callout="info"] .callout-title .callout-title-inner {
+  color: #565f89 !important;
+}
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .callout[data-callout="info"] .callout-content {
+  padding: 10px 16px !important;
+  font-size: 0.95em;
+}
+
+/* --- 题记风/文献框 的亮色适配 --- */
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) .callout[data-callout="abstract"] {
+  border-left-color: #8a68b8 !important;
+}
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) .callout[data-callout="abstract"] .callout-title .callout-title-inner {
+  color: #8a8577 !important;
+}
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) .callout[data-callout="abstract"] .callout-content p {
+  color: #3f3f46 !important;
+}
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) .callout[data-callout="info"] {
+  background: #fbfaf7 !important;
+  border-color: #e3e0d8 !important;
+  border-left-color: rgba(149, 104, 32, 0.5) !important;
+}
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) .callout[data-callout="info"] .callout-title {
+  border-bottom-color: #e3e0d8 !important;
+}
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) .callout[data-callout="info"] .callout-title .callout-title-inner {
+  color: #8a8577 !important;
+}
+
+/* --- 4e 图片：悬停轻微放大 --- */
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) img {
+  transition: transform 0.25s ease;
+}
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) img:hover {
+  transform: scale(1.02);
+}
+
+/* --- 5b 外链：蓝色区分（内链青 #7dcfff，外链蓝 #7aa2f7）--- */
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) a.external-link {
+  color: #7aa2f7 !important;
+  text-decoration: none !important;
+  border-bottom: 1px dashed rgba(122, 162, 247, 0.4);
+}
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) a.external-link:hover {
+  color: #b4f9f8 !important;
+}
+
+/* --- 6b Mermaid：容器区分 + 暗底适配（解决 SVG 与背景同色看不清）--- */
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .mermaid {
+  background: rgba(26, 27, 38, 0.6);
+  border: 1px solid #2a2e3f;
+  border-radius: 10px;
+  padding: 14px;
+  display: flex;
+  justify-content: center;
+}
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .mermaid svg {
+  background: transparent !important;
+  max-width: 100%;
+}
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .mermaid .node rect,
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .mermaid .node circle,
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .mermaid .node polygon,
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .mermaid .node path {
+  fill: #24283b !important;
+  stroke: #7aa2f7 !important;
+}
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .mermaid .nodeLabel,
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .mermaid .label,
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .mermaid span.nodeLabel {
+  color: #c0caf5 !important;
+  fill: #c0caf5 !important;
+}
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .mermaid .edgePath .path,
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .mermaid .flowchart-link {
+  stroke: #7aa2f7 !important;
+}
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .mermaid marker path,
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .mermaid .arrowheadPath {
+  fill: #7aa2f7 !important;
+  stroke: #7aa2f7 !important;
+}
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .mermaid .cluster rect {
+  fill: #1a1b26 !important;
+  stroke: #3b4261 !important;
+}
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .mermaid .edgeLabel,
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .mermaid .edgeLabel rect {
+  background: #1a1b26 !important;
+  fill: #1a1b26 !important;
+}
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .mermaid .edgeLabel span {
+  color: #a9b1d6 !important;
+}
+
+/* --- 7e 任务列表：GitHub 风（完成绿）--- */
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) input.task-list-item-checkbox:checked {
+  background-color: #9ece6a !important;
+  border-color: #9ece6a !important;
+  --checkbox-marker-color: #0f111a;
+}
+
+/* --- 8b 标签 pill：纸质低饱和（正文 tag + 属性面板）--- */
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) a.tag {
+  background: rgba(169, 177, 214, 0.1) !important;
+  color: #a9b1d6 !important;
+  border: none !important;
+  border-radius: 999px !important;
+  padding: 2px 9px !important;
+  font-size: 0.78em;
+  text-decoration: none !important;
+}
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) a.tag:hover {
+  background: rgba(169, 177, 214, 0.18) !important;
+}
+.multi-select-pill {
+  background: rgba(169, 177, 214, 0.1) !important;
+  border: none !important;
+  border-radius: 999px !important;
+}
+
+/* --- 9b Bases 表格视图：gjj 表格同皮肤 --- */
+.bases-view table {
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  border: 1px solid #2a2e3f !important;
+  border-radius: 8px !important;
+  overflow: hidden;
+}
+.bases-view th {
+  background: rgba(122, 162, 247, 0.08) !important;
+  color: #7aa2f7 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.82em;
+}
+.bases-view th, .bases-view td {
+  border-bottom: 1px solid #2a2e3f !important;
+  padding: 6px 10px !important;
+}
+.bases-view tr:hover td {
+  background: rgba(122, 162, 247, 0.05) !important;
+}
+
+/* --- 9d Bases 卡片视图 --- */
+.bases-view .bases-cards-item, .bases-view .card {
+  border: 1px solid #2a2e3f !important;
+  border-radius: 8px !important;
+  transition: all 0.2s ease;
+}
+.bases-view .bases-cards-item:hover, .bases-view .card:hover {
+  transform: translateY(-2px);
+  border-color: #565f89 !important;
+}
+
+/* --- 10c Dataview 结果块：卡片容器 --- */
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .block-language-dataview,
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .block-language-dataviewjs {
+  background: rgba(26, 27, 38, 0.6);
+  border: 1px solid #2a2e3f;
+  border-radius: 8px;
+  padding: 8px 14px;
+}
+
+/* --- 11c 表格：悬停行左侧色条 --- */
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) tr:hover td:first-child {
+  border-left: 2px solid #7aa2f7 !important;
+}
+
+/* --- 12b 代码块：语言标签 --- */
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) pre {
+  position: relative;
+}
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) pre[data-language]::before {
+  content: attr(data-language);
+  position: absolute;
+  top: 5px;
+  left: 14px;
+  font-size: 0.72em;
+  color: #565f89;
+  letter-spacing: 0.06em;
+  text-transform: lowercase;
+  pointer-events: none;
+}
+
+/* --- 12c 代码块：行号（依赖阅读视图行级渲染，若不显示可再调整）--- */
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) pre code {
+  counter-reset: pv-line;
+}
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) pre code .line {
+  counter-increment: pv-line;
+}
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) pre code .line::before {
+  content: counter(pv-line);
+  display: inline-block;
+  width: 2em;
+  margin-right: 10px;
+  text-align: right;
+  color: #3b4261;
+  user-select: none;
+}
+
+/* --- 16f 阅读宽度：全宽 --- */
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) .markdown-preview-sizer {
+  max-width: 100% !important;
+}
+
+/* ============================================================
+   15b 亮色模式完整适配（米白纸感；仅在亮色主题下生效）
+   ============================================================ */
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) {
+  background: #f7f6f2 !important;
+}
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) h1 {
+  color: #1a1a1f !important;
+  border-bottom-color: #d8d5cc !important;
+}
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) h2 {
+  color: #956820 !important;
+  border-left-color: #956820 !important;
+  background: rgba(149, 104, 32, 0.06) !important;
+}
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) h3 {
+  color: #6b6b73 !important;
+}
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) p,
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) li,
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) td {
+  color: #3f3f46 !important;
+}
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) .callout {
+  background: #fbfaf7 !important;
+  border-color: #e3e0d8 !important;
+  border-left-color: #956820 !important;
+  box-shadow: 0 1px 4px rgba(10, 10, 11, 0.06) !important;
+}
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) .callout:hover {
+  border-color: #cfccc2 !important;
+  box-shadow: 0 4px 14px rgba(10, 10, 11, 0.1) !important;
+}
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) .callout-title {
+  background: rgba(149, 104, 32, 0.05) !important;
+  border-bottom-color: #e3e0d8 !important;
+  color: #1a1a1f !important;
+}
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) .callout-title .callout-icon {
+  color: #956820 !important;
+}
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) .callout-content,
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) .callout-content p,
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) .callout-content li {
+  color: #3f3f46 !important;
+}
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) table {
+  border-color: #e3e0d8 !important;
+}
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) th {
+  background: rgba(149, 104, 32, 0.05) !important;
+  color: #956820 !important;
+  border-bottom-color: #e3e0d8 !important;
+}
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) tr:hover td {
+  background: rgba(149, 104, 32, 0.04) !important;
+}
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) .internal-link {
+  color: #956820 !important;
+  border-bottom-color: rgba(149, 104, 32, 0.3) !important;
+}
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) .internal-link:hover {
+  color: #7a5518 !important;
+}
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) code {
+  background: rgba(149, 104, 32, 0.08) !important;
+  border-color: rgba(149, 104, 32, 0.15) !important;
+  color: #8a5a20 !important;
+}
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) pre {
+  background: #f4f2ec !important;
+  border-color: #e3e0d8 !important;
+}
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) pre code {
+  color: #3f3f46 !important;
+}
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) blockquote:not(.callout) {
+  border-left-color: #d8d5cc !important;
+  background: rgba(149, 104, 32, 0.03) !important;
+  color: #6b6b73 !important;
+}
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) hr {
+  background: linear-gradient(90deg, transparent, #d8d5cc, transparent) !important;
+}
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) li::marker {
+  color: #c9c5ba !important;
+}
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) .mermaid {
+  background: rgba(240, 238, 230, 0.8) !important;
+  border-color: #e3e0d8 !important;
+}
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) .block-language-dataview,
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) .block-language-dataviewjs {
+  background: rgba(255, 255, 255, 0.55) !important;
+  border-color: #e3e0d8 !important;
+}

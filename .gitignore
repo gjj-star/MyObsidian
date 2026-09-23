@@ -1,5 +1,7 @@
 # Obsidian 内部配置（含本机信息，不同步）
-.obsidian/
+# 例外：snippets/ 样式片段纳入同步（换机/备份可用）
+.obsidian/*
+!.obsidian/snippets/
 
 # AI 助手会话记录与运行时状态
 .claudian/
