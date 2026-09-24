@@ -600,3 +600,131 @@
   background: rgba(255, 255, 255, 0.55) !important;
   border-color: #e3e0d8 !important;
 }
+
+/* ============================================================
+   v3.2 亮色补丁（2026-09-24）
+   修 h3-h6 与各元素在亮色模式下残留的蓝色/冷色系
+   ============================================================ */
+
+/* --- A. 标题 h3-h6：金色渐弱序列（替换原冷灰）--- */
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) h3 {
+  color: #a3835a !important;
+}
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) h4 {
+  color: #b39c78 !important;
+}
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) h5 {
+  color: #c2b193 !important;
+}
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) h6 {
+  color: #cfc0a5 !important;
+}
+
+/* --- B. callout 内加粗/斜体（残留亮白字）--- */
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) .callout-content strong,
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) .callout-content em {
+  color: #1a1a1f !important;
+}
+
+/* --- C. callout 内行内代码（残留青蓝）--- */
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) .callout-content code {
+  background: rgba(149, 104, 32, 0.08) !important;
+  border-color: rgba(149, 104, 32, 0.15) !important;
+  color: #8a5a20 !important;
+}
+
+/* --- D. 表头行背景（残留蓝底）--- */
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) thead tr {
+  background: rgba(149, 104, 32, 0.05) !important;
+}
+
+/* --- E. 外链（残留蓝）→ 暖棕红，与内链金褐区分 --- */
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) a.external-link {
+  color: #9b5030 !important;
+  border-bottom-color: rgba(155, 80, 48, 0.4) !important;
+}
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) a.external-link:hover {
+  color: #7a3a20 !important;
+}
+
+/* --- F. Bases 视图（残留蓝表头/深边框）--- */
+.theme-light .bases-view table {
+  border-color: #e3e0d8 !important;
+}
+.theme-light .bases-view th {
+  background: rgba(149, 104, 32, 0.05) !important;
+  color: #956820 !important;
+}
+.theme-light .bases-view th, .theme-light .bases-view td {
+  border-bottom-color: #e3e0d8 !important;
+}
+.theme-light .bases-view tr:hover td {
+  background: rgba(149, 104, 32, 0.04) !important;
+}
+.theme-light .bases-view .bases-cards-item, .theme-light .bases-view .card {
+  border-color: #e3e0d8 !important;
+}
+
+/* --- G. 表格悬停左色条（残留蓝）--- */
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) tr:hover td:first-child {
+  border-left-color: #956820 !important;
+}
+
+/* --- H. 代码语言标签（残留冷灰）--- */
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) pre[data-language]::before {
+  color: #a09a8c !important;
+}
+
+/* --- I. 代码行号（残留冷灰）--- */
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) pre code .line::before {
+  color: #c9c5ba !important;
+}
+
+/* --- J. Mermaid SVG 内部（残留深色节点/浅字）--- */
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) .mermaid svg {
+  background: transparent !important;
+}
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) .mermaid .node rect,
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) .mermaid .node circle,
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) .mermaid .node polygon,
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) .mermaid .node path {
+  fill: #f0efe9 !important;
+  stroke: #956820 !important;
+}
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) .mermaid .nodeLabel,
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) .mermaid .label,
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) .mermaid span.nodeLabel {
+  color: #3f3f46 !important;
+  fill: #3f3f46 !important;
+}
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) .mermaid .edgePath .path,
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) .mermaid .flowchart-link {
+  stroke: #a3835a !important;
+}
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) .mermaid marker path,
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) .mermaid .arrowheadPath {
+  fill: #a3835a !important;
+  stroke: #a3835a !important;
+}
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) .mermaid .cluster rect {
+  fill: #f4f2ec !important;
+  stroke: #e3e0d8 !important;
+}
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) .mermaid .edgeLabel rect {
+  fill: #f7f6f2 !important;
+}
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) .mermaid .edgeLabel span {
+  color: #6b6b73 !important;
+}
+
+/* --- K. 标签 pill（亮色下对比度过低）--- */
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) a.tag {
+  background: rgba(149, 104, 32, 0.08) !important;
+  color: #8a6a3a !important;
+}
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) a.tag:hover {
+  background: rgba(149, 104, 32, 0.14) !important;
+}
+.theme-light .multi-select-pill {
+  background: rgba(149, 104, 32, 0.08) !important;
+}
