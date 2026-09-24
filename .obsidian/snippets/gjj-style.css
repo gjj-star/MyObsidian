@@ -51,6 +51,11 @@
   line-height: 1.7;
 }
 
+/* --- 表格数据格 padding：与表头水平对齐（第一列贴边修复）--- */
+.markdown-preview-view:not(.agent-hooks):not(.style-preview) td {
+  padding: 0.55em 1em !important;
+}
+
 /* --- Callout 卡片 --- */
 .markdown-preview-view:not(.agent-hooks):not(.style-preview) .callout {
   background: rgba(30, 34, 50, 0.95) !important;
@@ -461,9 +466,10 @@
   padding: 8px 14px;
 }
 
-/* --- 11c 表格：悬停行左侧色条 --- */
+/* --- 11c 表格：悬停行左侧色条（inset 阴影实现，不占布局不挤文字）--- */
 .markdown-preview-view:not(.agent-hooks):not(.style-preview) tr:hover td:first-child {
-  border-left: 2px solid #7aa2f7 !important;
+  box-shadow: inset 2px 0 0 #7aa2f7 !important;
+  border-left: none !important;
 }
 
 /* --- 12b 代码块：语言标签 --- */
@@ -665,9 +671,10 @@
   border-color: #e3e0d8 !important;
 }
 
-/* --- G. 表格悬停左色条（残留蓝）--- */
+/* --- G. 表格悬停左色条（残留蓝 → 金，inset 阴影实现）--- */
 .theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) tr:hover td:first-child {
-  border-left-color: #956820 !important;
+  box-shadow: inset 2px 0 0 #956820 !important;
+  border-left: none !important;
 }
 
 /* --- H. 代码语言标签（残留冷灰）--- */
