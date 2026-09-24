@@ -517,8 +517,8 @@
   background: #f7f6f2 !important;
 }
 .theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) h1 {
-  color: #1a1a1f !important;
-  border-bottom-color: #d8d5cc !important;
+  color: #6b4a1a !important;
+  border-bottom-color: rgba(149, 104, 32, 0.35) !important;
 }
 .theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) h2 {
   color: #956820 !important;
