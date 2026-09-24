@@ -735,3 +735,16 @@
 .theme-light .multi-select-pill {
   background: rgba(149, 104, 32, 0.08) !important;
 }
+
+/* ============================================================
+   v3.3 亮色折叠指示器：纳入金褐主题色（callout 折角/列表/标题折叠三角）
+   ============================================================ */
+.theme-light {
+  --collapse-icon-color: rgba(149, 104, 32, 0.55);
+  --collapse-icon-color-collapsed: #956820;
+}
+.theme-light .callout-fold,
+.theme-light .collapse-indicator,
+.theme-light .collapse-icon {
+  color: #956820 !important;
+}
