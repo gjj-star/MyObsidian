@@ -569,8 +569,8 @@
   color: #7a5518 !important;
 }
 .theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) code {
-  background: rgba(149, 104, 32, 0.08) !important;
-  border-color: rgba(149, 104, 32, 0.15) !important;
+  background: transparent !important;
+  border-color: rgba(149, 104, 32, 0.18) !important;
   color: #8a5a20 !important;
 }
 .theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) pre {
@@ -628,8 +628,8 @@
 
 /* --- C. callout 内行内代码（残留青蓝）--- */
 .theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) .callout-content code {
-  background: rgba(149, 104, 32, 0.08) !important;
-  border-color: rgba(149, 104, 32, 0.15) !important;
+  background: transparent !important;
+  border-color: rgba(149, 104, 32, 0.18) !important;
   color: #8a5a20 !important;
 }
 
