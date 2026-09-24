@@ -748,3 +748,16 @@
 .theme-light .collapse-icon {
   color: #956820 !important;
 }
+
+/* ============================================================
+   v3.4 暗色折叠指示器：纳入蓝色系（与亮色金褐对称）
+   ============================================================ */
+.theme-dark {
+  --collapse-icon-color: rgba(122, 162, 247, 0.5);
+  --collapse-icon-color-collapsed: #7aa2f7;
+}
+.theme-dark .callout-fold,
+.theme-dark .collapse-indicator,
+.theme-dark .collapse-icon {
+  color: #7aa2f7 !important;
+}
