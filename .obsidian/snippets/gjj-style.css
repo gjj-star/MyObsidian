@@ -548,6 +548,9 @@
   border-bottom-color: #e3e0d8 !important;
   color: #1a1a1f !important;
 }
+.theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) .callout-title .callout-title-inner {
+  color: #956820 !important;
+}
 .theme-light .markdown-preview-view:not(.agent-hooks):not(.style-preview) .callout-title .callout-icon {
   color: #956820 !important;
 }
