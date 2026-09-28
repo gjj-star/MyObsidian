@@ -309,3 +309,38 @@
 
 /* 链接（预览页正文若出现） */
 .style-preview .internal-link { color: #7dcfff; text-decoration: none; border-bottom: 1px dashed rgba(125, 207, 255, .3); }
+
+/* --- 15b 样张扩充：亮色迷你 callout + 链接悬停（同步 e3c/用户修正）--- */
+.style-preview .pv-mini-callout {
+  margin-top: 10px;
+  background: #fbfaf7;
+  border: 1px solid #e3e0d8;
+  border-left: 2px solid rgba(149, 104, 32, 0.5);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.style-preview .pv-mini-title {
+  background: rgba(149, 104, 32, 0.05);
+  border-bottom: 1px solid #e3e0d8;
+  padding: 6px 12px;
+  color: #956820;
+  font-size: .85em;
+  font-weight: 700;
+}
+.style-preview .pv-mini-content {
+  padding: 8px 12px;
+  color: #3f3f46;
+  font-size: .9em;
+}
+.style-preview .pv-15-link {
+  color: #956820;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(149, 104, 32, 0.3);
+  transition: all .2s ease;
+  cursor: default;
+}
+.style-preview .pv-15-link:hover {
+  color: #7a5518;
+  border-bottom-color: #bd9352;
+  text-shadow: 0 0 10px rgba(201, 166, 107, 0.32);
+}
