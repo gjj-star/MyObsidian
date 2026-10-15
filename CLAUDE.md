@@ -16,6 +16,7 @@
 3. 每次沉淀后向用户汇报：新沉淀 N 条 → 整理为 M 篇知识卡，分布情况
 
 ## 笔记规范
+- **输出语言约定**：AI 生成的一切笔记内容（含 Claudian 会话与插件/工具调用，如 Second Brain Builder）一律使用**简体中文**；英文术语保留原文并以「中文（English）」形式标注
 - 标题用中文（概念可加英文副题），概念卡包含「**英文**：Full Name（ABBR）」术语行
 - 知识卡 frontmatter 用**扁平顶层字段**（Bases 与属性面板可直接读取，不用嵌套 metadata）：`name`（中文名）/ `node_type: memory` / `type`（reference、knowledge、user）/ `description`（一句话摘要）/ `originSessionId`（来源 CC 会话）/ `modified`（更新时间）/ `aliases`（英文+中文别名）/ `tags`（主题标签：AI-Agent、数据结构与算法、企业数字化、自动化与集成、开发工具、认知研究、自我认知、个人、兴趣、百科；**子主题标签与图谱颜色组一一对应**，按子目录补：力扣实战、企业软件、业财与经营、编程与数据、环境与部署、信息获取、心理学、方法论、六爻、职业、自我、求职、经历、项目、游戏、汽车；日记用 日记）；原样收录的参考资料用 `node_type: source` + `type: reference`；个人档案类（求职/经历/项目）用 `node_type: note` + `type: user`（三者均不计入知识卡统计与 Bases 过滤）
 - 蒸馏 CC 新沉淀时按上述格式生成 frontmatter；网页剪藏保持原样，仅加 `tags: clippings`
