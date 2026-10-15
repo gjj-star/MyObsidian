@@ -48,6 +48,7 @@ k12-education.md
 knowledge-capture-directive.md
 knowledge-graph.md
 lifecycle-concept.md
+load-balancing.md
 main-business-flow.md
 MEMORY.md
 methodology-concept.md
@@ -74,6 +75,7 @@ sop-definition.md
 sop-to-skill-methodology.md
 sse-stream-parsing.md
 taizhang-ledger.md
+travis-ci.md
 uni-app.md
 uvicorn.md
 webfetch.md

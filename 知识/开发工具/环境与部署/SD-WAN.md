@@ -1,414 +1,494 @@
 ---
-tags: [networking, wan, sd-wan, overlay-networks, sdn, bgp, security, cs]
+tags: [networking, wan, sd-wan, sdn, overlay-network, bgp, cloud, cs]
 status: Seed
 updated: 2026-10-15
 ---
 
-# SD-WAN
+# SD-WAN 软件定义广域网
 
-> [!info] One-Line Definition
-> SD-WAN (Software-Defined Wide Area Network) is a WAN architecture that separates the control logic of a wide area network from its physical transport links, using a central controller and an encrypted overlay to steer application traffic across any mix of MPLS, broadband, and cellular circuits according to business policy rather than raw routing metrics.
+> [!info] 一句话定义
+> SD-WAN (Software-Defined Wide Area Network) 是把广域网的**控制平面集中到软件控制器**、把**数据平面留在各站点的边缘设备**上的一种架构，让企业能用宽带、4G/5G 等多条廉价链路，通过叠加隧道 (overlay) 拼出一张策略驱动、应用感知的虚拟广域网。
 
 ## Overview
 
-Traditional WAN design forced a tradeoff. You could buy expensive MPLS circuits with strong SLAs and no internet exposure, or you could buy cheap broadband with no guarantees at all. Most enterprises chose MPLS for every site because it was the only transport that could carry voice and business-critical traffic reliably.
+传统广域网的问题不在带宽，而在**僵化**。一条 MPLS 专线开通要等数周到数月，改一条路由要逐台设备登录，云应用的流量必须先绕回总部再出互联网，这一圈绕行在业内叫"长号效应" (tromboning)。
 
-That model broke when applications moved to the cloud. Branch traffic no longer flows to the data center and back. It flows sideways to Microsoft 365, Salesforce, Zoom, and a dozen SaaS tenants. Backhauling that traffic through an MPLS hub added latency for no benefit, and MPLS pricing is driven by bandwidth and distance, so scaling it up was painful.
+SD-WAN 的回答是把"选路"这件事从硬件和手工配置里抽出来，交给中央控制器按应用策略自动下发。链路本身仍然租用运营商的，但**怎么用这些链路**由企业自己决定。
 
-SD-WAN answers with three moves. First, use any transport, including plain internet, and make the encrypted overlay the thing that provides consistency. Second, centralize policy so that "voice goes on the low-latency link" is written once and applied everywhere. Third, measure the links continuously and move traffic in real time when a link degrades.
+它在 WAN 家族里的位置很特殊：MPLS VPN、专线、卫星链路是**承载 (underlay)**，SD-WAN 是跑在它们之上的**叠加 (overlay)**。两者不是替代关系，而是分层关系。
 
-> [!info] Where It Fits
-> SD-WAN sits at the overlay layer. It does not replace IP, it does not replace BGP, and it does not replace your firewall. It wraps existing transports in tunnels and decides which tunnel each flow should use. In the modern stack it is often the delivery vehicle for SASE, where security inspection is chained into the same policy engine.
+| 维度 | 传统 MPLS WAN | 传统 IPsec VPN | SD-WAN |
+|---|---|---|---|
+| 链路来源 | 运营商专线 | 任意互联网 | 任意，通常多链路混合 |
+| 开通周期 | 数周到数月 | 数天 | 分钟级 (零接触开通) |
+| 选路依据 | 目的地 IP | 目的地 IP | 应用 + SLA + 成本 |
+| 配置方式 | 逐台 CLI | 逐台 CLI | 控制器模板集中下发 |
+| 故障切换 | 路由收敛，秒到分钟 | 秒到分钟 | BFD 探针，亚秒到秒 |
+| 云访问 | 回总部再出 | 回总部再出 | 本地直出 (DIA) |
+| 月成本 (示意) | 100 Mbps 约 \$2,000 起 | 低 | 同带宽可降至十分之一 |
+| 典型定位 | 关键业务兜底 | 小规模互联 | 主流企业广域网 |
 
-The market moved fast. MEF published formal SD-WAN service attributes in 2019 (MEF 70), and Gartner pushed the SASE convergence shortly after. By the mid 2020s, SD-WAN is close to a default enterprise branch design rather than a differentiator.
-
-### SD-WAN Compared To Its Neighbors
-
-| Concept | What It Controls | Relationship To SD-WAN |
-|---|---|---|
-| SDN | Data center and campus switching fabric | Same philosophy (central control, programmable data plane), different scope |
-| SD-WAN | Branch and inter-site WAN transport | A specific application of SDN ideas to the WAN edge |
-| SASE | Security inspection plus WAN delivery as one cloud service | SD-WAN is the networking half of SASE |
-| SSE | Cloud-delivered security only (SWG, CASB, ZTNA) | The security half, usable without SD-WAN |
-| MPLS VPN | A carrier-provided private transport | One possible underlay for SD-WAN, not a competitor |
+> [!info] 与 SASE 的关系
+> SD-WAN 解决"怎么连"，SASE (Secure Access Service Edge) 解决"连的同时怎么安全"。SASE = SD-WAN + 安全 Web 网关 (SWG) + 零信任网络访问 (ZTNA) + 云访问安全代理 (CASB) + 防火墙即服务 (FWaaS)，且安全能力部署在离用户近的云边缘。当前厂商普遍在把两者合并成一个产品。
 
 ## How It Works
 
-SD-WAN works by running an encrypted overlay on top of whatever circuits you can buy, then letting a controller decide which overlay path each application should take. The underlay stays dumb; the intelligence lives in the overlay and the controller.
+理解 SD-WAN 要抓住一条主线：**控制与转发分离**。这是 SDN 的核心思想，SD-WAN 把它搬到了广域网场景。
 
-### The Three Planes
+### The Four Planes
+
+SD-WAN 的架构通常拆成四层，每一层职责清晰。
 
 ```mermaid
 graph TD
-    subgraph "Management Plane"
-        M1["Orchestrator<br/>Day-0 templates, image management"]
-        M2["Controller<br/>Overlay routing, policy distribution"]
+    subgraph "管理平面"
+        ORCH["编排器<br/>模板 / 策略 / 监控大屏"]
     end
-    subgraph "Data Plane"
-        D1["Branch Edge Device"]
-        D2["Hub Edge Device"]
-        D3["Cloud Gateway"]
+    subgraph "控制平面"
+        CTRL["控制器集群<br/>拓扑 / 路由 / 密钥"]
+        CERT["验证器<br/>设备身份与引导"]
     end
-    subgraph "Underlay Transports"
-        U1["MPLS Circuit"]
-        U2["Business Broadband"]
-        U3["5G or LTE"]
+    subgraph "数据平面"
+        BR1["分支 CPE"]
+        BR2["分支 CPE"]
+        HUB["总部 Hub"]
+        VGW["云网关 vCPE"]
     end
-    M1 -->|"provision and monitor"| M2
-    M2 -.->|"control channel"| D1
-    M2 -.->|"control channel"| D2
-    M2 -.->|"control channel"| D3
-    D1 --> U1
-    D1 --> U2
-    D1 --> U3
-    U1 --> D2
-    U2 --> D2
-    U3 --> D3
+    subgraph "底层承载"
+        MPLS["MPLS VPN"]
+        BB["宽带 Internet"]
+        CELL["4G / 5G"]
+    end
+    ORCH -->|"下发模板与策略"| CTRL
+    CERT -->|"签发证书"| BR1
+    CTRL -->|"DTLS 控制通道"| BR1
+    CTRL -->|"DTLS 控制通道"| BR2
+    CTRL -->|"DTLS 控制通道"| HUB
+    BR1 -->|"IPsec 叠加隧道"| HUB
+    BR2 -->|"IPsec 叠加隧道"| HUB
+    HUB -->|"云上接入"| VGW
+    BR1 -.->|"承载"| MPLS
+    BR1 -.->|"承载"| BB
+    BR2 -.->|"承载"| CELL
 ```
 
-The management plane handles templates, software versions, and inventory. The controller distributes routes, encryption keys, and policy. The data plane is the actual packet forwarding at each edge device. Only the control and management channels touch the controller; user traffic never does, which is why losing the controller does not break forwarding.
+- **管理平面**负责人机交互：建模板、定策略、看告警。改策略时只改这一层，不碰设备。
+- **控制平面**是大脑，维护全网拓扑、计算路由、分发密钥。典型组件是控制器集群加一个负责设备引导和身份认证的验证器。
+- **数据平面**是每个站点的一台 CPE (客户侧设备)，可以是物理盒子、虚拟机或容器。它建隧道、跑探针、按策略转发。
+- **底层承载**就是运营商提供的各种链路，SD-WAN 把它们当成可替换的资源。
 
-### Overlay And Underlay
+### Overlay Tunnels
 
-The **underlay** is the physical and logical transport: MPLS, DIA (direct internet access), LTE, 5G, satellite. Each underlay link terminates on a physical or logical interface at the edge device and gets assigned a **color** (for example `mpls`, `biz-internet`, `lte`, `public-internet`). The color is a label that policy can reference.
+每个站点对每一条底层链路建立一个隧道，通常成对出现：一条 MPLS 隧道、一条宽带上行隧道、一条 5G 隧道。
 
-The **overlay** is a mesh of encrypted tunnels built between edge devices over those transports. Each tunnel is identified by a **TLOC** (Transport LOCator), which is the tuple of system IP, color, and encapsulation. A TLOC is roughly "this device, over this transport."
+隧道技术以 IPsec ESP 为主，因为它标准、互通性好，并且用 UDP 封装可以穿越 NAT。
 
-```mermaid
-graph LR
-    subgraph "Site A"
-        A1["Edge Device A<br/>System IP 10.0.0.1"]
-    end
-    subgraph "Site B"
-        B1["Edge Device B<br/>System IP 10.0.0.2"]
-    end
-    A1 ---|"TLOC: 10.0.0.1, mpls, ipsec"| B1
-    A1 ---|"TLOC: 10.0.0.1, biz-internet, ipsec"| B1
-    A1 ---|"TLOC: 10.0.0.1, lte, ipsec"| B1
-```
+| 隧道技术 | 是否加密 | 典型用途 | 备注 |
+|---|---|---|---|
+| IPsec ESP | 是 | SD-WAN 主力 | 标准成熟，NAT 穿越靠 UDP 4500 封装 |
+| GRE | 否 | 承载组播与动态路由协议 | 常与 IPsec 叠加成 GRE over IPsec |
+| VXLAN | 否 | 云网关、数据中心互通 | 基于 UDP 4789，可再套 IPsec |
+| WireGuard | 是 | 开源与 DIY 方案 | 代码精简、握手快，但无内置密钥分发 |
+| DMVPN | 是 | 上一代动态多点 VPN | 依赖 NHRP，正被 SD-WAN 取代 |
 
-Because tunnels are point to point between TLOCs, a site with three transports talking to a site with two transports has six possible paths. The controller knows all of them and can shift traffic between them in under a second.
+隧道的标识在不同厂商有不同叫法。Cisco Catalyst SD-WAN 里叫 TLOC (Transport Locator)，由三个字段组成：`system-ip` + `color` + `encapsulation`。其中 `color` 是给链路起的语义化名字，比如 `mpls`、`biz-internet`、`lte`、`metro-ethernet`。策略就是按 color 来写"优先走哪个、坏了走哪个"。
 
-### Control Plane And Route Distribution
+### Routing and the Control Plane
 
-Proprietary controllers use their own overlay routing protocol. Cisco Catalyst SD-WAN uses **OMP** (Overlay Management Protocol), which is BGP-like in structure but carries more than routes: it also carries TLOC attributes, encryption keys, and policy. Other vendors use BGP with extended communities, or a controller API.
+叠加层的路由有两种做法。厂商私有方案用自有协议，例如 Cisco 的 OMP (Overlay Management Protocol)，它跑在 DTLS 或 TLS 之上，一条会话里同时传路由、TLOC、策略和密钥。开放方案则直接跑 BGP。
 
-At the site boundary, the edge device speaks normal routing protocols to the LAN: OSPF, BGP, or static routes. It redistributes those into the overlay, then re-advertises them at the remote site. The branch router never needs to know the underlay topology.
+拓扑不一定要全互联。常见做法是总部与分支之间建永久隧道，分支与分支之间**按需建隧道**：先看控制器有没有对方的路由，有流量时再触发建立。
 
-> [!info] OMP Route Example
-> An OMP route advertisement carries a prefix plus a TLOC list. The TLOC list is what gives the remote site multiple candidate paths for the same prefix. Path selection then filters that list by SLA.
+### Application-Aware Routing
 
-### Application-Aware Routing And Path Selection
-
-This is the core mechanism that separates SD-WAN from a plain VPN mesh.
+这是 SD-WAN 最有价值的能力。它分四步。
 
 ```mermaid
 flowchart TD
-    A["Packet reaches branch edge"] --> B["Classify flow<br/>5-tuple, DSCP, DPI signature"]
-    B --> C{"Application matches<br/>an SLA policy?"}
-    C -->|"No"| D["Use default path<br/>lowest cost transport"]
-    C -->|"Yes"| E["Read live BFD probe metrics<br/>latency, jitter, loss"]
-    E --> F{"Best path satisfies<br/>SLA thresholds?"}
-    F -->|"Yes"| G["Steer flow to best path"]
-    F -->|"No"| H["Try next-best path<br/>or apply remediation"]
-    H --> I["Forward Error Correction<br/>or Packet Duplication"]
-    I --> G
+    A["数据包到达 CPE"] --> B{"是否命中<br/>已有流表?"}
+    B -->|"是"| C["按流表记录的<br/>链路转发"]
+    B -->|"否"| D["首包 DPI 分类<br/>SNI / 证书 / 模式"]
+    D --> E{"查策略表"}
+    E -->|"实时语音"| F["选满足 SLA 的<br/>最低成本链路"]
+    E -->|"SaaS 与云应用"| G["本地 DIA 出口<br/>不回总部"]
+    E -->|"内部 ERP"| H["经叠加隧道<br/>回总部或数据中心"]
+    E -->|"大流量备份"| I["限速或<br/>调度到空闲链路"]
+    F --> J["写入流表<br/>后续包复用"]
+    G --> J
+    H --> J
+    I --> J
+    J --> K["封装 IPsec<br/>按 MTU 分片或放行"]
 ```
 
-Each edge device runs continuous **BFD** (Bidirectional Forwarding Detection) probes over every tunnel to every peer. Probes are tiny and frequent, typically every 100 ms to 1 second. From them the device derives per-tunnel latency, jitter, and packet loss.
+1. **分类**：对流的第一个或前几个包做深度包检测 (DPI)，用 TLS 的 SNI、服务器证书字段、流量模式匹配来识别应用。识别结果写入流表，后续包直接复用，不再逐包检测。
+2. **度量**：每条链路持续跑探针，通常是 BFD，间隔可以低到 100 毫秒到 1 秒，测出延迟、抖动、丢包率。
+3. **决策**：拿应用类别去查策略，找出满足 SLA 阈值的链路集合，再按成本、优先级挑一条。
+4. **执行**：把流绑定到选中的隧道。链路劣化时重新决策，必要时迁移流。
 
-An SLA class is a threshold triple, for example latency under 150 ms, jitter under 30 ms, loss under 1 percent. The device scores each tunnel against the class and picks the best compliant one. Flow classification happens on the first packet of a flow and the decision sticks for the life of the flow, so packets stay in order.
+### SLA Probes and Failover
 
-### Remediation Techniques
+SD-WAN 把故障分成两类，处理方式不同。
 
-When no path meets the SLA, SD-WAN has several fallbacks that a traditional router cannot offer.
+```mermaid
+flowchart LR
+    P["每 100 ms 探针<br/>BFD 加应用探针"] --> Q["滑动窗口<br/>统计延迟 / 抖动 / 丢包"]
+    Q --> R{"是否满足<br/>SLA 阈值?"}
+    R -->|"满足"| S["维持当前链路"]
+    R -->|"劣化 brownout"| T["按策略切换备链<br/>或复制关键包"]
+    R -->|"完全中断 blackout"| U["BFD 超时<br/>秒级内收敛"]
+    T --> V["记录事件<br/>上报控制器"]
+    U --> V
+    S --> V
+```
 
-| Technique | What It Does | Cost |
-|---|---|---|
-| Forward Error Correction | Adds parity packets so the receiver can rebuild lost ones | Extra bandwidth, roughly 5 to 20 percent |
-| Packet Duplication | Transmits the same packet on two tunnels, receiver keeps the first | Doubles bandwidth for that flow |
-| TCP Optimization | Local acknowledgements, window scaling, proxy behavior | Adds state, can break end-to-end semantics |
-| Deduplication and Compression | Removes repeated byte patterns before transmission | CPU on both sides, only helps repetitive traffic |
-| Best-path reselection | Simply moves the flow to a better tunnel | Brief reordering risk on mid-flow switch |
+- **Blackout (硬中断)**：链路彻底不通，BFD 在几百毫秒内超时，立刻切走。
+- **Brownout (劣化)**：链路还通，但延迟从 20 ms 涨到 200 ms，或丢包从 0.1% 涨到 5%。这时 BFD 是通的，只有 SLA 探针能发现。这是 SD-WAN 相对传统方案的关键增量。
+
+切换策略有三种强度：走备链、对关键包做复制 (同一条语音包在两条链路上各发一份，接收端去重)、以及开启前向纠错 FEC (额外发冗余包，接收端用冗余重建丢失的包)。FEC 会消耗带宽，通常按丢包率自适应开启。
 
 ### Zero Touch Provisioning
 
-A branch device ships with no configuration. On power-up it reaches a PnP or bootstrap server, authenticates with a signed certificate or a serial-number-based token, pulls its template and policy from the controller, and comes online. The on-site person only needs to plug in cables and confirm the link lights.
+新站点上线不需要工程师到场。设备上电后自动发现控制器 (通过 DNS 记录或厂商的引导服务)，用出厂证书完成身份验证，然后从控制器拉取站点模板并应用。
 
-This matters operationally because it removes the need for a skilled network engineer at every site. A 500-branch retailer can stage and ship devices directly from the vendor.
+这个流程的隐含前提是证书体系必须在部署前建好，否则设备无法自证身份。
 
-### Segmentation And Multi-Tenancy
+### Underlay Independence and DIA
 
-SD-WAN devices support **VPN segmentation**, functionally the same as VRF in MPLS. You define separate logical topologies so that, for example, guest Wi-Fi, PCI card processing, and corporate traffic never share a routing table or a tunnel.
+传统架构里所有分支流量都要回总部或数据中心再出去，叫回传 (backhaul)。SD-WAN 允许**本地互联网出口 (DIA)**：办公软件、视频会议这类 SaaS 流量直接从分支的宽带出去，不再绕行。
 
-A common pattern is three segments: corporate (full mesh, all applications), guest (internet breakout only), and IoT or OT (hub-and-spoke to a single inspection point, no lateral movement).
-
-### Security And The SASE Convergence
-
-Overlay tunnels use IPsec with AES-256-GCM and rotate keys through the controller. That gives confidentiality and integrity on the wire but does nothing about malware, data exfiltration, or a compromised branch user.
-
-This is why SD-WAN converged into SASE. Security functions get chained into the same policy: a flow can be steered to a cloud security PoP for SWG inspection, to a CASB for SaaS control, or to a ZTNA broker for private application access, all based on the same application identity that drives path selection.
+代价是安全边界被打散。分支的每个出口都变成了一个需要防护的边缘，这也是 SD-WAN 厂商必须往 SASE 演进的原因。
 
 ## Key Details
 
-This section collects the concrete properties, numbers, and standards you need to reason about a real design.
+### MTU and Tunnel Overhead
 
-### The SLA Metrics That Drive Decisions
+隧道会吃掉载荷空间，这是部署中最容易踩的坑。以 IPv4 上的 IPsec ESP over UDP 为例：
 
-| Metric | Definition | Typical Threshold | Why It Matters |
-|---|---|---|---|
-| Latency (one-way) | Time for a packet to cross the path | 100 to 150 ms for voice | Above about 150 ms round trip, conversation feels broken |
-| Jitter | Variation in latency between packets | Under 30 ms | Jitter drains the de-jitter buffer and causes dropouts |
-| Packet loss | Percentage of packets never arriving | Under 1 percent | Loss above 2 percent destroys voice and video quality |
-| MOS | Predicted voice quality score, 1.0 to 4.5 | 4.0 or better | Business-facing summary of the above three |
-| Bandwidth | Available capacity | Per application need | Aggregation is possible but per-flow limited |
-| MTU | Largest frame without fragmentation | 1500, or 1400 inside tunnels | Tunnel overhead eats into the usable MTU |
+$$
+\text{Overhead} = 20_{\text{外层 IP}} + 8_{\text{UDP}} + 8_{\text{ESP 头}} + 8_{\text{IV}} + 16_{\text{ICV}} = 60 \text{ 字节}
+$$
 
-### Useful Formulas
+$$
+\text{隧道内 MTU} = 1500 - 60 = 1440 \text{ 字节}
+$$
 
-The E-model estimates voice quality from transport metrics. For \(R\) in the range 0 to 100:
+如果底层是 PPPoE 拨号，还要再减 8 字节，变成 1432。实践中通常保守配置成 1400 甚至 1350，为多一层封装留余量。
 
-$$R = R_0 - I_s - I_d - I_{e,\text{eff}} + A$$
+> [!warning] MTU 黑洞
+> 如果只调了隧道接口的 MTU，却没做 TCP MSS 钳制，会出现典型的"小包通、大包死"现象：ping 正常，网页打不开，TLS 握手卡在中间。原因是路径上的设备丢弃了需要分片的超大包，且没有回送 ICMP 需要分片的消息。务必同时配置 MSS 钳制。
 
-$$\text{MOS} = 1 + 0.035R + 7 \times 10^{-6}\, R (R - 60)(100 - R)$$
+$$
+\text{MSS} = \text{MTU} - 40 \quad (\text{IPv4 的 20 字节 IP 头加 20 字节 TCP 头})
+$$
 
-Where \(I_d\) is the impairment from delay and \(I_{e,\text{eff}}\) combines codec impairment with packet loss. MOS of 4.0 corresponds roughly to \(R = 80\).
+排查命令示例：
 
-Availability of two independent parallel transports is the complement of both being down at once:
+```bash
+# 逐字节试探路径最大可通包长（-M do 表示设置 DF 位，禁止分片）
+ping -M do -s 1372 -c 3 10.200.0.1     # 1372 + 28 = 1400 字节的 IP 包
 
-$$A_{\text{total}} = 1 - (1 - A_1)(1 - A_2)$$
+# 自动发现路径 MTU
+tracepath 10.200.0.1
 
-With MPLS at 99.99 percent and broadband at 99.9 percent, the combined figure is \(1 - (0.0001)(0.001) = 99.99999\%\). This is the arithmetic behind the "add a cheap second link" argument. The independence assumption is doing a lot of work there.
+# 在转发路径上做 MSS 钳制
+iptables -t mangle -A FORWARD -p tcp --tcp-flags SYN,RST SYN \
+  -j TCPMSS --clamp-mss-to-pmtu
+```
 
-Tunnel overhead reduces usable MTU:
+### Bandwidth Aggregation Is Partial
 
-$$\text{MTU}_{\text{usable}} = \text{MTU}_{\text{underlay}} - \text{IPsec overhead} - \text{encapsulation overhead}$$
+一个常见误解是"两条 100 Mbps 宽带拼起来就是 200 Mbps"。真实情况取决于流的粒度。
 
-For IPsec with ESP in tunnel mode over IPv4, expect roughly 50 to 73 bytes of overhead depending on cipher and whether NAT-T or UDP encapsulation is used. This is why many designs set the tunnel MTU to 1400 or lower.
+- **多流聚合有效**：100 个并发的 HTTP 下载可以分散到两条链路上，总吞吐接近 200 Mbps。
+- **单流受限于单径**：一个 TCP 连接只能走一条路，上限就是那条路的带宽。逐包负载均衡理论上能突破，但会造成严重的乱序重传，反而拖慢 TCP。
+- **UDP 流更容易聚合**，因为没有乱序重排的强约束，但业务层往往不允许。
+
+### The Long Fat Pipe Problem
+
+即使链路够宽，单个 TCP 流在长 RTT 下也跑不快，因为吞吐受窗口和 RTT 共同约束：
+
+$$
+\text{Throughput} \le \frac{\text{TCP Window}}{\text{RTT}}
+$$
+
+举例：RTT 为 100 ms，未开启窗口缩放的 TCP 窗口约 64 KB。
+
+$$
+\text{Throughput} \le \frac{65{,}536 \text{ B}}{0.1 \text{ s}} = 655{,}360 \text{ B/s} \approx 5.2 \text{ Mbps}
+$$
+
+也就是说，一条 1 Gbps 的链路，单个连接只能跑到 5 Mbps 上下。这就是 WAN 优化、窗口缩放和 QUIC 存在的意义。
+
+### SLA Thresholds
+
+阈值没有统一标准，由业务决定。下表是常见的参考区间。
+
+| 应用类型    | 延迟       | 抖动      | 丢包     | 备注            |
+| ------- | -------- | ------- | ------ | ------------- |
+| 实时语音    | < 150 ms | < 30 ms | < 1%   | 超过后 MOS 分明显下降 |
+| 视频会议    | < 200 ms | < 50 ms | < 2%   | 可容忍少量丢包       |
+| 交互式终端   | < 100 ms | 不敏感     | < 0.5% | 对延迟最敏感        |
+| 事务型 ERP | < 300 ms | 不敏感     | < 1%   | 可容忍抖动         |
+| 批量备份    | 不限       | 不限      | < 5%   | 只关心成本         |
+
+语音质量可以进一步用 ITU-T G.107 的 E 模型量化，最终映射成 1 到 5 的 MOS 分。工程上不必手算，直接用厂商的探针输出即可，但知道"丢包和抖动最终会折算成一个主观分数"这个链路是有用的。
+
+### Availability Arithmetic
+
+可用性用无量纲的方式定义：
+
+$$
+A = \frac{\text{MTBF}}{\text{MTBF} + \text{MTTR}}
+$$
+
+| 可用性 | 年停机时间 | 常见对应 |
+|---|---|---|
+| 99% | 3.65 天 | 单条家庭宽带 |
+| 99.9% | 8.76 小时 | 典型企业宽带 |
+| 99.99% | 52.6 分钟 | 优质专线 |
+| 99.999% | 5.26 分钟 | 运营商骨干级 |
+
+两条链路的联合可用性在**故障独立**假设下是：
+
+$$
+A_{\text{total}} = 1 - (1 - A_1)(1 - A_2)
+$$
+
+两条 99.9% 的链路算出来是 99.9999%，看起来很美。但这个公式的前提是故障独立，而现实中两条链路常常同沟同缆、同一个 ISP、同一路市电。
+
+> [!warning] 独立性是假设，不是事实
+> 施工挖断一根主干光缆同时打掉"两条"链路，是分支机构最常见的整站离线原因。做冗余设计时要问三个问题：物理路径是否分离、上游 ISP 是否不同、机房供电是否独立。
+
+### Segmentation and Key Management
+
+SD-WAN 通常支持把一张物理网络切成多个逻辑分段 (VPN 段或 VRF)，用于隔离访客 Wi-Fi、收银终端、物联网设备等。分段之间默认互不可见，需要策略显式放行。
+
+加密方面，控制器充当密钥分发中心：为每个站点生成密钥对，通过控制通道下发，并支持定期轮换 (rekey)。这个设计让站点之间不必手工交换密钥，但也让控制器成为高价值攻击目标。
 
 ### Deployment Models
 
-| Model | Controller Location | Who Operates It | Typical Buyer |
+| 模式 | 谁运维控制器 | 谁运维边缘 | 适用场景 |
 |---|---|---|---|
-| On-premises | Customer data center | Customer | Regulated industries, banks, government |
-| Cloud-hosted | Vendor or public cloud PoPs | Customer, vendor assists | Most mid and large enterprises |
-| Fully managed | Vendor cloud | Service provider | SMBs, retail chains without network staff |
-| Co-managed | Vendor cloud | Split by domain | Enterprises keeping policy, outsourcing break-fix |
+| DIY | 企业 | 企业 | 有强网络团队，追求完全控制 |
+| 全托管 | 服务商 | 服务商 | 无网络团队，买服务不买设备 |
+| 共管 | 服务商 | 企业 | 策略自己定，设备对方管 |
 
-### Standards And Specifications
+### Standards and Ecosystem
 
-- **MEF 70** defines SD-WAN service attributes and a service-level specification framework, giving buyers a common vocabulary when comparing offerings.
-- **MEF 70.1** extends it with application flow performance and application-aware policy attributes.
-- **ONUG** published early open SD-WAN frameworks that shaped the vendor vocabulary around overlays and controllers.
-- **RFC 9293 / TCP** and **RFC 5880 / BFD** are the underlying standards that most implementations lean on for transport and liveness probing.
-- **IPsec** remains defined by RFC 4301 and its successors, with IKEv2 (RFC 7296) for key exchange.
+MEF 70 是 SD-WAN 的服务属性标准，定义了 SD-WAN 虚拟连接 (SWVC)、应用流、策略等术语，让不同运营商的服务可以横向比较。它只管服务属性，不管实现细节，所以不能指望它保证厂商之间的互操作。
 
-### Vendor Landscape
+开源和 DIY 生态里可用的组件包括 flexiWAN、VyOS、OpenWrt 的 mwan3、OPNsense 的多 WAN 支持，以及 FRR、VPP/DPDK 这类数据平面工具。
 
-| Vendor | Product Name | Notable Trait |
-|---|---|---|
-| Cisco | Catalyst SD-WAN (formerly Viptela) | Deep OMP control plane, strong enterprise routing integration |
-| Broadcom | VMware VeloCloud SD-WAN | Large managed-service footprint, gateway-based cloud on-ramp |
-| Fortinet | FortiGate Secure SD-WAN | Firewall and SD-WAN on one appliance, popular in mid-market |
-| Palo Alto Networks | Prisma SD-WAN (formerly CloudGenix) | App-defined fabric, tight Prisma Access integration |
-| Versa | Versa Operating System | Strong multi-tenancy, favored by service providers |
-| Juniper | Session Smart Router / AI-Driven SD-WAN | Session-based routing rather than tunnel-based |
-| HPE Aruba | EdgeConnect (formerly Silver Peak) | Strong WAN optimization heritage, Boost for FEC |
-| Huawei | SD-WAN Solution | Regional strength, tight carrier integration |
-
-> [!warning] Interoperability Reality
-> SD-WAN overlays are almost entirely proprietary. Two different vendors' edge devices will not form a common overlay mesh. A mixed-vendor estate usually requires either a gateway translation layer, a standards-based approach, or acceptance of separate fabric islands. MEF 70 standardizes the *service description*, not the wire protocol.
+主流商业厂商包括 Cisco Catalyst SD-WAN、Fortinet、Palo Alto Prisma SD-WAN、HPE Aruba EdgeConnect、Versa、Juniper Mist、Cato Networks 等。
 
 ## Examples
 
-Concrete configurations and calculations make the mechanisms easier to hold onto.
+### Example 1: A Vendor-Neutral Policy
 
-### Example 1: A Branch With Three Transports
-
-Consider a branch with MPLS, fiber broadband, and 5G. Voice must always go on a link with latency under 150 ms and loss under 1 percent. Bulk backup traffic should use the cheapest link and tolerate anything.
-
-```mermaid
-graph TD
-    BR["Branch Edge<br/>System IP 10.10.10.1"]
-    MPLS["MPLS<br/>color: mpls<br/>latency 25 ms"]
-    BB["Broadband<br/>color: biz-internet<br/>latency 45 ms"]
-    C5G["5G<br/>color: lte<br/>latency 60 ms, metered"]
-    HUB["Hub Edge<br/>System IP 10.10.10.100"]
-    BR --> MPLS
-    BR --> BB
-    BR --> C5G
-    MPLS --> HUB
-    BB --> HUB
-    C5G --> HUB
-```
-
-Voice traffic matches the strict SLA class and lands on MPLS. Web and SaaS traffic matches a looser class, and the device sends it over broadband to keep the MPLS circuit under its committed rate. Backup jobs match a bulk class that prefers broadband and only uses 5G when the other two are down, because 5G is metered.
-
-### Example 2: Cisco Catalyst SD-WAN SLA Policy
-
-This is an illustrative vManage policy fragment. Field names vary between releases, and the real template is JSON, so treat this as a shape rather than a copy-paste artifact.
+策略的本质是"什么应用、什么条件下、走哪条路"。
 
 ```yaml
-policy:
-  sla-classes:
-    - name: VOICE_SLA
-      latency: 150
-      jitter: 30
-      loss: 1
-    - name: BULK_SLA
-      latency: 1000
-      jitter: 200
-      loss: 10
+# 应用感知策略（厂商中立的示意写法）
+policies:
+  - name: realtime-voice
+    match:
+      app: [teams-audio, zoom-rtp, sip]
+    path:
+      preferred: [mpls, 5g]
+      sla:
+        latency_ms: 150
+        jitter_ms: 30
+        loss_pct: 1.0
+    action:
+      fec: adaptive
+      duplication: on_brownout
+      fallback: best_available
 
-  app-route-policy:
-    - name: STEER_APPS
-      sequences:
-        - sequence-id: 10
-          match:
-            app-list: VOICE_VIDEO_APPS
-          actions:
-            sla-class: VOICE_SLA
-            strict: true
-            backup-sla-preferred-color: biz-internet
-        - sequence-id: 20
-          match:
-            app-list: BACKUP_APPS
-          actions:
-            sla-class: BULK_SLA
-            strict: false
-      default-action:
-        sla-class: VOICE_SLA
+  - name: saas-breakout
+    match:
+      app: [m365, salesforce, zoom-video]
+    path:
+      preferred: [broadband]
+      egress: local_dia
+    action:
+      tls_inspection: false
+      log_flows: true
+
+  - name: bulk-backup
+    match:
+      app: [smb, s3, backup-agent]
+    path:
+      preferred: [broadband, mpls]
+      schedule: "22:00-06:00"
+    action:
+      rate_limit_mbps: 50
 ```
 
-`strict: true` means do not use a non-compliant path at all, which is what you want for voice. `strict: false` means fall back to the best available path even if it misses the thresholds, which is what you want for bulk transfer.
+### Example 2: Cisco Catalyst SD-WAN Snippet
 
-### Example 3: BFD Tuning On The Tunnel Interface
+厂商设备的配置通常也是声明式的，由控制器下发到各站点。
 
-```text
-interface Tunnel100001
- description MPLS transport
- ip unnumbered GigabitEthernet0/0/0
- tunnel source GigabitEthernet0/0/0
- tunnel mode sdwan
- tunnel destination 192.0.2.10
+```
+sla-class VOICE-SLA
+ latency 150
+ jitter 30
+ loss 1
+!
+app-list VOICE-APPS
+ app ms-teams-audio
+ app zoom-rtp
+ app sip
+!
+policy
+ app-route-policy VOICE-POLICY
+  sequence 10
+   match
+    app-list VOICE-APPS
+   action
+    sla-class VOICE-SLA strict
+    backup-sla-preferred-color mpls
+   !
+  !
+ !
 !
 bfd color mpls
- hello-interval 1000
- multiplier 6
- no shutdown
+ hello-interval 300
+ multiplier 3
+!
+omp
+ graceful-restart
+ send-path-limit 4
+!
 ```
 
-A 1000 ms hello with a multiplier of 6 declares the tunnel dead after about 6 seconds. Lowering the interval to 100 ms with a multiplier of 3 detects failure in 300 ms, at the cost of more probe traffic and more CPU. Below roughly 100 ms you start competing with real traffic on slow links.
+### Example 3: A Minimal DIY Overlay on Linux
 
-### Example 4: Scoring Links In Python
+用 WireGuard 加策略路由，可以在 Linux 上搭出一个功能极简但结构完整的 SD-WAN 叠加层。
 
-A small model of how a controller or edge device ranks candidate paths.
+```bash
+# 1. 让每条隧道的底层出口明确分开（示例 IP 取自 RFC 5737 文档专用段）
+ip route add 203.0.113.10/32 dev eth0      # Hub 的 MPLS 侧地址，走专线口
+ip route add 198.51.100.7/32 dev wwan0     # Hub 的互联网侧地址，走 5G 口
 
-```python
-from dataclasses import dataclass
+# 2. 每条隧道的加密包打上 fwmark，各自走独立路由表
+wg set wg-mpls fwmark 0x1
+wg set wg-inet fwmark 0x2
+ip rule add fwmark 0x1 lookup 100
+ip rule add fwmark 0x2 lookup 200
+ip route add default dev eth0 table 100
+ip route add default dev wwan0 table 200
 
-
-@dataclass
-class Link:
-    name: str
-    latency_ms: float
-    jitter_ms: float
-    loss_pct: float
-    cost_per_gb: float = 0.0
-
-
-def sla_score(link: Link, lat_max=150.0, jit_max=30.0, loss_max=1.0) -> float:
-    """Return 0.0 (unusable) to 1.0 (perfect) against a voice-like SLA class."""
-    lat = max(0.0, 1.0 - link.latency_ms / lat_max)
-    jit = max(0.0, 1.0 - link.jitter_ms / jit_max)
-    loss = max(0.0, 1.0 - link.loss_pct / loss_max)
-    return round((lat + jit + loss) / 3.0, 3)
-
-
-def pick_path(links, min_score=0.6):
-    viable = [(lst, l) for l in links for lst in [sla_score(l)] if lst >= min_score]
-    if not viable:
-        return None
-    # Prefer the highest score; break ties with the cheapest link.
-    return max(viable, key=lambda t: (t[0], -t[1].cost_per_gb))[1]
-
-
-links = [
-    Link("mpls", latency_ms=25, jitter_ms=3, loss_pct=0.05, cost_per_gb=1.20),
-    Link("broadband", latency_ms=45, jitter_ms=12, loss_pct=0.40, cost_per_gb=0.09),
-    Link("5g", latency_ms=60, jitter_ms=25, loss_pct=1.80, cost_per_gb=4.50),
-]
-
-for link in links:
-    print(f"{link.name:10s} score={sla_score(link)}")
-
-print("chosen:", pick_path(links))
+# 3. 业务流量按策略选隧道
+nft add table inet sdwan
+nft add chain inet sdwan prerouting '{ type filter hook prerouting priority mangle; }'
+nft add rule inet sdwan prerouting ip daddr 10.10.5.0/24 meta mark set 0x1   # 语音网段优先走专线
+nft add rule inet sdwan prerouting udp dport 443 meta mark set 0x2           # QUIC 流量走宽带
 ```
 
-```text
-mpls       score=0.927
-broadband  score=0.767
-5g         score=0.553
-chosen: Link(name='mpls', ...)
+```ini
+# /etc/wireguard/wg-mpls.conf
+[Interface]
+PrivateKey = <站点私钥>
+Address    = 10.200.10.2/32
+MTU        = 1380
+Table      = off
+FwMark     = 0x1
+
+[Peer]
+PublicKey  = <Hub 公钥>
+AllowedIPs = 10.200.0.0/16
+Endpoint   = hub-mpls.example.com:51820
+PersistentKeepalive = 25
 ```
 
-The 5G link scores 0.553 because its loss of 1.8 percent is above the 1 percent voice threshold, so it is filtered out entirely. It would still be a valid choice for a bulk class with a 10 percent loss ceiling.
+### Example 4: A Probe and Failover Loop
 
-### Example 5: Cost Comparison Sketch
+真实产品用 BFD 加硬件加速，但探测和切换的骨架是一样的。
 
-A 200-branch retailer currently spends \$1,200 per month per site on a 50 Mbps MPLS circuit, so roughly \$2.88M per year. An SD-WAN design keeps MPLS at 20 Mbps for voice-critical sites only, adds a \$60 per month 500 Mbps broadband circuit everywhere, and adds a \$150 per month 5G backup at 40 critical sites.
+> [!tip]- 点击展开：极简双链路探测脚本
+>
+> ```bash
+> #!/usr/bin/env bash
+> # 示意用的双链路健康探测与切换（生产环境请用 BFD 或厂商方案）
+> set -u
+>
+> PRIMARY_IF=eth0        # 主链路
+> BACKUP_IF=wwan0        # 备链路
+> PROBE_TARGET=1.1.1.1
+> MAX_FAIL=2             # 连续失败次数阈值
+> STATE_FILE=/run/sdwan_active_path
+>
+> probe() {
+>   ping -c 1 -W 1 -I "$1" "$PROBE_TARGET" >/dev/null 2>&1
+> }
+>
+> fail=0
+> while true; do
+>   if probe "$PRIMARY_IF"; then
+>     fail=0
+>     echo "$PRIMARY_IF" > "$STATE_FILE"
+>   else
+>     fail=$((fail + 1))
+>     if [ "$fail" -ge "$MAX_FAIL" ]; then
+>       echo "$BACKUP_IF" > "$STATE_FILE"
+>       ip route replace default dev "$BACKUP_IF" metric 100
+>     fi
+>   fi
+>   sleep 2
+> done
+> 
+> ```
+>
+> 这个脚本只探测可达性，不测延迟、抖动、丢包，所以它对付不了 brownout。真实产品会把探针结果做成滑动窗口，并用连续多个窗口的统计量做判决，避免因单个包抖动来回切换。
 
-```text
-MPLS (40 critical sites x 20 Mbps x \$600/mo x 12)   = \$288,000
-Broadband (200 sites x \$60/mo x 12)                = \$144,000
-5G backup (40 sites x \$150/mo x 12)                = \$72,000
-SD-WAN licensing (200 sites x \$40/mo x 12)         = \$96,000
---------------------------------------------------------------
-Annual total                                        = \$600,000
-Previous annual total                               = \$2,880,000
-```
+### Example 5: Sizing a Voice Path
 
-The bandwidth per site goes up by an order of magnitude and the cost drops by roughly 79 percent. The catch is that the broadband circuits have no SLA, which is exactly why the SLA probing and remediation machinery has to exist.
+假设某分支的语音流量是 20 路 G.729 通话，每路约 30 kbps。
+
+$$
+20 \times 30 \text{ kbps} = 600 \text{ kbps}
+$$
+
+若开启包复制，占用翻倍到 1.2 Mbps。若同时开启自适应 FEC，在 5% 丢包下典型冗余率约 30%，再加 0.18 Mbps。总共约 1.4 Mbps。
+
+这个量级在任意一条链路上都微不足道，所以语音策略的正确写法不是"省带宽"，而是"宁可复制，不可劣化"。
 
 ## Common Misconceptions
 
-> [!warning] "SD-WAN Just Means Replacing MPLS With Cheap Internet"
-> The transport swap is the visible part, not the mechanism. An SD-WAN built entirely on MPLS circuits is still SD-WAN, and a broadband-only mesh with static routes is not. The defining feature is policy-driven, measurement-driven path selection over an overlay, not which carrier you buy from.
+- **"SD-WAN 就是 IPsec VPN 的升级版"**：不对。VPN 只提供加密隧道，SD-WAN 提供的是集中控制、应用感知、SLA 选路和自动化编排。IPsec 只是它常用的一种隧道实现。
 
-> [!warning] "SD-WAN Replaces Your Firewall And Your Security Stack"
-> Overlay encryption protects traffic in transit between edge devices. It does not inspect payloads, block malicious domains, or stop a compromised laptop from exfiltrating data over a tunnel. That is the SASE layer, and plenty of SD-WAN deployments add it as a separate step.
+- **"上了 SD-WAN 就能把 MPLS 退掉"**：多数企业是混合而非替代。关键业务、合规要求强的流量仍会保留在专线上，SD-WAN 的价值恰恰在于让"哪条流量走哪条链路"变成一个可以随时调整的策略。
 
-> [!warning] "The Controller Is A Single Point Of Failure"
-> Controls are typically deployed as a redundant cluster, and forwarding continues if every controller goes down. Edge devices cache their routes, policies, and keys locally. You lose the ability to make changes, not the ability to pass traffic.
+- **"多条宽带加起来带宽翻倍"**：只在多流场景下成立。单条 TCP 连接仍受限于它所走的那一条路径。
 
-> [!warning] "A Second Link Automatically Doubles Reliability"
-> Only if the two links are genuinely independent. Two circuits from the same carrier frequently share a duct, a conduit, and a PoP. A single backhoe outage takes both. Check the physical path diversity before trusting the availability arithmetic.
+- **"SD-WAN 能让网络变快"**：叠加层改变不了物理定律。它只能在既有链路之间做选择、复制和纠错，不能创造不存在的带宽或降低光速决定的传播延迟。
 
-> [!warning] "SD-WAN Aggregates Bandwidth Into One Fat Pipe"
-> Multiple links provide multiple paths, not one larger pipe. A single TCP flow is pinned to one tunnel to avoid reordering, so a 100 Mbps download will not use 50 Mbps of MPLS plus 50 Mbps of broadband simultaneously. Only many concurrent flows spread across links, and per-packet load balancing is usually avoided for exactly this reordering reason.
+- **"控制器挂了全网就瘫了"**：不会。控制平面与数据平面分离的设计目标之一，就是控制器不可达时边缘设备继续用最后已知的策略转发。受影响的是新策略无法下发和新站点无法上线。
 
-Additional points worth stating plainly:
+- **"SD-WAN 自带的加密就等于安全"**：加密解决的是传输机密性，不解决恶意软件、钓鱼、数据外泄。分支本地出口一旦打开，攻击面反而扩大，这正是 SASE 出现的原因。
 
-- **DPI cannot classify encrypted traffic** beyond what is visible in TLS SNI, certificate fields, and connection metadata. Vendors that claim full application visibility on encrypted flows are usually inferring from metadata, which works well for common SaaS and poorly for custom internal apps.
-- **SD-WAN is not SDN in the data center sense.** Centralized control is shared, but SD-WAN is tunnel-based and policy-based, while data center SDN is typically flow-table-based and fabric-oriented.
-- **FEC is not free.** It consumes bandwidth on the very links that are already constrained, and on a clean link it is pure overhead.
-- **Cloud on-ramp is a separate problem.** Reaching a public cloud region over an SD-WAN overlay is not automatic. You still need a virtual edge in the VPC, a colocation gateway, or a carrier's cloud connect product, and cloud providers charge for the ingress path.
-- **Managed SD-WAN hides the mechanism.** If a provider runs the controller and the policy, you get the cost benefit and lose the tuning. Ask who owns the policy template before signing.
+- **"所有流量都该走本地互联网出口"**：DIA 适合 SaaS 和云应用。内部 ERP、数据中心访问走本地出口反而更慢或直接被拒绝，因为缺少内网路径。
+
+- **"首包分类总是准的"**：加密流量、私有协议、端口跳变都会让 DPI 失手。成熟的实现会结合 SNI、证书、IP 信誉和行为特征，并在分类不确定时退回到保守策略。
+
+- **"SD-WAN 控制器可以随时替换厂商"**：控制器和边缘设备是紧耦合的，叠加层协议多为私有，换厂商基本等于重建整张网络。
+
+> [!warning] 迁移期的典型事故
+> 从传统 WAN 迁移到 SD-WAN 时，如果新旧路径并存且没有做非对称路由检查，很容易出现"去程走新隧道、回程走老专线"的情况。状态防火墙会静默丢弃这类回包，表现为间歇性连接失败，排查起来非常费时。上线前务必逐个站点验证往返路径对称性。
 
 ## Related Concepts
 
-- [[广域网 WAN]] for the underlying transport landscape this architecture overlays on.
-- [[MPLS]] for the private carrier transport that SD-WAN most often coexists with.
-- [[BGP]] for the routing protocol that carries reachability at the overlay and underlay boundaries.
-- [[IPsec]] for the tunnel encryption that makes an untrusted underlay usable.
-- [[BFD]] for the liveness and quality probing that drives path selection.
-- [[SASE]] for the security convergence that SD-WAN increasingly delivers.
-- [[Zero Trust Network Access]] for the per-application access model that replaces flat branch trust.
-- [[Software-Defined Networking]] for the broader control-plane separation idea.
-- [[Overlay Networks]] for the general principle of virtual topology over physical topology.
-- [[OSPF]] for the interior routing protocol commonly run inside branch LANs.
-- [[Traffic Engineering]] for the older MPLS-TE approach to steering traffic around congestion.
-- [[Zero Touch Provisioning]] for the automated bring-up that makes large branch rollouts practical.
-- [[Cloud On-Ramp]] for the connectivity patterns between an enterprise WAN and public cloud regions.
-- [[Network Segmentation]] for the VRF-like isolation model used to separate traffic classes on shared hardware.
-- [[WAN Optimization]] for the compression, deduplication, and TCP acceleration techniques SD-WAN absorbed.
+- [[广域网 WAN]]：SD-WAN 是广域网的一种实现方式，理解承载与叠加的分层关系是起点。
+- [[MPLS]]：传统企业广域网的主力技术，也是 SD-WAN 最常与之并存的底层链路。
+- [[SDN]]：控制与转发分离的思想源头，SD-WAN 是它在广域网场景的具体落地。
+- [[Overlay 网络与隧道]]：VXLAN、GRE、IPsec 等封装技术的通用原理。
+- [[IPsec]]：SD-WAN 叠加隧道最常用的加密协议，涉及 IKE、ESP、NAT 穿越等细节。
+- [[BGP]]：开放方案里承载叠加路由的常用协议，也是与运营商互联的基础。
+- [[BFD]]：双向转发检测，SD-WAN 探测链路故障与质量的核心工具。
+- [[SASE]]：SD-WAN 与云安全能力的融合形态，理解当代网络架构绕不开。
+- [[零信任网络 ZTNA]]：以身份而非网络位置决定访问权限，与 SASE 常一起出现。
+- [[服务质量 QoS]]：延迟、抖动、丢包如何影响业务，以及如何用队列和标记缓解。
+- [[云连接 Cloud On-Ramp]]：AWS Transit Gateway、Azure Virtual WAN 等把企业网接入云的方式。
+- [[网络功能虚拟化 NFV]]：让 CPE 从专用硬件变成虚拟机的底层技术。
+- [[Segment Routing]]：运营商侧的现代流量工程方案，与 SD-WAN 属于不同层面的选路技术。
+- [[长肥管道问题]]：高带宽高时延链路上 TCP 吞吐受限的根本原因。
